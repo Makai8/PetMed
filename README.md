@@ -21,7 +21,7 @@ The goal of PetMed is to create a helpful community where pet owners can learn m
 - Miles Sharpton
 - Makai Lyn-Ah-Ping
 - David Bahidika
-- 
+- Makel Dickerson
 - 
 
 ## Scrum Master
