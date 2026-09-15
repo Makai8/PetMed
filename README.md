@@ -19,14 +19,14 @@ The goal of PetMed is to create a helpful community where pet owners can learn m
 ## Team Members
 
 - Miles Sharpton
-- [Team Member 2]
-- [Team Member 3]
-- [Team Member 4]
-- [Team Member 5]
+- Makai Lyn-Ah-Ping
+- David Bahidika
+- Makel Javon
+- Dorien Parris
 
 ## Scrum Master
 
-- [Scrum Master Name]
+- Dorien Parris
 
 ---
 
