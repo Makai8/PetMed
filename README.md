@@ -6,13 +6,13 @@ PetMed is a pet health and social media application designed to help pet owners 
 
 PetMed will have five main user roles:
 
-- Pet Owner
-- Veterinarian
-- Pet Health Expert
-- Community Moderator
-- Administrator
+- Pet Owners
+- Veterinarians
+- Pet Health Experts
+- Community Moderators
+- Administrators
 
-The goal of PetMed is to create a helpful community where pet owners can learn more about their pets' health and communicate with others. The system will also separate regular community advice from professional guidance provided by veterinarians and pet health experts.
+The goal of PetMed is to create a helpful community where pet owners have the oppurtunity to learn more about their pets' health and communicate with others. The system will also separate regular community advice from professional guidance provided by veterinarians and pet health experts.
 
 ---
 
@@ -31,6 +31,7 @@ The goal of PetMed is to create a helpful community where pet owners can learn m
 ---
 
 ## Selected Technologies
+- vscode(virtual studio code)
 
 ### Programming Language
 - C++
