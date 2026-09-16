@@ -19,8 +19,8 @@ The goal of PetMed is to create a helpful community where pet owners can learn m
 ## Team Members
 
 - Miles Sharpton
-- Makai Lyn-Ah-Ping
 - David Bahidika
+- Makai Lyn-Ah-Ping
 - Makel Dickerson
 - Dorien Parris
 
