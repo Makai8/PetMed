@@ -22,7 +22,7 @@ The goal of PetMed is to create a helpful community where pet owners can learn m
 - Makai Lyn-Ah-Ping
 - David Bahidika
 - Makel Dickerson
-- 
+- Dorien Parris
 
 ## Scrum Master
 
