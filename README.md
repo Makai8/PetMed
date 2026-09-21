@@ -28,6 +28,23 @@ The goal of PetMed is to create a helpful community where pet owners have the op
 
 - Dorien Parris
 
+## Member roles
+
+Frontend
+- Miles 
+
+Backend
+- Makai
+
+Testing
+- David
+
+Mobile intergration
+- Makel
+
+Project Manager
+- DP
+
 ---
 
 ## Selected Technologies
