@@ -114,6 +114,7 @@ Each team member should have the following installed:
 - Git
 - MySQL
 - GitHub account
+- MySQL
 
 Testing tools such as GoogleTest and Jest may be configured when automated testing begins.
 
