@@ -20,7 +20,7 @@ The goal of PetMed is to create a helpful community where pet owners have the op
 
 - Miles Sharpton
 - Makai Lyn-Ah-Ping
-- David Bahidika
+- David Jean-Charles Bahidika
 - Makel Dickerson
 - Dorien Parris
 
