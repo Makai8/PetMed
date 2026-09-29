@@ -20,7 +20,7 @@ The goal of PetMed is to create a helpful community where pet owners have the op
 
 - Miles Sharpton
 - Makai Lyn-Ah-Ping
-- David Bahidika
+- David Jean-Charles Bahidika
 - Makel Dickerson
 - Dorien Parris
 
@@ -292,6 +292,39 @@ Each team member must provide:
 **Sprint Cycle:** Sprint Cycle 0 - Team Setup and Project Preparation
 
 The team is currently preparing the development environment, GitHub repository, and project documentation. PetMed functionality, database design, and the final user interface will be developed during later sprint cycles.
+
+
+---
+
+
+
+
+Meetings
+
+<img width="400" height="400" alt="original (2)" src="https://github.com/user-attachments/assets/21ee86b5-cb0e-4048-83c8-44e1a6988808" />
+
+
+
+
+<img width="400" height="400" alt="original" src="https://github.com/user-attachments/assets/d26d9ad9-e960-4d12-b9f5-94953502f886" />
+
+
+<img width="400" height="400" alt="original (1)" src="https://github.com/user-attachments/assets/2c093ff9-6f11-4bf6-b757-bbcd0e410b54" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
