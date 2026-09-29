@@ -348,11 +348,11 @@ Meetings
 - [ ] Assign each team member a piece of the design work
 
 ## 1. Design the Sign-In Screen
-- [✓] Sketch/mock up the sign-in screen (email/username, password, sign-in button)
-- [✓] Decide which related screens are needed (registration, forgot password, account creation)
-- [✓] Design those related screens
-- [✓] Note that role is determined after sign-in (no role picker on this screen)
-- [✓] Export mockups and save them in `docs/`
+- [ ] Sketch/mock up the sign-in screen (email/username, password, sign-in button)
+- [ ] Decide which related screens are needed (registration, forgot password, account creation)
+- [ ] Design those related screens
+- [ ] Note that role is determined after sign-in (no role picker on this screen)
+- [ ] Export mockups and save them in `docs/`
 
 ## 2. Design the Role-Based Landing/Navigation Screens
 - [ ] Pet Owner landing screen (e.g., My Pets, Symptom/Medication Tracker, Community Feed, Ask a Question)
