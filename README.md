@@ -312,8 +312,17 @@ Meetings
 <img width="400" height="400" alt="original (1)" src="https://github.com/user-attachments/assets/2c093ff9-6f11-4bf6-b757-bbcd0e410b54" />
 
 
+## project diagrams
 
+<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_22_21 PM" src="https://github.com/user-attachments/assets/3525813b-9500-448e-987b-dd9bc9e91019" />
 
+<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_25_42 PM-1" src="https://github.com/user-attachments/assets/c66ee947-e1c8-4dab-a328-af141f93fa4f" />
+
+<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_25_43 PM-2" src="https://github.com/user-attachments/assets/9b7bedcb-8f60-42ae-90a4-2d25761f5262" />
+
+<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_26_02 PM" src="https://github.com/user-attachments/assets/f99915ec-ec82-4136-9f46-18ed662d3dc2" />
+
+<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_26_08 PM" src="https://github.com/user-attachments/assets/04dbeb30-2b24-4037-ab66-fc6e43ba1b6e" />
 
 
 
