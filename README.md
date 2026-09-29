@@ -51,9 +51,9 @@ Project Manager
 - vscode(virtual studio code)
 
 ### Programming Language
-- C++
+- Python
 
-C++ will be used as the main programming language for the project. It was selected because it provides good performance and supports object-oriented programming, which will help organize different parts of the PetMed application.
+Python will be used as the main programming language for the project. It was selected because it provides good performance and supports object-oriented programming, which will help organize different parts of the PetMed application.
 
 ### Frontend
 - React
@@ -71,7 +71,7 @@ MySQL will be used to store and manage the application's data. In later sprint c
 ### Coding IDE
 - Visual Studio Code (VS Code)
 
-Visual Studio Code will be the main coding IDE used by the team. Team members will use VS Code to write and manage the C++, React, JavaScript, HTML, and CSS files used throughout the project.
+Visual Studio Code will be the main coding IDE used by the team. Team members will use VS Code to write and manage the Python, React, JavaScript, HTML, and CSS files used throughout the project.
 
 ### Version Control
 - Git
@@ -83,7 +83,7 @@ Git will be used to track changes made to the project. GitHub will contain the t
 - GoogleTest
 - Jest
 
-GoogleTest can be used to test C++ code, while Jest can be used to test the React portion of the application. Automated testing is not required during Sprint Cycle 0.
+GoogleTest can be used to test Python code, while Jest can be used to test the React portion of the application. Automated testing is not required during Sprint Cycle 0.
 
 ---
 
@@ -111,8 +111,8 @@ GoogleTest can be used to test C++ code, while Jest can be used to test the Reac
 ### Folder Descriptions
 
 - `frontend/` - Will contain the React frontend.
-- `src/` - Will contain C++ source files.
-- `include/` - Will contain C++ header files.
+- `src/` - Will contain Python source files.
+- `include/` - Will contain Python header files.
 - `docs/` - Will contain project documentation.
 - `tests/` - Will contain testing files in future sprint cycles.
 - `README.md` - Contains general project information and setup instructions.
@@ -126,7 +126,7 @@ No PetMed-specific functionality will be implemented during Sprint Cycle 0.
 Each team member should have the following installed:
 
 - Visual Studio Code
-- C++ compiler
+- Python
 - Node.js and npm
 - Git
 - MySQL
@@ -199,13 +199,13 @@ Verify that everyone's changes are included.
 
 Sprint Cycle 0 is focused on setting up the development environment. The final PetMed application has not been implemented yet.
 
-### C++
+### Python
 
-Team members can verify their C++ environment using a basic C++ program.
+Team members can verify their Python environment using a basic Python program.
 
 Example compilation command:
 
-    g++ main.cpp -o petmed
+    g++ main.py -o petmed
 
 ### React
 
@@ -292,3 +292,87 @@ Each team member must provide:
 **Sprint Cycle:** Sprint Cycle 0 - Team Setup and Project Preparation
 
 The team is currently preparing the development environment, GitHub repository, and project documentation. PetMed functionality, database design, and the final user interface will be developed during later sprint cycles.
+
+
+
+# SPRINT 1
+
+## 0. Team Setup
+- [ ] Confirm Scrum Master for Sprint 1
+- [ ] Schedule meetings spread across the sprint (not all near the deadline)
+- [ ] Set up meeting documentation (date, attendees, decisions, action items)
+- [ ] Reread the Functional Requirements and list the use cases for each role
+- [ ] Pick the design tool (Figma, draw.io, etc.) and share it with everyone
+- [ ] Assign each team member a piece of the design work
+
+## 1. Design the Sign-In Screen
+- [ ] Sketch/mock up the sign-in screen (email/username, password, sign-in button)
+- [ ] Decide which related screens are needed (registration, forgot password, account creation)
+- [ ] Design those related screens
+- [ ] Note that role is determined after sign-in (no role picker on this screen)
+- [ ] Export mockups and save them in `docs/`
+
+## 2. Design the Role-Based Landing/Navigation Screens
+- [ ] Pet Owner landing screen (e.g., My Pets, Symptom/Medication Tracker, Community Feed, Ask a Question)
+- [ ] Veterinarian landing screen
+- [ ] Pet Health Expert landing screen
+- [ ] Community Moderator landing screen
+- [ ] Administrator landing screen
+- [ ] Check that each landing screen clearly shows that role's major functions
+- [ ] Check that the five screens look consistent (layout, colors, navigation style)
+- [ ] Export mockups and save them in `docs/`
+
+## 3. Design Screens for Two Use Cases Per Role
+- [ ] Pick 2 use cases per role from the Functional Requirements (10 total)
+- [ ] Make sure the choices use different screen types (browse, form, detail, review, report, dashboard, messaging, moderation, etc.)
+- [ ] Pet Owner: use case 1 screens
+- [ ] Pet Owner: use case 2 screens
+- [ ] Veterinarian: use case 1 screens
+- [ ] Veterinarian: use case 2 screens
+- [ ] Pet Health Expert: use case 1 screens
+- [ ] Pet Health Expert: use case 2 screens
+- [ ] Community Moderator: use case 1 screens
+- [ ] Community Moderator: use case 2 screens
+- [ ] Administrator: use case 1 screens
+- [ ] Administrator: use case 2 screens
+- [ ] Write a short note for each role on why the two use cases are different types
+- [ ] Map each use case to the requirement it supports
+- [ ] Export mockups and save them in `docs/`
+
+## 4. Implement a Simple Application Splash/Home Screen
+- [ ] Create the React project in `frontend/` (confirm `npm install` and `npm start` work)
+- [ ] Add the application name (PetMed)
+- [ ] Add a logo or placeholder graphic
+- [ ] Add a short tagline/project description
+- [ ] Add navigation placeholders (Login, About, Help, Contact Us); links don't need to work
+- [ ] Basic CSS styling
+- [ ] Commit and push to GitHub
+- [ ] Every team member pulls the repo and runs the app locally
+- [ ] Update `frontend/README.md` with run instructions
+
+## 5. GitHub Requirements
+- [ ] All design files and splash screen code are in the repository
+- [ ] Each team member makes at least one meaningful commit from their own account
+- [ ] Each team member confirms they pulled the latest version and it runs
+- [ ] Repository link is ready to submit
+
+## 6. Presentation
+- [ ] Explain the overall UI approach
+- [ ] Show the sign-in screen
+- [ ] Show the landing screen for each role
+- [ ] Show the two use-case screen sets for each role
+- [ ] Explain why the use cases represent different types of functionality
+- [ ] Explain how the screens support the Functional Requirements
+- [ ] Run the splash/home screen live
+- [ ] Show the splash screen code in GitHub
+- [ ] Show the Sprint 1 design materials in GitHub
+- [ ] Assign who presents each section and do one practice run
+
+## 7. Final Submission
+- [ ] Sign-in screen
+- [ ] Role landing/navigation screens
+- [ ] Screens for two use cases per role
+- [ ] Splash/home screen source code in GitHub
+- [ ] GitHub repository link
+- [ ] Presentation
+- [ ] Meeting documentation
