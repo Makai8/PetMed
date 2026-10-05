@@ -314,27 +314,28 @@ Meetings
 
 ## project diagrams
 
-<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_22_21 PM" src="https://github.com/user-attachments/assets/3525813b-9500-448e-987b-dd9bc9e91019" />
+<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/3525813b-9500-448e-987b-dd9bc9e91019" />
 
-<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_25_42 PM-1" src="https://github.com/user-attachments/assets/c66ee947-e1c8-4dab-a328-af141f93fa4f" />
+<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/c66ee947-e1c8-4dab-a328-af141f93fa4f" />
 
-<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_25_43 PM-2" src="https://github.com/user-attachments/assets/9b7bedcb-8f60-42ae-90a4-2d25761f5262" />
+<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/9b7bedcb-8f60-42ae-90a4-2d25761f5262" />
 
-<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_26_02 PM" src="https://github.com/user-attachments/assets/f99915ec-ec82-4136-9f46-18ed662d3dc2" />
+<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/f99915ec-ec82-4136-9f46-18ed662d3dc2" />
 
-<img width="1672" height="941" alt="ChatGPT Image Sep 29, 2026, 12_26_08 PM" src="https://github.com/user-attachments/assets/04dbeb30-2b24-4037-ab66-fc6e43ba1b6e" />
-
-
+<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/04dbeb30-2b24-4037-ab66-fc6e43ba1b6e" />
 
 
+<img width="1672" height="941" alt="PetMed My Pets Dashboard" src="https://github.com/user-attachments/assets/dd6fbead-9c03-4b65-a509-4076b722dde7" />
 
+<img width="1672" height="941" alt="PetMed Health Profile" src="https://github.com/user-attachments/assets/d4b3c57b-5466-453a-b31c-697483d0a82f" />
 
+<img width="1672" height="941" alt="PetMed Pet Search Dashboard" src="https://github.com/user-attachments/assets/48835a53-9613-4b99-a1cc-aa4bfb1446df" />
 
+<img width="1672" height="941" alt="PetMed Pet Health Record Dashboard" src="https://github.com/user-attachments/assets/9b23f2ce-9993-481f-9bba-d4903d96b589" />
 
+<img width="1672" height="941" alt="PetMed Pending Professional Accounts Dashboard" src="https://github.com/user-attachments/assets/be8f0190-9494-4b25-8591-6bc086f78b0d" />
 
-
-
-
+<img width="1672" height="941" alt="PetMed Professional Account Review" src="https://github.com/user-attachments/assets/559ce28a-390a-4b05-a836-8a578464441f" />
 
 
 # SPRINT 1
