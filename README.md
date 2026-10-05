@@ -337,6 +337,15 @@ Meetings
 
 <img width="1672" height="941" alt="PetMed Professional Account Review" src="https://github.com/user-attachments/assets/559ce28a-390a-4b05-a836-8a578464441f" />
 
+### Role Landing Screens
+
+<img width="2160" height="1566" alt="landing_administrator" src="https://github.com/user-attachments/assets/95363437-629f-481c-927c-29ff61e7f603" />
+<img width="2160" height="1560" alt="landing_community_moderator" src="https://github.com/user-attachments/assets/62e30be0-61d4-47dc-b4f9-bdea7a260ebb" />
+<img width="2160" height="1628" alt="landing_pet_health_expert" src="https://github.com/user-attachments/assets/54d30e01-3f9e-474d-82fc-890bf81bf277" />
+<img width="2160" height="1566" alt="landing_veterinarian" src="https://github.com/user-attachments/assets/c7cf8629-61c7-4302-82ac-49844ec72f5c" />
+<img width="2160" height="1647" alt="landing_pet_owner" src="https://github.com/user-attachments/assets/c8924775-8904-4bcb-bfa3-1aec6bb2ae68" />
+
+
 
 # SPRINT 1
 
