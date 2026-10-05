@@ -12,7 +12,7 @@ PetMed will have five main user roles:
 - Community Moderators
 - Administrators
 
-The goal of PetMed is to create a helpful community where pet owners have the oppurtunity to learn more about their pets' health and communicate with others. The system will also separate regular community advice from professional guidance provided by veterinarians and pet health experts.
+The goal of PetMed is to create a helpful community where pet owners have the opportunity to learn more about their pets' health and communicate with others. The system will also separate regular community advice from professional guidance provided by veterinarians and pet health experts.
 
 ---
 
@@ -39,7 +39,7 @@ Backend
 Testing
 - David
 
-Mobile intergration
+Mobile integration
 - Makel
 
 Project Manager
@@ -80,8 +80,8 @@ Visual Studio Code will be the main coding IDE used by the team. Team members wi
 Git will be used to track changes made to the project. GitHub will contain the team's official shared repository and will allow each team member to contribute to the project.
 
 ### Testing
-- GoogleTest
-- Jest
+- Pytest
+- unittest
 
 GoogleTest can be used to test Python code, while Jest can be used to test the React portion of the application. Automated testing is not required during Sprint Cycle 0.
 
@@ -205,7 +205,7 @@ Team members can verify their Python environment using a basic Python program.
 
 Example compilation command:
 
-    g++ main.py -o petmed
+    python3 main.py
 
 ### React
 
