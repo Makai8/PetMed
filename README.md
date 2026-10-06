@@ -375,11 +375,12 @@ Meetings
 
 ### Role Landing Screens
 
-<img width="2160" height="1566" alt="landing_administrator" src="https://github.com/user-attachments/assets/95363437-629f-481c-927c-29ff61e7f603" />
-<img width="2160" height="1560" alt="landing_community_moderator" src="https://github.com/user-attachments/assets/62e30be0-61d4-47dc-b4f9-bdea7a260ebb" />
-<img width="2160" height="1628" alt="landing_pet_health_expert" src="https://github.com/user-attachments/assets/54d30e01-3f9e-474d-82fc-890bf81bf277" />
-<img width="2160" height="1566" alt="landing_veterinarian" src="https://github.com/user-attachments/assets/c7cf8629-61c7-4302-82ac-49844ec72f5c" />
-<img width="2160" height="1647" alt="landing_pet_owner" src="https://github.com/user-attachments/assets/c8924775-8904-4bcb-bfa3-1aec6bb2ae68" />
+<img width="2160" height="1560" alt="3961fa23-8f0c-412f-8d5c-3bf92b4d0e69" src="https://github.com/user-attachments/assets/6d9ed064-612c-4dbe-8d55-5a4822f902b1" />
+<img width="2160" height="1560" alt="4aeb1d22-4269-4799-b182-157514b1ca0f" src="https://github.com/user-attachments/assets/bccc5af0-258c-4fb4-a5f0-42d0c1204fb1" />
+<img width="2160" height="1560" alt="773dfd9e-709e-490f-a07c-2ab5acc7f10d" src="https://github.com/user-attachments/assets/a825b7d6-d39e-4c5c-9077-ee55ee395978" />
+<img width="2160" height="1560" alt="ba1817fc-5377-4cb7-a810-ec6b3d2e4d3c" src="https://github.com/user-attachments/assets/082dd3c9-1e2d-4d38-a47a-8d2b918fe2f3" />
+<img width="2160" height="1560" alt="e3708bdf-64c8-4c39-923b-6ad1eb5a7b41" src="https://github.com/user-attachments/assets/7c0c185c-30c4-4ee5-9830-3ccb91063a41" />
+
 <img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/76deec59-7dd4-4157-a505-13b178add481" />
 
 <img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/3b20e5de-ac9c-42d9-8de1-b995d4a565ee" />
