@@ -331,13 +331,15 @@ Meetings
 **Screen: My Pets Dashboard**  
 **Screen Type: Dashboard**
 
-<img width="1672" height="941" alt="PetMed My Pets Dashboard" src="https://github.com/user-attachments/assets/dd6fbead-9c03-4b65-a509-4076b722dde7" />
+<img width="1672" height="941" alt="1" src="https://github.com/user-attachments/assets/92d95376-170f-47d1-847a-6f7ffdbcb4bb" />
+
 
 #### Use Case 1: Manage Pet Profiles
 **Screen: Pet Health Profile**  
 **Screen Type: Profile / Detail View**
 
-<img width="1672" height="941" alt="PetMed Health Profile" src="https://github.com/user-attachments/assets/d4b3c57b-5466-453a-b31c-697483d0a82f" />
+<img width="1672" height="941" alt="2" src="https://github.com/user-attachments/assets/a98c7752-e83a-4c60-b2d6-77c0ca548800" />
+
 
 ### Role: Veterinarian
 
@@ -351,7 +353,8 @@ Meetings
 **Screen: Pet Health Record Dashboard**  
 **Screen Type: Detail View**
 
-<img width="1672" height="941" alt="PetMed Pet Health Record Dashboard" src="https://github.com/user-attachments/assets/9b23f2ce-9993-481f-9bba-d4903d96b589" /> 
+<img width="1672" height="941" alt="4cf98b67-fd1e-47ca-a173-8ce2643375a2" src="https://github.com/user-attachments/assets/738948d9-ae3e-46e4-ab73-c73354924546" />
+
 
 ### Role: Administrator
 
@@ -359,13 +362,15 @@ Meetings
 **Screen: Pending Professional Accounts Dashboard**  
 **Screen Type: Approval / Review**
 
-<img width="1672" height="941" alt="PetMed Pending Professional Accounts Dashboard" src="https://github.com/user-attachments/assets/be8f0190-9494-4b25-8591-6bc086f78b0d" />
+<img width="1672" height="941" alt="9c806cd2-8452-4bc1-afd4-e60e121b0a53" src="https://github.com/user-attachments/assets/6017447e-99a2-4101-976b-a571ad9c965c" />
+
 
 #### Use Case 1: Verify Professional Accounts
 **Screen: Professional Account Review**  
 **Screen Type: Approval / Detail View**
 
-<img width="1672" height="941" alt="PetMed Professional Account Review" src="https://github.com/user-attachments/assets/559ce28a-390a-4b05-a836-8a578464441f" />
+<img width="1672" height="941" alt="80a0b3c3-f062-4ff4-840b-a0701f71ceb3" src="https://github.com/user-attachments/assets/509de051-a2da-442c-b174-47b937631003" />
+
 
 ### Role Landing Screens
 
