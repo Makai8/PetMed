@@ -360,7 +360,7 @@ Meetings
 # SPRINT 1
 
 ## 0. Team Setup
-- [ ] Confirm Scrum Master for Sprint 1
+- [.] Confirm Scrum Master for Sprint 1
 - [ ] Schedule meetings spread across the sprint (not all near the deadline)
 - [ ] Set up meeting documentation (date, attendees, decisions, action items)
 - [ ] Reread the Functional Requirements and list the use cases for each role
