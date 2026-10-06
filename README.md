@@ -315,9 +315,9 @@ Meetings
 ## project diagrams
 
 
-<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/c66ee947-e1c8-4dab-a328-af141f93fa4f" />
+<img width="1672" height="941" alt="1" src="https://github.com/user-attachments/assets/70033c2e-05b1-42f3-a5cf-2b7a34c5e6d3" />
 
-<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/9b7bedcb-8f60-42ae-90a4-2d25761f5262" />
+<img width="1672" height="941" alt="2" src="https://github.com/user-attachments/assets/1a5f3b41-3b05-48e8-9ac4-675d62ed7c89" />
 
 <img width="1672" height="941" alt="original (1)" src="https://github.com/user-attachments/assets/55720043-fe20-4e99-911e-a850b7cd73b1" />
 
