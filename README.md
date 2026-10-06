@@ -339,13 +339,13 @@ Meetings
 
 ### Role: Veterinarian
 
-#### Use Case 1: Search for a Pet
+#### Use Case 1: Review Pet Health Questions
 **Screen: Pet Search Dashboard**  
 **Screen Type: Browse / Search**
 
 <img width="1672" height="941" alt="PetMed Pet Search Dashboard" src="https://github.com/user-attachments/assets/48835a53-9613-4b99-a1cc-aa4bfb1446df" /> 
 
-#### Use Case 2: Review Pet Health Records
+#### Use Case 2: Review Pet Health Questions
 **Screen: Pet Health Record Dashboard**  
 **Screen Type: Detail View**
 
@@ -353,13 +353,13 @@ Meetings
 
 ### Role: Administrator
 
-#### Use Case 1: Review Professional Account Requests
+#### Use Case 1: Verify Professional Accounts
 **Screen: Pending Professional Accounts Dashboard**  
 **Screen Type: Approval / Review**
 
 <img width="1672" height="941" alt="PetMed Pending Professional Accounts Dashboard" src="https://github.com/user-attachments/assets/be8f0190-9494-4b25-8591-6bc086f78b0d" />
 
-#### Use Case 1: Review Professional Account Requests
+#### Use Case 1: Verify Professional Accounts
 **Screen: Professional Account Review**  
 **Screen Type: Approval / Detail View**
 
