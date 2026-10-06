@@ -315,13 +315,13 @@ Meetings
 ## project diagrams
 
 
-<img width="1672" height="941" alt="1" src="https://github.com/user-attachments/assets/70033c2e-05b1-42f3-a5cf-2b7a34c5e6d3" />
+<img width="2160" height="1560" alt="1" src="https://github.com/user-attachments/assets/70033c2e-05b1-42f3-a5cf-2b7a34c5e6d3" />
 
-<img width="1672" height="941" alt="2" src="https://github.com/user-attachments/assets/1a5f3b41-3b05-48e8-9ac4-675d62ed7c89" />
+<img width="2160" height="1560" alt="2" src="https://github.com/user-attachments/assets/1a5f3b41-3b05-48e8-9ac4-675d62ed7c89" />
 
-<img width="1672" height="941" alt="original (1)" src="https://github.com/user-attachments/assets/55720043-fe20-4e99-911e-a850b7cd73b1" />
+<img width="2160" height="1560" alt="original (1)" src="https://github.com/user-attachments/assets/55720043-fe20-4e99-911e-a850b7cd73b1" />
 
-<img width="1672" height="941" alt="original" src="https://github.com/user-attachments/assets/4d509fd4-5b57-4eeb-8f05-b932c97ba694" />
+<img width="2160" height="1560" alt="original" src="https://github.com/user-attachments/assets/4d509fd4-5b57-4eeb-8f05-b932c97ba694" />
 
 
 
@@ -331,14 +331,14 @@ Meetings
 **Screen: My Pets Dashboard**  
 **Screen Type: Dashboard**
 
-<img width="1672" height="941" alt="1" src="https://github.com/user-attachments/assets/92d95376-170f-47d1-847a-6f7ffdbcb4bb" />
+<img width="2160" height="1560" alt="1" src="https://github.com/user-attachments/assets/92d95376-170f-47d1-847a-6f7ffdbcb4bb" />
 
 
 #### Use Case 1: Manage Pet Profiles
 **Screen: Pet Health Profile**  
 **Screen Type: Profile / Detail View**
 
-<img width="1672" height="941" alt="2" src="https://github.com/user-attachments/assets/a98c7752-e83a-4c60-b2d6-77c0ca548800" />
+<img width="2160" height="1560" alt="2" src="https://github.com/user-attachments/assets/a98c7752-e83a-4c60-b2d6-77c0ca548800" />
 
 
 ### Role: Veterinarian
@@ -347,14 +347,14 @@ Meetings
 **Screen: Pet Search Dashboard**  
 **Screen Type: Browse / Search**
 
-<img width="1672" height="941" alt="44" src="https://github.com/user-attachments/assets/f7467f92-7fbb-4751-860b-3503efb96d22" />
+<img width="2160" height="1560" alt="44" src="https://github.com/user-attachments/assets/f7467f92-7fbb-4751-860b-3503efb96d22" />
 
 
 #### Use Case 1: Review Pet Health Information
 **Screen: Pet Health Record Dashboard**  
 **Screen Type: Detail View**
 
-<img width="1672" height="941" alt="4cf98b67-fd1e-47ca-a173-8ce2643375a2" src="https://github.com/user-attachments/assets/738948d9-ae3e-46e4-ab73-c73354924546" />
+<img width="2160" height="1560" alt="4cf98b67-fd1e-47ca-a173-8ce2643375a2" src="https://github.com/user-attachments/assets/738948d9-ae3e-46e4-ab73-c73354924546" />
 
 
 ### Role: Administrator
@@ -363,14 +363,14 @@ Meetings
 **Screen: Pending Professional Accounts Dashboard**  
 **Screen Type: Approval / Review**
 
-<img width="1672" height="941" alt="9c806cd2-8452-4bc1-afd4-e60e121b0a53" src="https://github.com/user-attachments/assets/6017447e-99a2-4101-976b-a571ad9c965c" />
+<img width="2160" height="1560" alt="9c806cd2-8452-4bc1-afd4-e60e121b0a53" src="https://github.com/user-attachments/assets/6017447e-99a2-4101-976b-a571ad9c965c" />
 
 
 #### Use Case 1: Verify Professional Accounts
 **Screen: Professional Account Review**  
 **Screen Type: Approval / Detail View**
 
-<img width="1672" height="941" alt="80a0b3c3-f062-4ff4-840b-a0701f71ceb3" src="https://github.com/user-attachments/assets/509de051-a2da-442c-b174-47b937631003" />
+<img width="2160" height="1560" alt="80a0b3c3-f062-4ff4-840b-a0701f71ceb3" src="https://github.com/user-attachments/assets/509de051-a2da-442c-b174-47b937631003" />
 
 
 ### Role Landing Screens
