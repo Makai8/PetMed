@@ -325,15 +325,43 @@ Meetings
 <img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/04dbeb30-2b24-4037-ab66-fc6e43ba1b6e" />
 
 
+#### Use Case 1: Manage Pet Profiles
+**Screen: My Pets Dashboard**  
+**Screen Type: Dashboard**
+
 <img width="1672" height="941" alt="PetMed My Pets Dashboard" src="https://github.com/user-attachments/assets/dd6fbead-9c03-4b65-a509-4076b722dde7" />
+
+#### Use Case 1: Manage Pet Profiles
+**Screen: Pet Health Profile**  
+**Screen Type: Profile / Detail View**
 
 <img width="1672" height="941" alt="PetMed Health Profile" src="https://github.com/user-attachments/assets/d4b3c57b-5466-453a-b31c-697483d0a82f" />
 
-<img width="1672" height="941" alt="PetMed Pet Search Dashboard" src="https://github.com/user-attachments/assets/48835a53-9613-4b99-a1cc-aa4bfb1446df" />
+### Role: Veterinarian
 
-<img width="1672" height="941" alt="PetMed Pet Health Record Dashboard" src="https://github.com/user-attachments/assets/9b23f2ce-9993-481f-9bba-d4903d96b589" />
+#### Use Case 1: Search for a Pet
+**Screen: Pet Search Dashboard**  
+**Screen Type: Browse / Search**
+
+<img width="1672" height="941" alt="PetMed Pet Search Dashboard" src="https://github.com/user-attachments/assets/48835a53-9613-4b99-a1cc-aa4bfb1446df" /> 
+
+#### Use Case 2: Review Pet Health Records
+**Screen: Pet Health Record Dashboard**  
+**Screen Type: Detail View**
+
+<img width="1672" height="941" alt="PetMed Pet Health Record Dashboard" src="https://github.com/user-attachments/assets/9b23f2ce-9993-481f-9bba-d4903d96b589" /> 
+
+### Role: Administrator
+
+#### Use Case 1: Review Professional Account Requests
+**Screen: Pending Professional Accounts Dashboard**  
+**Screen Type: Approval / Review**
 
 <img width="1672" height="941" alt="PetMed Pending Professional Accounts Dashboard" src="https://github.com/user-attachments/assets/be8f0190-9494-4b25-8591-6bc086f78b0d" />
+
+#### Use Case 1: Review Professional Account Requests
+**Screen: Professional Account Review**  
+**Screen Type: Approval / Detail View**
 
 <img width="1672" height="941" alt="PetMed Professional Account Review" src="https://github.com/user-attachments/assets/559ce28a-390a-4b05-a836-8a578464441f" />
 
