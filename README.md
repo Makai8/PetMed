@@ -347,7 +347,8 @@ Meetings
 **Screen: Pet Search Dashboard**  
 **Screen Type: Browse / Search**
 
-<img width="1672" height="941" alt="PetMed Pet Search Dashboard" src="https://github.com/user-attachments/assets/48835a53-9613-4b99-a1cc-aa4bfb1446df" /> 
+<img width="1672" height="941" alt="44" src="https://github.com/user-attachments/assets/f7467f92-7fbb-4751-860b-3503efb96d22" />
+
 
 #### Use Case 1: Review Pet Health Information
 **Screen: Pet Health Record Dashboard**  
