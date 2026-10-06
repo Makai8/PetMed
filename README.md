@@ -344,7 +344,17 @@ Meetings
 <img width="2160" height="1628" alt="landing_pet_health_expert" src="https://github.com/user-attachments/assets/54d30e01-3f9e-474d-82fc-890bf81bf277" />
 <img width="2160" height="1566" alt="landing_veterinarian" src="https://github.com/user-attachments/assets/c7cf8629-61c7-4302-82ac-49844ec72f5c" />
 <img width="2160" height="1647" alt="landing_pet_owner" src="https://github.com/user-attachments/assets/c8924775-8904-4bcb-bfa3-1aec6bb2ae68" />
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/76deec59-7dd4-4157-a505-13b178add481" />
 
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/3b20e5de-ac9c-42d9-8de1-b995d4a565ee" />
+
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/803288eb-f119-4c45-ab5c-2111245aebe9" />
+
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/730cfbdb-ce61-4e84-9760-04bb1b287993" />
+
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/16e07224-565d-4c8c-b592-dad8e9e28eec" />
+
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/2e39f18d-fc78-4ca7-a81c-d4376f2d964e" />
 
 
 # SPRINT 1
