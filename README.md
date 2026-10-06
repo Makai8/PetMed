@@ -314,7 +314,6 @@ Meetings
 
 ## project diagrams
 
-<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/3525813b-9500-448e-987b-dd9bc9e91019" />
 
 <img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/c66ee947-e1c8-4dab-a328-af141f93fa4f" />
 
