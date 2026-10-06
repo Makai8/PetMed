@@ -341,13 +341,13 @@ Meetings
 
 ### Role: Veterinarian
 
-#### Use Case 1: Review Pet Health Questions
+#### Use Case 1: Review Pet Health Information
 **Screen: Pet Search Dashboard**  
 **Screen Type: Browse / Search**
 
 <img width="1672" height="941" alt="PetMed Pet Search Dashboard" src="https://github.com/user-attachments/assets/48835a53-9613-4b99-a1cc-aa4bfb1446df" /> 
 
-#### Use Case 1: Review Pet Health Questions
+#### Use Case 1: Review Pet Health Information
 **Screen: Pet Health Record Dashboard**  
 **Screen Type: Detail View**
 
