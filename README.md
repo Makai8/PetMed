@@ -319,9 +319,10 @@ Meetings
 
 <img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/9b7bedcb-8f60-42ae-90a4-2d25761f5262" />
 
-<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/f99915ec-ec82-4136-9f46-18ed662d3dc2" />
+<img width="1672" height="941" alt="original (1)" src="https://github.com/user-attachments/assets/55720043-fe20-4e99-911e-a850b7cd73b1" />
 
-<img width="1672" height="941" alt="" src="https://github.com/user-attachments/assets/04dbeb30-2b24-4037-ab66-fc6e43ba1b6e" />
+<img width="1672" height="941" alt="original" src="https://github.com/user-attachments/assets/4d509fd4-5b57-4eeb-8f05-b932c97ba694" />
+
 
 
 ### Role: Pet Owner
