@@ -522,7 +522,7 @@ Meetings
 - [ ] Make sure the ERD is readable by another developer
 - [ ] Save the ERD image/file in `docs/`
 
-## 3. Verify the ERD Supports the Functional Requirements - Makhel
+## 3. Verify the ERD Supports the Functional Requirements - Makel
 - [ ] Check every Pet Owner requirement against the ERD
 - [ ] Check every Veterinarian requirement
 - [ ] Check every Pet Health Expert requirement
