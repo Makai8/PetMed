@@ -490,14 +490,14 @@ Meetings
 - [ ] Pick the ERD tool (draw.io, Lucidchart, dbdiagram.io, etc.) and share it with everyone
 - [ ] Assign each team member a section of the ERD, data dictionary, or business rules
 
-## 1. Review Functional Requirements and Sprint 1 UI
+## 1. Review Functional Requirements and Sprint 1 UI - TEAM
 - [ ] Reread the full Functional Requirements (all five roles, not just the Sprint 1 use cases)
 - [ ] Reread the "Additional System Requirements" (multiple pets per owner, advice source labels, verified badges, searchable health content, product listings, notifications)
 - [ ] Go through the Sprint 1 screens and list the data each screen shows or collects
 - [ ] Write a master list of data the system must store
 - [ ] Note requirements that are unclear and questions for the instructor
 
-## 2. Create the ERD
+## 2. Create the ERD - DP
 - [ ] Identify entities. Candidates from the requirements:
   - [ ] User / Role / Permission
   - [ ] Professional profile and verification (credentials, specialty, status)
@@ -522,7 +522,7 @@ Meetings
 - [ ] Make sure the ERD is readable by another developer
 - [ ] Save the ERD image/file in `docs/`
 
-## 3. Verify the ERD Supports the Functional Requirements
+## 3. Verify the ERD Supports the Functional Requirements - Makhel
 - [ ] Check every Pet Owner requirement against the ERD
 - [ ] Check every Veterinarian requirement
 - [ ] Check every Pet Health Expert requirement
@@ -533,7 +533,7 @@ Meetings
 - [ ] Avoid creating one entity per use case (store only the data a use case needs)
 - [ ] Pick 3+ important use cases to demo in the presentation and trace the data each uses
 
-## 4. Create the Data Dictionary
+## 4. Create the Data Dictionary - Makai
 - [ ] Create a table for every entity in the ERD
 - [ ] For each field, list: name, description, data type, key (PK/FK/none), required or optional
 - [ ] Make sure FK fields match the PK they reference
@@ -541,7 +541,7 @@ Meetings
 - [ ] Define allowed values for status/type fields (verification status, advice source type, report status, etc.)
 - [ ] Save in `docs/`
 
-## 5. Identify Business Rules
+## 5. Identify Business Rules - Miles
 - [ ] Write business rules for the database, for example:
   - [ ] User email must be unique
   - [ ] A pet belongs to exactly one owner; an owner can have many pets
