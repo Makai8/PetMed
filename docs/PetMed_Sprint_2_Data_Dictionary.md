@@ -1,9 +1,5 @@
 # PetMed – Sprint 2: Data Dictionary
 
-_Database Design Documentation based on the team ERD_
-
-Purpose: This document describes all 34 entities and attributes visible in the supplied PetMed ERD. The ERD provides field names and key markings but does not specify SQL data types, most nullability rules, or all allowed values. Data types and domain rules below are recommended MySQL definitions for team review; they are not confirmed implementation decisions.
-
 ## 1. USER
 
 Description: Stores the account for each person using PetMed.
@@ -424,33 +420,6 @@ Description: Stores reference information about medications.
 | source_url | URL of the source used for the reference. | VARCHAR(2048) | None | Yes | Valid URL; confirm if a source URL is mandatory |
 | last_reviewed_at | Date and time the reference was last reviewed. | DATETIME | None | No | Valid date/time; null until reviewed |
 
-## Review Notes Before Sprint 2 Submission
-
-These recommended SQL types are consistent for related identifiers: all *_id fields that reference integer primary keys use INT UNSIGNED. The ROLE_PERMISSION, POST_LIKE, POST_SAVE, USER_FOLLOW, POST_TAG, and ARTICLE_TAG tables use composite primary keys as shown by the ERD.
-
-Confirm with the ERD author/team whether USER.display_name is required and whether USER.status, PROFESSIONAL_PROFILE.verification_status, POST.status, HEALTH_QUESTION.status, HEALTH_ARTICLE.status, REPORT.status, MODERATION_CASE.case_status, REMINDER.status, and other status fields should use fixed ENUMs or VARCHAR with application validation.
-
-PET.weight has no unit in the ERD. The team should specify a unit (for example, kilograms or pounds) or rename it to weight_kg/weight_lb before implementation.
-
-REPORT allows both post_id and comment_id to be nullable in the diagram. Add a business rule/check constraint that exactly one target is set for each report (not both and not neither).
-
-DATA_SHARE_AUTHORIZATION should enforce that owner_id matches the owner_id of the referenced pet, and professional_id refers to an approved veterinarian/professional. The ERD alone does not enforce those rules.
-
-USER_FOLLOW should prevent a user from following themself. COMMENT.parent_comment_id should, if possible, be constrained so a reply's parent comment belongs to the same post.
-
-ROLE_PERMISSION's composite primary key prevents duplicate role-permission pairs. The other bridge tables similarly prevent duplicate likes, saves, follows, and tag assignments.
-
-HEALTH_ARTICLE has published_at as optional because drafts may not be published. Confirm whether article status needs draft/published/archived values.
-
-All 34 entities and their field names have been checked against the supplied ERD, including NOTIFICATION, MESSAGE, and MEDICATION_REFERENCE. If the team changes the final ERD, update this dictionary to match it exactly.
-
-Team confirmation still needed: the ERD does not define SQL data types or every required/optional rule. Review the proposed types and nullability, especially NOTIFICATION.payload (JSON vs. TEXT), notification_type values, and whether medication reference description, warnings, source_url, and last_reviewed_at may be blank.
-
-## Key Abbreviations
+Key Abbreviations
 
 PK = Primary Key; FK = Foreign Key; UNIQUE = value must not be duplicated; NULL = value may be absent; INT = integer; VARCHAR = variable-length text; TEXT/LONGTEXT = longer text; DATE = calendar date; DATETIME = date and time; BOOLEAN = true/false; DECIMAL = exact numeric value.
-
-
----
-
-**Note:** The data types and domain rules in this document are recommendations for team review. Confirm them against the final ERD and implementation before treating them as final database decisions.
