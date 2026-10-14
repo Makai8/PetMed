@@ -1,4 +1,4 @@
-#Business Rules 
+# Business Rules 
 1. Each user must have a unique email address.
 2. Each user must be assigned at least one valid system role.
 3. If PetMed supports multiple roles per user, role assignments must be stored through a user-role relationship rather than a single role field.
