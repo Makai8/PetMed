@@ -45,4 +45,3 @@
 44. Important historical records should generally be archived, revoked, closed, or deactivated instead of permanently deleted when audit history is needed.
 45. Date values must remain logically consistent, such as preventing an end date from occurring before a start date.
 46. Status fields such as user status, verification status, report status, reminder status, and moderation-case status must use valid values defined by the system.
-For the final submission, I’d probably use these 46 or trim them to around 25–30 if you want it to look more concise.
