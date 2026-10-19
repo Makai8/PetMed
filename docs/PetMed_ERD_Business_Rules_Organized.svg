@@ -1,0 +1,1183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3130 2874" width="3130" height="2874">
+  <rect width="100%" height="100%" fill="#f6f9fc"/>
+  <text x="65" y="53" font-size="34" font-weight="bold" font-family="Arial" fill="#142c44">PetMed | Sprint Cycle II — Complete ERD</text>
+  <text x="65" y="91" font-size="18" font-family="Arial" fill="#48657a">Arrows show 1:M from parent to child. M:1 is the same relationship read in reverse; M:M uses junction entities.</text>
+  <g transform="translate(65.0,120.0) scale(1.18000)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 640)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-18,18 -18,-640 1016.5,-640 1016.5,18 -18,18"/>
+<text text-anchor="middle" x="499.25" y="-602.8" font-family="Arial" font-size="19.00" fill="#23324d">Accounts &amp; Access  |  PetMed Sprint II</text>
+<!-- USER&#45;&gt;USER_ROLE -->
+<g id="edge1" class="edge">
+<title>USER-&gt;USER_ROLE</title>
+<path fill="none" stroke="#61748a" d="M429.77,-506.08C508.35,-479.57 676,-423 676,-423 676,-423 714,-388 714,-388 714,-388 729.06,-367.03 744.69,-345.28"/>
+<polygon fill="#61748a" stroke="#61748a" points="748.02,-340.63 746.82,-346.54 746.42,-342.86 744.81,-345.1 744.81,-345.1 744.81,-345.1 746.42,-342.86 742.8,-343.65 748.02,-340.63 748.02,-340.63"/>
+<text text-anchor="middle" x="694" y="-415.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- USER&#45;&gt;PROFESSIONAL_PROFILE -->
+<g id="edge5" class="edge">
+<title>USER-&gt;PROFESSIONAL_PROFILE</title>
+<path fill="none" stroke="#61748a" d="M429.66,-453.79C441.16,-434.74 453.96,-413.53 466.33,-393.04"/>
+<polygon fill="#61748a" stroke="#61748a" points="469.3,-388.13 468.57,-394.11 467.88,-390.48 466.46,-392.84 466.46,-392.84 466.46,-392.84 467.88,-390.48 464.34,-391.56 469.3,-388.13 469.3,-388.13"/>
+<text text-anchor="middle" x="463.5" y="-415.8" font-family="Arial" font-size="9.00">1:0..1</text>
+</g>
+<!-- USER&#45;&gt;VERIFICATION_REVIEW -->
+<g id="edge7" class="edge">
+<title>USER-&gt;VERIFICATION_REVIEW</title>
+<path fill="none" stroke="#61748a" d="M429.63,-497.79C497.8,-460.44 630,-388 630,-388 630,-388 630,-205 630,-205 630,-205 622.54,-179.18 614.23,-150.42"/>
+<polygon fill="#61748a" stroke="#61748a" points="612.67,-145.02 616.57,-149.62 613.43,-147.66 614.19,-150.31 614.19,-150.31 614.19,-150.31 613.43,-147.66 611.82,-150.99 612.67,-145.02 612.67,-145.02"/>
+<text text-anchor="middle" x="654.5" y="-294.3" font-family="Arial" font-size="9.00">1:M (admin)</text>
+</g>
+<!-- USER&#45;&gt;MESSAGE -->
+<g id="edge8" class="edge">
+<title>USER-&gt;MESSAGE</title>
+<path fill="none" stroke="#61748a" d="M350.48,-500.94C273.29,-464.69 110,-388 110,-388 110,-388 103.33,-377.94 94.44,-364.53"/>
+<polygon fill="#61748a" stroke="#61748a" points="91.34,-359.86 96.45,-363.08 92.86,-362.15 94.38,-364.45 94.38,-364.45 94.38,-364.45 92.86,-362.15 92.32,-365.81 91.34,-359.86 91.34,-359.86"/>
+<text text-anchor="middle" x="204" y="-415.8" font-family="Arial" font-size="9.00">1:M (sender)</text>
+</g>
+<!-- USER&#45;&gt;NOTIFICATION -->
+<g id="edge9" class="edge">
+<title>USER-&gt;NOTIFICATION</title>
+<path fill="none" stroke="#61748a" d="M350.49,-483.91C307.25,-444.97 244,-388 244,-388 244,-388 239.75,-382.26 233.4,-373.68"/>
+<polygon fill="#61748a" stroke="#61748a" points="230.12,-369.25 235.38,-372.2 231.75,-371.46 233.39,-373.67 233.39,-373.67 233.39,-373.67 231.75,-371.46 231.4,-375.14 230.12,-369.25 230.12,-369.25"/>
+<text text-anchor="middle" x="288" y="-415.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- USER&#45;&gt;USER_RESTRICTION -->
+<g id="edge10" class="edge">
+<title>USER-&gt;USER_RESTRICTION</title>
+<path fill="none" stroke="#61748a" d="M370.93,-447.73C364.7,-424.29 357.76,-398.18 351.43,-374.38"/>
+<polygon fill="#61748a" stroke="#61748a" points="350.01,-369.02 353.81,-373.7 350.71,-371.68 351.42,-374.34 351.42,-374.34 351.42,-374.34 350.71,-371.68 349.03,-374.97 350.01,-369.02 350.01,-369.02"/>
+<text text-anchor="middle" x="372" y="-415.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ROLE&#45;&gt;USER_ROLE -->
+<g id="edge2" class="edge">
+<title>ROLE-&gt;USER_ROLE</title>
+<path fill="none" stroke="#61748a" d="M801.05,-485.78C796.7,-448.64 789.67,-388.56 784.71,-346.28"/>
+<polygon fill="#61748a" stroke="#61748a" points="784.06,-340.7 787.16,-345.87 784.38,-343.43 784.7,-346.16 784.7,-346.16 784.7,-346.16 784.38,-343.43 782.24,-346.45 784.06,-340.7 784.06,-340.7"/>
+<text text-anchor="middle" x="801" y="-415.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ROLE&#45;&gt;ROLE_PERMISSION -->
+<g id="edge3" class="edge">
+<title>ROLE-&gt;ROLE_PERMISSION</title>
+<path fill="none" stroke="#61748a" d="M823.07,-485.78C844.63,-445.57 880.58,-378.49 903.25,-336.2"/>
+<polygon fill="#61748a" stroke="#61748a" points="905.95,-331.17 905.53,-337.19 904.65,-333.59 903.35,-336.02 903.35,-336.02 903.35,-336.02 904.65,-333.59 901.17,-334.85 905.95,-331.17 905.95,-331.17"/>
+<text text-anchor="middle" x="868" y="-415.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PERMISSION&#45;&gt;ROLE_PERMISSION -->
+<g id="edge4" class="edge">
+<title>PERMISSION-&gt;ROLE_PERMISSION</title>
+<path fill="none" stroke="#61748a" d="M924,-485.78C924,-445.73 924,-379.04 924,-336.72"/>
+<polygon fill="#61748a" stroke="#61748a" points="924,-331.17 926.48,-336.67 924,-333.92 924,-336.67 924,-336.67 924,-336.67 924,-333.92 921.53,-336.67 924,-331.17 924,-331.17"/>
+<text text-anchor="middle" x="932" y="-415.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PROFESSIONAL_PROFILE&#45;&gt;VERIFICATION_REVIEW -->
+<g id="edge6" class="edge">
+<title>PROFESSIONAL_PROFILE-&gt;VERIFICATION_REVIEW</title>
+<path fill="none" stroke="#61748a" d="M551.76,-204.88C557.28,-186.85 563.03,-168.07 568.4,-150.54"/>
+<polygon fill="#61748a" stroke="#61748a" points="570.06,-145.14 570.81,-151.12 569.25,-147.77 568.45,-150.4 568.45,-150.4 568.45,-150.4 569.25,-147.77 566.08,-149.67 570.06,-145.14 570.06,-145.14"/>
+<text text-anchor="middle" x="570" y="-172.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- USER -->
+<g id="node1" class="node">
+<title>USER</title>
+<polygon fill="#204467" stroke="transparent" points="352,-562.5 352,-591.5 429,-591.5 429,-562.5 352,-562.5"/>
+<text text-anchor="start" x="359" y="-574.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">USER</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="352,-543.5 352,-562.5 429,-562.5 429,-543.5 352,-543.5"/>
+<text text-anchor="start" x="356" y="-550.5" font-family="Arial" font-size="10.00">PK user_id</text>
+<polygon fill="white" stroke="transparent" points="352,-524.5 352,-543.5 429,-543.5 429,-524.5 352,-524.5"/>
+<text text-anchor="start" x="356" y="-531.5" font-family="Arial" font-size="10.00">UQ email</text>
+<polygon fill="white" stroke="transparent" points="352,-505.5 352,-524.5 429,-524.5 429,-505.5 352,-505.5"/>
+<text text-anchor="start" x="356" y="-512.5" font-family="Arial" font-size="10.00">password_hash</text>
+<polygon fill="white" stroke="transparent" points="352,-486.5 352,-505.5 429,-505.5 429,-486.5 352,-486.5"/>
+<text text-anchor="start" x="356" y="-493.5" font-family="Arial" font-size="10.00">full_name</text>
+<polygon fill="white" stroke="transparent" points="352,-467.5 352,-486.5 429,-486.5 429,-467.5 352,-467.5"/>
+<text text-anchor="start" x="356" y="-474.5" font-family="Arial" font-size="10.00">account_status</text>
+<polygon fill="white" stroke="transparent" points="352,-448.5 352,-467.5 429,-467.5 429,-448.5 352,-448.5"/>
+<text text-anchor="start" x="356" y="-455.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="350.5,-448 350.5,-593 429.5,-593 429.5,-448 350.5,-448"/>
+</g>
+<!-- ROLE -->
+<g id="node2" class="node">
+<title>ROLE</title>
+<polygon fill="#204467" stroke="transparent" points="769,-524.5 769,-553.5 841,-553.5 841,-524.5 769,-524.5"/>
+<text text-anchor="start" x="776" y="-536.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ROLE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="769,-505.5 769,-524.5 841,-524.5 841,-505.5 769,-505.5"/>
+<text text-anchor="start" x="773" y="-512.5" font-family="Arial" font-size="10.00">PK role_id</text>
+<polygon fill="white" stroke="transparent" points="769,-486.5 769,-505.5 841,-505.5 841,-486.5 769,-486.5"/>
+<text text-anchor="start" x="773" y="-493.5" font-family="Arial" font-size="10.00">UQ role_name</text>
+<polygon fill="none" stroke="#bcc9d6" points="768,-486 768,-555 842,-555 842,-486 768,-486"/>
+</g>
+<!-- PERMISSION -->
+<g id="node3" class="node">
+<title>PERMISSION</title>
+<polygon fill="#204467" stroke="transparent" points="874,-524.5 874,-553.5 975,-553.5 975,-524.5 874,-524.5"/>
+<text text-anchor="start" x="881" y="-536.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PERMISSION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="874,-505.5 874,-524.5 975,-524.5 975,-505.5 874,-505.5"/>
+<text text-anchor="start" x="878" y="-512.5" font-family="Arial" font-size="10.00">PK permission_id</text>
+<polygon fill="white" stroke="transparent" points="874,-486.5 874,-505.5 975,-505.5 975,-486.5 874,-486.5"/>
+<text text-anchor="start" x="878" y="-493.5" font-family="Arial" font-size="10.00">UQ permission_code</text>
+<polygon fill="none" stroke="#bcc9d6" points="872.5,-486 872.5,-555 975.5,-555 975.5,-486 872.5,-486"/>
+</g>
+<!-- USER_ROLE -->
+<g id="node4" class="node">
+<title>USER_ROLE</title>
+<polygon fill="#204467" stroke="transparent" points="730,-310.5 730,-339.5 828,-339.5 828,-310.5 730,-310.5"/>
+<text text-anchor="start" x="737" y="-322.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">USER_ROLE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="730,-291.5 730,-310.5 828,-310.5 828,-291.5 730,-291.5"/>
+<text text-anchor="start" x="734" y="-298.5" font-family="Arial" font-size="10.00">PK/FK user_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="730,-272.5 730,-291.5 828,-291.5 828,-272.5 730,-272.5"/>
+<text text-anchor="start" x="734" y="-279.5" font-family="Arial" font-size="10.00">PK/FK role_id</text>
+<polygon fill="white" stroke="transparent" points="730,-253.5 730,-272.5 828,-272.5 828,-253.5 730,-253.5"/>
+<text text-anchor="start" x="734" y="-260.5" font-family="Arial" font-size="10.00">assigned_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="729,-252.5 729,-340.5 829,-340.5 829,-252.5 729,-252.5"/>
+</g>
+<!-- ROLE_PERMISSION -->
+<g id="node5" class="node">
+<title>ROLE_PERMISSION</title>
+<polygon fill="#204467" stroke="transparent" points="851,-300.5 851,-329.5 998,-329.5 998,-300.5 851,-300.5"/>
+<text text-anchor="start" x="858" y="-312.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ROLE_PERMISSION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="851,-281.5 851,-300.5 998,-300.5 998,-281.5 851,-281.5"/>
+<text text-anchor="start" x="855" y="-288.5" font-family="Arial" font-size="10.00">PK/FK role_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="851,-262.5 851,-281.5 998,-281.5 998,-262.5 851,-262.5"/>
+<text text-anchor="start" x="855" y="-269.5" font-family="Arial" font-size="10.00">PK/FK permission_id</text>
+<polygon fill="none" stroke="#bcc9d6" points="849.5,-262 849.5,-331 998.5,-331 998.5,-262 849.5,-262"/>
+</g>
+<!-- PROFESSIONAL_PROFILE -->
+<g id="node6" class="node">
+<title>PROFESSIONAL_PROFILE</title>
+<polygon fill="#204467" stroke="transparent" points="430,-357.5 430,-386.5 619,-386.5 619,-357.5 430,-357.5"/>
+<text text-anchor="start" x="437" y="-369.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PROFESSIONAL_PROFILE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="430,-338.5 430,-357.5 619,-357.5 619,-338.5 430,-338.5"/>
+<text text-anchor="start" x="434" y="-345.5" font-family="Arial" font-size="10.00">PK profile_id</text>
+<polygon fill="white" stroke="transparent" points="430,-319.5 430,-338.5 619,-338.5 619,-319.5 430,-319.5"/>
+<text text-anchor="start" x="434" y="-326.5" font-family="Arial" font-size="10.00">FK user_id (UQ)</text>
+<polygon fill="white" stroke="transparent" points="430,-300.5 430,-319.5 619,-319.5 619,-300.5 430,-300.5"/>
+<text text-anchor="start" x="434" y="-307.5" font-family="Arial" font-size="10.00">professional_type</text>
+<polygon fill="white" stroke="transparent" points="430,-281.5 430,-300.5 619,-300.5 619,-281.5 430,-281.5"/>
+<text text-anchor="start" x="434" y="-288.5" font-family="Arial" font-size="10.00">credentials</text>
+<polygon fill="white" stroke="transparent" points="430,-262.5 430,-281.5 619,-281.5 619,-262.5 430,-262.5"/>
+<text text-anchor="start" x="434" y="-269.5" font-family="Arial" font-size="10.00">specialty</text>
+<polygon fill="white" stroke="transparent" points="430,-243.5 430,-262.5 619,-262.5 619,-243.5 430,-243.5"/>
+<text text-anchor="start" x="434" y="-250.5" font-family="Arial" font-size="10.00">organization</text>
+<polygon fill="white" stroke="transparent" points="430,-224.5 430,-243.5 619,-243.5 619,-224.5 430,-224.5"/>
+<text text-anchor="start" x="434" y="-231.5" font-family="Arial" font-size="10.00">experience</text>
+<polygon fill="white" stroke="transparent" points="430,-205.5 430,-224.5 619,-224.5 619,-205.5 430,-205.5"/>
+<text text-anchor="start" x="434" y="-212.5" font-family="Arial" font-size="10.00">verification_status</text>
+<polygon fill="none" stroke="#bcc9d6" points="428.5,-205 428.5,-388 619.5,-388 619.5,-205 428.5,-205"/>
+</g>
+<!-- VERIFICATION_REVIEW -->
+<g id="node7" class="node">
+<title>VERIFICATION_REVIEW</title>
+<polygon fill="#204467" stroke="transparent" points="507,-114.5 507,-143.5 678,-143.5 678,-114.5 507,-114.5"/>
+<text text-anchor="start" x="514" y="-126.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">VERIFICATION_REVIEW</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="507,-95.5 507,-114.5 678,-114.5 678,-95.5 507,-95.5"/>
+<text text-anchor="start" x="511" y="-102.5" font-family="Arial" font-size="10.00">PK review_id</text>
+<polygon fill="white" stroke="transparent" points="507,-76.5 507,-95.5 678,-95.5 678,-76.5 507,-76.5"/>
+<text text-anchor="start" x="511" y="-83.5" font-family="Arial" font-size="10.00">FK profile_id</text>
+<polygon fill="white" stroke="transparent" points="507,-57.5 507,-76.5 678,-76.5 678,-57.5 507,-57.5"/>
+<text text-anchor="start" x="511" y="-64.5" font-family="Arial" font-size="10.00">FK admin_user_id</text>
+<polygon fill="white" stroke="transparent" points="507,-38.5 507,-57.5 678,-57.5 678,-38.5 507,-38.5"/>
+<text text-anchor="start" x="511" y="-45.5" font-family="Arial" font-size="10.00">decision</text>
+<polygon fill="white" stroke="transparent" points="507,-19.5 507,-38.5 678,-38.5 678,-19.5 507,-19.5"/>
+<text text-anchor="start" x="511" y="-26.5" font-family="Arial" font-size="10.00">reviewed_at</text>
+<polygon fill="white" stroke="transparent" points="507,-0.5 507,-19.5 678,-19.5 678,-0.5 507,-0.5"/>
+<text text-anchor="start" x="511" y="-7.5" font-family="Arial" font-size="10.00">notes</text>
+<polygon fill="none" stroke="#bcc9d6" points="505.5,0 505.5,-145 678.5,-145 678.5,0 505.5,0"/>
+</g>
+<!-- MESSAGE -->
+<g id="node8" class="node">
+<title>MESSAGE</title>
+<polygon fill="#204467" stroke="transparent" points="1,-329.5 1,-358.5 99,-358.5 99,-329.5 1,-329.5"/>
+<text text-anchor="start" x="8" y="-341.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">MESSAGE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1,-310.5 1,-329.5 99,-329.5 99,-310.5 1,-310.5"/>
+<text text-anchor="start" x="5" y="-317.5" font-family="Arial" font-size="10.00">PK message_id</text>
+<polygon fill="white" stroke="transparent" points="1,-291.5 1,-310.5 99,-310.5 99,-291.5 1,-291.5"/>
+<text text-anchor="start" x="5" y="-298.5" font-family="Arial" font-size="10.00">FK sender_user_id</text>
+<polygon fill="white" stroke="transparent" points="1,-272.5 1,-291.5 99,-291.5 99,-272.5 1,-272.5"/>
+<text text-anchor="start" x="5" y="-279.5" font-family="Arial" font-size="10.00">FK recipient_user_id</text>
+<polygon fill="white" stroke="transparent" points="1,-253.5 1,-272.5 99,-272.5 99,-253.5 1,-253.5"/>
+<text text-anchor="start" x="5" y="-260.5" font-family="Arial" font-size="10.00">body</text>
+<polygon fill="white" stroke="transparent" points="1,-234.5 1,-253.5 99,-253.5 99,-234.5 1,-234.5"/>
+<text text-anchor="start" x="5" y="-241.5" font-family="Arial" font-size="10.00">sent_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="0,-233.5 0,-359.5 100,-359.5 100,-233.5 0,-233.5"/>
+</g>
+<!-- NOTIFICATION -->
+<g id="node9" class="node">
+<title>NOTIFICATION</title>
+<polygon fill="#204467" stroke="transparent" points="122,-338.5 122,-367.5 233,-367.5 233,-338.5 122,-338.5"/>
+<text text-anchor="start" x="129" y="-350.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">NOTIFICATION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="122,-319.5 122,-338.5 233,-338.5 233,-319.5 122,-319.5"/>
+<text text-anchor="start" x="126" y="-326.5" font-family="Arial" font-size="10.00">PK notification_id</text>
+<polygon fill="white" stroke="transparent" points="122,-300.5 122,-319.5 233,-319.5 233,-300.5 122,-300.5"/>
+<text text-anchor="start" x="126" y="-307.5" font-family="Arial" font-size="10.00">FK user_id</text>
+<polygon fill="white" stroke="transparent" points="122,-281.5 122,-300.5 233,-300.5 233,-281.5 122,-281.5"/>
+<text text-anchor="start" x="126" y="-288.5" font-family="Arial" font-size="10.00">type</text>
+<polygon fill="white" stroke="transparent" points="122,-262.5 122,-281.5 233,-281.5 233,-262.5 122,-262.5"/>
+<text text-anchor="start" x="126" y="-269.5" font-family="Arial" font-size="10.00">message</text>
+<polygon fill="white" stroke="transparent" points="122,-243.5 122,-262.5 233,-262.5 233,-243.5 122,-243.5"/>
+<text text-anchor="start" x="126" y="-250.5" font-family="Arial" font-size="10.00">is_read</text>
+<polygon fill="white" stroke="transparent" points="122,-224.5 122,-243.5 233,-243.5 233,-224.5 122,-224.5"/>
+<text text-anchor="start" x="126" y="-231.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="120.5,-224 120.5,-369 233.5,-369 233.5,-224 120.5,-224"/>
+</g>
+<!-- USER_RESTRICTION -->
+<g id="node10" class="node">
+<title>USER_RESTRICTION</title>
+<polygon fill="#204467" stroke="transparent" points="255,-338.5 255,-367.5 407,-367.5 407,-338.5 255,-338.5"/>
+<text text-anchor="start" x="262" y="-350.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">USER_RESTRICTION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="255,-319.5 255,-338.5 407,-338.5 407,-319.5 255,-319.5"/>
+<text text-anchor="start" x="259" y="-326.5" font-family="Arial" font-size="10.00">PK restriction_id</text>
+<polygon fill="white" stroke="transparent" points="255,-300.5 255,-319.5 407,-319.5 407,-300.5 255,-300.5"/>
+<text text-anchor="start" x="259" y="-307.5" font-family="Arial" font-size="10.00">FK user_id</text>
+<polygon fill="white" stroke="transparent" points="255,-281.5 255,-300.5 407,-300.5 407,-281.5 255,-281.5"/>
+<text text-anchor="start" x="259" y="-288.5" font-family="Arial" font-size="10.00">FK action_id</text>
+<polygon fill="white" stroke="transparent" points="255,-262.5 255,-281.5 407,-281.5 407,-262.5 255,-262.5"/>
+<text text-anchor="start" x="259" y="-269.5" font-family="Arial" font-size="10.00">starts_at</text>
+<polygon fill="white" stroke="transparent" points="255,-243.5 255,-262.5 407,-262.5 407,-243.5 255,-243.5"/>
+<text text-anchor="start" x="259" y="-250.5" font-family="Arial" font-size="10.00">ends_at</text>
+<polygon fill="white" stroke="transparent" points="255,-224.5 255,-243.5 407,-243.5 407,-224.5 255,-224.5"/>
+<text text-anchor="start" x="259" y="-231.5" font-family="Arial" font-size="10.00">status</text>
+<polygon fill="none" stroke="#bcc9d6" points="254,-224 254,-369 408,-369 408,-224 254,-224"/>
+</g>
+</g>
+</g>
+  <g transform="translate(1565.0,120.0) scale(1.01292)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 454)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-18,18 -18,-454 1413.5,-454 1413.5,18 -18,18"/>
+<text text-anchor="middle" x="697.75" y="-416.8" font-family="Arial" font-size="19.00" fill="#23324d">Pet Health  |  PetMed Sprint II</text>
+<!-- ACCOUNT USER&#45;&gt;PET -->
+<g id="edge1" class="edge">
+<title>ACCOUNT USER-&gt;PET</title>
+<path fill="none" stroke="#61748a" d="M490.21,-325C539.2,-325 602.73,-325 646.38,-325"/>
+<polygon fill="#61748a" stroke="#61748a" points="652.13,-325 646.63,-327.48 649.38,-325 646.63,-325 646.63,-325 646.63,-325 649.38,-325 646.63,-322.53 652.13,-325 652.13,-325"/>
+<text text-anchor="middle" x="571.25" y="-330.8" font-family="Arial" font-size="9.00">1:M (owner)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;TREATMENT -->
+<g id="edge13" class="edge">
+<title>ACCOUNT USER-&gt;TREATMENT</title>
+<path fill="none" stroke="#61748a" d="M345.67,-305.66C226.03,-275.32 0,-218 0,-218 0,-218 0,-208 0,-208 0,-208 93.55,-160.19 160.28,-126.09"/>
+<polygon fill="#61748a" stroke="#61748a" points="165.44,-123.45 161.66,-128.16 162.99,-124.7 160.54,-125.95 160.54,-125.95 160.54,-125.95 162.99,-124.7 159.41,-123.75 165.44,-123.45 165.44,-123.45"/>
+<text text-anchor="middle" x="36.5" y="-210.8" font-family="Arial" font-size="9.00">1:M (optional pro)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;REMINDER -->
+<g id="edge8" class="edge">
+<title>ACCOUNT USER-&gt;REMINDER</title>
+<path fill="none" stroke="#61748a" d="M345.89,-301.52C246.09,-270.4 78,-218 78,-218 78,-218 78,-208 78,-208 78,-208 433,-183 433,-183 433,-183 436.97,-177.47 442.95,-169.14"/>
+<polygon fill="#61748a" stroke="#61748a" points="446.47,-164.25 445.27,-170.16 444.86,-166.48 443.26,-168.72 443.26,-168.72 443.26,-168.72 444.86,-166.48 441.25,-167.27 446.47,-164.25 446.47,-164.25"/>
+<text text-anchor="middle" x="86" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;DATA_SHARE_AUTHORIZATION -->
+<g id="edge10" class="edge">
+<title>ACCOUNT USER-&gt;DATA_SHARE_AUTHORIZATION</title>
+<path fill="none" stroke="#61748a" d="M345.62,-298.34C257.13,-266.97 119,-218 119,-218 119,-218 119,-208 119,-208 119,-208 711,-183 711,-183 711,-183 712.98,-181.56 716.44,-179.03"/>
+<polygon fill="#61748a" stroke="#61748a" points="721.15,-175.59 718.16,-180.84 718.93,-177.22 716.7,-178.84 716.7,-178.84 716.7,-178.84 718.93,-177.22 715.25,-176.84 721.15,-175.59 721.15,-175.59"/>
+<text text-anchor="middle" x="154" y="-210.8" font-family="Arial" font-size="9.00">1:M (owner / pro)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;VET_REFERRAL -->
+<g id="edge12" class="edge">
+<title>ACCOUNT USER-&gt;VET_REFERRAL</title>
+<path fill="none" stroke="#61748a" d="M395.22,-290.46C374.12,-259.41 346,-218 346,-218 346,-218 346,-208 346,-208 346,-208 1104,-183 1104,-183 1104,-183 1108.56,-177.26 1115.39,-168.68"/>
+<polygon fill="#61748a" stroke="#61748a" points="1118.92,-164.25 1117.43,-170.09 1117.21,-166.4 1115.49,-168.55 1115.49,-168.55 1115.49,-168.55 1117.21,-166.4 1113.56,-167.01 1118.92,-164.25 1118.92,-164.25"/>
+<text text-anchor="middle" x="364" y="-210.8" font-family="Arial" font-size="9.00">1:M (vet)</text>
+</g>
+<!-- PET&#45;&gt;PET_ALLERGY -->
+<g id="edge2" class="edge">
+<title>PET-&gt;PET_ALLERGY</title>
+<path fill="none" stroke="#61748a" d="M652.22,-300.08C576.9,-259.85 433,-183 433,-183 433,-183 425.44,-172.94 415.36,-159.53"/>
+<polygon fill="#61748a" stroke="#61748a" points="411.86,-154.86 417.14,-157.77 413.51,-157.06 415.16,-159.26 415.16,-159.26 415.16,-159.26 413.51,-157.06 413.18,-160.75 411.86,-154.86 411.86,-154.86"/>
+<text text-anchor="middle" x="505" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;PET_CONDITION -->
+<g id="edge3" class="edge">
+<title>PET-&gt;PET_CONDITION</title>
+<path fill="none" stroke="#61748a" d="M675.93,-242.71C668.93,-215.71 661.22,-185.95 654.52,-160.1"/>
+<polygon fill="#61748a" stroke="#61748a" points="653.11,-154.64 656.88,-159.34 653.8,-157.3 654.49,-159.97 654.49,-159.97 654.49,-159.97 653.8,-157.3 652.09,-160.59 653.11,-154.64 653.11,-154.64"/>
+<text text-anchor="middle" x="676" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;SYMPTOM_LOG -->
+<g id="edge4" class="edge">
+<title>PET-&gt;SYMPTOM_LOG</title>
+<path fill="none" stroke="#61748a" d="M741.74,-299.92C816.57,-259.65 959,-183 959,-183 959,-183 963.56,-177.26 970.39,-168.68"/>
+<polygon fill="#61748a" stroke="#61748a" points="973.92,-164.25 972.43,-170.09 972.21,-166.4 970.49,-168.55 970.49,-168.55 970.49,-168.55 972.21,-166.4 968.56,-167.01 973.92,-164.25 973.92,-164.25"/>
+<text text-anchor="middle" x="916" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;TREATMENT -->
+<g id="edge5" class="edge">
+<title>PET-&gt;TREATMENT</title>
+<path fill="none" stroke="#61748a" d="M652.3,-305.62C594.17,-281.72 500,-243 500,-243 500,-243 297,-183 297,-183 297,-183 292.5,-177.26 285.76,-168.68"/>
+<polygon fill="#61748a" stroke="#61748a" points="282.29,-164.25 287.63,-167.05 283.99,-166.41 285.68,-168.58 285.68,-168.58 285.68,-168.58 283.99,-166.41 283.74,-170.1 282.29,-164.25 282.29,-164.25"/>
+<text text-anchor="middle" x="419" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;PET_MEDICATION -->
+<g id="edge6" class="edge">
+<title>PET-&gt;PET_MEDICATION</title>
+<path fill="none" stroke="#61748a" d="M741.62,-312.58C872.8,-279.01 1248,-183 1248,-183 1248,-183 1250.48,-180.16 1254.55,-175.5"/>
+<polygon fill="#61748a" stroke="#61748a" points="1258.33,-171.17 1256.58,-176.94 1256.52,-173.24 1254.71,-175.31 1254.71,-175.31 1254.71,-175.31 1256.52,-173.24 1252.85,-173.68 1258.33,-171.17 1258.33,-171.17"/>
+<text text-anchor="middle" x="1150" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;REMINDER -->
+<g id="edge7" class="edge">
+<title>PET-&gt;REMINDER</title>
+<path fill="none" stroke="#61748a" d="M652.38,-277.05C613.4,-236.03 563,-183 563,-183 563,-183 559.03,-177.47 553.05,-169.14"/>
+<polygon fill="#61748a" stroke="#61748a" points="549.53,-164.25 554.75,-167.27 551.14,-166.48 552.74,-168.72 552.74,-168.72 552.74,-168.72 551.14,-166.48 550.73,-170.16 549.53,-164.25 549.53,-164.25"/>
+<text text-anchor="middle" x="603" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;DATA_SHARE_AUTHORIZATION -->
+<g id="edge9" class="edge">
+<title>PET-&gt;DATA_SHARE_AUTHORIZATION</title>
+<path fill="none" stroke="#61748a" d="M741.61,-249.16C753.21,-229.71 765.85,-208.5 777.99,-188.14"/>
+<polygon fill="#61748a" stroke="#61748a" points="780.89,-183.27 780.2,-189.26 779.49,-185.63 778.08,-187.99 778.08,-187.99 778.08,-187.99 779.49,-185.63 775.95,-186.72 780.89,-183.27 780.89,-183.27"/>
+<text text-anchor="middle" x="774" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PET&#45;&gt;VET_REFERRAL -->
+<g id="edge11" class="edge">
+<title>PET-&gt;VET_REFERRAL</title>
+<path fill="none" stroke="#61748a" d="M741.72,-308.51C847.45,-271.88 1104,-183 1104,-183 1104,-183 1108.56,-177.26 1115.39,-168.68"/>
+<polygon fill="#61748a" stroke="#61748a" points="1118.92,-164.25 1117.43,-170.09 1117.21,-166.4 1115.49,-168.55 1115.49,-168.55 1115.49,-168.55 1117.21,-166.4 1113.56,-167.01 1118.92,-164.25 1118.92,-164.25"/>
+<text text-anchor="middle" x="1034" y="-210.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER -->
+<g id="node1" class="node">
+<title>ACCOUNT USER</title>
+<polygon fill="#297c82" stroke="transparent" points="347,-329 347,-358 489,-358 489,-329 347,-329"/>
+<text text-anchor="start" x="354" y="-340.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ACCOUNT USER</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="347,-310 347,-329 489,-329 489,-310 347,-310"/>
+<text text-anchor="start" x="351" y="-317" font-family="Arial" font-size="10.00">REF user_id → USER.user_id</text>
+<polygon fill="white" stroke="transparent" points="347,-291 347,-310 489,-310 489,-291 347,-291"/>
+<text text-anchor="start" x="351" y="-298" font-family="Arial" font-size="10.00">email (reference only)</text>
+<polygon fill="none" stroke="#bcc9d6" points="346,-290.5 346,-359.5 490,-359.5 490,-290.5 346,-290.5"/>
+</g>
+<!-- PET -->
+<g id="node2" class="node">
+<title>PET</title>
+<polygon fill="#204467" stroke="transparent" points="654,-377 654,-406 741,-406 741,-377 654,-377"/>
+<text text-anchor="start" x="661" y="-388.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PET</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="654,-358 654,-377 741,-377 741,-358 654,-358"/>
+<text text-anchor="start" x="658" y="-365" font-family="Arial" font-size="10.00">PK pet_id</text>
+<polygon fill="white" stroke="transparent" points="654,-339 654,-358 741,-358 741,-339 654,-339"/>
+<text text-anchor="start" x="658" y="-346" font-family="Arial" font-size="10.00">FK owner_user_id</text>
+<polygon fill="white" stroke="transparent" points="654,-320 654,-339 741,-339 741,-320 654,-320"/>
+<text text-anchor="start" x="658" y="-327" font-family="Arial" font-size="10.00">name</text>
+<polygon fill="white" stroke="transparent" points="654,-301 654,-320 741,-320 741,-301 654,-301"/>
+<text text-anchor="start" x="658" y="-308" font-family="Arial" font-size="10.00">species</text>
+<polygon fill="white" stroke="transparent" points="654,-282 654,-301 741,-301 741,-282 654,-282"/>
+<text text-anchor="start" x="658" y="-289" font-family="Arial" font-size="10.00">breed</text>
+<polygon fill="white" stroke="transparent" points="654,-263 654,-282 741,-282 741,-263 654,-263"/>
+<text text-anchor="start" x="658" y="-270" font-family="Arial" font-size="10.00">birth_date</text>
+<polygon fill="white" stroke="transparent" points="654,-244 654,-263 741,-263 741,-244 654,-244"/>
+<text text-anchor="start" x="658" y="-251" font-family="Arial" font-size="10.00">weight</text>
+<polygon fill="none" stroke="#bcc9d6" points="652.5,-243 652.5,-407 741.5,-407 741.5,-243 652.5,-243"/>
+</g>
+<!-- PET_ALLERGY -->
+<g id="node3" class="node">
+<title>PET_ALLERGY</title>
+<polygon fill="#204467" stroke="transparent" points="308,-124.5 308,-153.5 422,-153.5 422,-124.5 308,-124.5"/>
+<text text-anchor="start" x="315" y="-136.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PET_ALLERGY</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="308,-105.5 308,-124.5 422,-124.5 422,-105.5 308,-105.5"/>
+<text text-anchor="start" x="312" y="-112.5" font-family="Arial" font-size="10.00">PK allergy_id</text>
+<polygon fill="white" stroke="transparent" points="308,-86.5 308,-105.5 422,-105.5 422,-86.5 308,-86.5"/>
+<text text-anchor="start" x="312" y="-93.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="308,-67.5 308,-86.5 422,-86.5 422,-67.5 308,-67.5"/>
+<text text-anchor="start" x="312" y="-74.5" font-family="Arial" font-size="10.00">allergen</text>
+<polygon fill="white" stroke="transparent" points="308,-48.5 308,-67.5 422,-67.5 422,-48.5 308,-48.5"/>
+<text text-anchor="start" x="312" y="-55.5" font-family="Arial" font-size="10.00">reaction</text>
+<polygon fill="white" stroke="transparent" points="308,-29.5 308,-48.5 422,-48.5 422,-29.5 308,-29.5"/>
+<text text-anchor="start" x="312" y="-36.5" font-family="Arial" font-size="10.00">noted_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="307,-28.5 307,-154.5 423,-154.5 423,-28.5 307,-28.5"/>
+</g>
+<!-- PET_CONDITION -->
+<g id="node4" class="node">
+<title>PET_CONDITION</title>
+<polygon fill="#204467" stroke="transparent" points="574,-124.5 574,-153.5 700,-153.5 700,-124.5 574,-124.5"/>
+<text text-anchor="start" x="581" y="-136.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PET_CONDITION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="574,-105.5 574,-124.5 700,-124.5 700,-105.5 574,-105.5"/>
+<text text-anchor="start" x="578" y="-112.5" font-family="Arial" font-size="10.00">PK condition_id</text>
+<polygon fill="white" stroke="transparent" points="574,-86.5 574,-105.5 700,-105.5 700,-86.5 574,-86.5"/>
+<text text-anchor="start" x="578" y="-93.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="574,-67.5 574,-86.5 700,-86.5 700,-67.5 574,-67.5"/>
+<text text-anchor="start" x="578" y="-74.5" font-family="Arial" font-size="10.00">condition_name</text>
+<polygon fill="white" stroke="transparent" points="574,-48.5 574,-67.5 700,-67.5 700,-48.5 574,-48.5"/>
+<text text-anchor="start" x="578" y="-55.5" font-family="Arial" font-size="10.00">diagnosed_at</text>
+<polygon fill="white" stroke="transparent" points="574,-29.5 574,-48.5 700,-48.5 700,-29.5 574,-29.5"/>
+<text text-anchor="start" x="578" y="-36.5" font-family="Arial" font-size="10.00">status</text>
+<polygon fill="none" stroke="#bcc9d6" points="573,-28.5 573,-154.5 701,-154.5 701,-28.5 573,-28.5"/>
+</g>
+<!-- SYMPTOM_LOG -->
+<g id="node5" class="node">
+<title>SYMPTOM_LOG</title>
+<polygon fill="#204467" stroke="transparent" points="970,-133.5 970,-162.5 1093,-162.5 1093,-133.5 970,-133.5"/>
+<text text-anchor="start" x="977" y="-145.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">SYMPTOM_LOG</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="970,-114.5 970,-133.5 1093,-133.5 1093,-114.5 970,-114.5"/>
+<text text-anchor="start" x="974" y="-121.5" font-family="Arial" font-size="10.00">PK symptom_id</text>
+<polygon fill="white" stroke="transparent" points="970,-95.5 970,-114.5 1093,-114.5 1093,-95.5 970,-95.5"/>
+<text text-anchor="start" x="974" y="-102.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="970,-76.5 970,-95.5 1093,-95.5 1093,-76.5 970,-76.5"/>
+<text text-anchor="start" x="974" y="-83.5" font-family="Arial" font-size="10.00">symptom</text>
+<polygon fill="white" stroke="transparent" points="970,-57.5 970,-76.5 1093,-76.5 1093,-57.5 970,-57.5"/>
+<text text-anchor="start" x="974" y="-64.5" font-family="Arial" font-size="10.00">severity</text>
+<polygon fill="white" stroke="transparent" points="970,-38.5 970,-57.5 1093,-57.5 1093,-38.5 970,-38.5"/>
+<text text-anchor="start" x="974" y="-45.5" font-family="Arial" font-size="10.00">observed_at</text>
+<polygon fill="white" stroke="transparent" points="970,-19.5 970,-38.5 1093,-38.5 1093,-19.5 970,-19.5"/>
+<text text-anchor="start" x="974" y="-26.5" font-family="Arial" font-size="10.00">notes</text>
+<polygon fill="none" stroke="#bcc9d6" points="968.5,-19 968.5,-164 1093.5,-164 1093.5,-19 968.5,-19"/>
+</g>
+<!-- TREATMENT -->
+<g id="node6" class="node">
+<title>TREATMENT</title>
+<polygon fill="#204467" stroke="transparent" points="167,-133.5 167,-162.5 286,-162.5 286,-133.5 167,-133.5"/>
+<text text-anchor="start" x="174" y="-145.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">TREATMENT</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="167,-114.5 167,-133.5 286,-133.5 286,-114.5 167,-114.5"/>
+<text text-anchor="start" x="171" y="-121.5" font-family="Arial" font-size="10.00">PK treatment_id</text>
+<polygon fill="white" stroke="transparent" points="167,-95.5 167,-114.5 286,-114.5 286,-95.5 167,-95.5"/>
+<text text-anchor="start" x="171" y="-102.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="167,-76.5 167,-95.5 286,-95.5 286,-76.5 167,-76.5"/>
+<text text-anchor="start" x="171" y="-83.5" font-family="Arial" font-size="10.00">FK professional_user_id?</text>
+<polygon fill="white" stroke="transparent" points="167,-57.5 167,-76.5 286,-76.5 286,-57.5 167,-57.5"/>
+<text text-anchor="start" x="171" y="-64.5" font-family="Arial" font-size="10.00">description</text>
+<polygon fill="white" stroke="transparent" points="167,-38.5 167,-57.5 286,-57.5 286,-38.5 167,-38.5"/>
+<text text-anchor="start" x="171" y="-45.5" font-family="Arial" font-size="10.00">start_date</text>
+<polygon fill="white" stroke="transparent" points="167,-19.5 167,-38.5 286,-38.5 286,-19.5 167,-19.5"/>
+<text text-anchor="start" x="171" y="-26.5" font-family="Arial" font-size="10.00">end_date</text>
+<polygon fill="none" stroke="#bcc9d6" points="165.5,-19 165.5,-164 286.5,-164 286.5,-19 165.5,-19"/>
+</g>
+<!-- PET_MEDICATION -->
+<g id="node7" class="node">
+<title>PET_MEDICATION</title>
+<polygon fill="#204467" stroke="transparent" points="1260,-152.5 1260,-181.5 1395,-181.5 1395,-152.5 1260,-152.5"/>
+<text text-anchor="start" x="1267" y="-164.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PET_MEDICATION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1260,-133.5 1260,-152.5 1395,-152.5 1395,-133.5 1260,-133.5"/>
+<text text-anchor="start" x="1264" y="-140.5" font-family="Arial" font-size="10.00">PK pet_medication_id</text>
+<polygon fill="white" stroke="transparent" points="1260,-114.5 1260,-133.5 1395,-133.5 1395,-114.5 1260,-114.5"/>
+<text text-anchor="start" x="1264" y="-121.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="1260,-95.5 1260,-114.5 1395,-114.5 1395,-95.5 1260,-95.5"/>
+<text text-anchor="start" x="1264" y="-102.5" font-family="Arial" font-size="10.00">FK medication_ref_id?</text>
+<polygon fill="white" stroke="transparent" points="1260,-76.5 1260,-95.5 1395,-95.5 1395,-76.5 1260,-76.5"/>
+<text text-anchor="start" x="1264" y="-83.5" font-family="Arial" font-size="10.00">name</text>
+<polygon fill="white" stroke="transparent" points="1260,-57.5 1260,-76.5 1395,-76.5 1395,-57.5 1260,-57.5"/>
+<text text-anchor="start" x="1264" y="-64.5" font-family="Arial" font-size="10.00">dosage</text>
+<polygon fill="white" stroke="transparent" points="1260,-38.5 1260,-57.5 1395,-57.5 1395,-38.5 1260,-38.5"/>
+<text text-anchor="start" x="1264" y="-45.5" font-family="Arial" font-size="10.00">frequency</text>
+<polygon fill="white" stroke="transparent" points="1260,-19.5 1260,-38.5 1395,-38.5 1395,-19.5 1260,-19.5"/>
+<text text-anchor="start" x="1264" y="-26.5" font-family="Arial" font-size="10.00">start_date</text>
+<polygon fill="white" stroke="transparent" points="1260,-0.5 1260,-19.5 1395,-19.5 1395,-0.5 1260,-0.5"/>
+<text text-anchor="start" x="1264" y="-7.5" font-family="Arial" font-size="10.00">end_date</text>
+<polygon fill="none" stroke="#bcc9d6" points="1258.5,0 1258.5,-183 1395.5,-183 1395.5,0 1258.5,0"/>
+</g>
+<!-- REMINDER -->
+<g id="node8" class="node">
+<title>REMINDER</title>
+<polygon fill="#204467" stroke="transparent" points="444,-133.5 444,-162.5 552,-162.5 552,-133.5 444,-133.5"/>
+<text text-anchor="start" x="451" y="-145.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">REMINDER</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="444,-114.5 444,-133.5 552,-133.5 552,-114.5 444,-114.5"/>
+<text text-anchor="start" x="448" y="-121.5" font-family="Arial" font-size="10.00">PK reminder_id</text>
+<polygon fill="white" stroke="transparent" points="444,-95.5 444,-114.5 552,-114.5 552,-95.5 444,-95.5"/>
+<text text-anchor="start" x="448" y="-102.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="444,-76.5 444,-95.5 552,-95.5 552,-76.5 444,-76.5"/>
+<text text-anchor="start" x="448" y="-83.5" font-family="Arial" font-size="10.00">FK user_id</text>
+<polygon fill="white" stroke="transparent" points="444,-57.5 444,-76.5 552,-76.5 552,-57.5 444,-57.5"/>
+<text text-anchor="start" x="448" y="-64.5" font-family="Arial" font-size="10.00">FK pet_medication_id?</text>
+<polygon fill="white" stroke="transparent" points="444,-38.5 444,-57.5 552,-57.5 552,-38.5 444,-38.5"/>
+<text text-anchor="start" x="448" y="-45.5" font-family="Arial" font-size="10.00">due_at</text>
+<polygon fill="white" stroke="transparent" points="444,-19.5 444,-38.5 552,-38.5 552,-19.5 444,-19.5"/>
+<text text-anchor="start" x="448" y="-26.5" font-family="Arial" font-size="10.00">status</text>
+<polygon fill="none" stroke="#bcc9d6" points="443,-19 443,-164 553,-164 553,-19 443,-19"/>
+</g>
+<!-- DATA_SHARE_AUTHORIZATION -->
+<g id="node9" class="node">
+<title>DATA_SHARE_AUTHORIZATION</title>
+<polygon fill="#204467" stroke="transparent" points="723,-152.5 723,-181.5 948,-181.5 948,-152.5 723,-152.5"/>
+<text text-anchor="start" x="730" y="-164.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">DATA_SHARE_AUTHORIZATION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="723,-133.5 723,-152.5 948,-152.5 948,-133.5 723,-133.5"/>
+<text text-anchor="start" x="727" y="-140.5" font-family="Arial" font-size="10.00">PK authorization_id</text>
+<polygon fill="white" stroke="transparent" points="723,-114.5 723,-133.5 948,-133.5 948,-114.5 723,-114.5"/>
+<text text-anchor="start" x="727" y="-121.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="723,-95.5 723,-114.5 948,-114.5 948,-95.5 723,-95.5"/>
+<text text-anchor="start" x="727" y="-102.5" font-family="Arial" font-size="10.00">FK owner_user_id</text>
+<polygon fill="white" stroke="transparent" points="723,-76.5 723,-95.5 948,-95.5 948,-76.5 723,-76.5"/>
+<text text-anchor="start" x="727" y="-83.5" font-family="Arial" font-size="10.00">FK professional_user_id</text>
+<polygon fill="white" stroke="transparent" points="723,-57.5 723,-76.5 948,-76.5 948,-57.5 723,-57.5"/>
+<text text-anchor="start" x="727" y="-64.5" font-family="Arial" font-size="10.00">scope</text>
+<polygon fill="white" stroke="transparent" points="723,-38.5 723,-57.5 948,-57.5 948,-38.5 723,-38.5"/>
+<text text-anchor="start" x="727" y="-45.5" font-family="Arial" font-size="10.00">granted_at</text>
+<polygon fill="white" stroke="transparent" points="723,-19.5 723,-38.5 948,-38.5 948,-19.5 723,-19.5"/>
+<text text-anchor="start" x="727" y="-26.5" font-family="Arial" font-size="10.00">expires_at?</text>
+<polygon fill="white" stroke="transparent" points="723,-0.5 723,-19.5 948,-19.5 948,-0.5 723,-0.5"/>
+<text text-anchor="start" x="727" y="-7.5" font-family="Arial" font-size="10.00">revoked_at?</text>
+<polygon fill="none" stroke="#bcc9d6" points="721.5,0 721.5,-183 948.5,-183 948.5,0 721.5,0"/>
+</g>
+<!-- VET_REFERRAL -->
+<g id="node10" class="node">
+<title>VET_REFERRAL</title>
+<polygon fill="#204467" stroke="transparent" points="1115,-133.5 1115,-162.5 1237,-162.5 1237,-133.5 1115,-133.5"/>
+<text text-anchor="start" x="1122" y="-145.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">VET_REFERRAL</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1115,-114.5 1115,-133.5 1237,-133.5 1237,-114.5 1115,-114.5"/>
+<text text-anchor="start" x="1119" y="-121.5" font-family="Arial" font-size="10.00">PK referral_id</text>
+<polygon fill="white" stroke="transparent" points="1115,-95.5 1115,-114.5 1237,-114.5 1237,-95.5 1115,-95.5"/>
+<text text-anchor="start" x="1119" y="-102.5" font-family="Arial" font-size="10.00">FK pet_id</text>
+<polygon fill="white" stroke="transparent" points="1115,-76.5 1115,-95.5 1237,-95.5 1237,-76.5 1115,-76.5"/>
+<text text-anchor="start" x="1119" y="-83.5" font-family="Arial" font-size="10.00">FK vet_user_id</text>
+<polygon fill="white" stroke="transparent" points="1115,-57.5 1115,-76.5 1237,-76.5 1237,-57.5 1115,-57.5"/>
+<text text-anchor="start" x="1119" y="-64.5" font-family="Arial" font-size="10.00">reason</text>
+<polygon fill="white" stroke="transparent" points="1115,-38.5 1115,-57.5 1237,-57.5 1237,-38.5 1115,-38.5"/>
+<text text-anchor="start" x="1119" y="-45.5" font-family="Arial" font-size="10.00">urgency</text>
+<polygon fill="white" stroke="transparent" points="1115,-19.5 1115,-38.5 1237,-38.5 1237,-19.5 1115,-19.5"/>
+<text text-anchor="start" x="1119" y="-26.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="1114,-19 1114,-164 1238,-164 1238,-19 1114,-19"/>
+</g>
+</g>
+</g>
+  <g transform="translate(65.0,996.4) scale(1.18000)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 714)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-18,18 -18,-714 1147,-714 1147,18 -18,18"/>
+<text text-anchor="middle" x="564.5" y="-676.8" font-family="Arial" font-size="19.00" fill="#23324d">Community &amp; Advice  |  PetMed Sprint II</text>
+<!-- ACCOUNT USER&#45;&gt;POST -->
+<g id="edge1" class="edge">
+<title>ACCOUNT USER-&gt;POST</title>
+<path fill="none" stroke="#61748a" d="M238.06,-473C249.85,-473 261.84,-473 272.97,-473"/>
+<polygon fill="#61748a" stroke="#61748a" points="278.72,-473 273.22,-475.48 275.97,-473 273.22,-473 273.22,-473 273.22,-473 275.97,-473 273.22,-470.53 278.72,-473 278.72,-473"/>
+<text text-anchor="middle" x="258.5" y="-478.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;COMMENT -->
+<g id="edge3" class="edge">
+<title>ACCOUNT USER-&gt;COMMENT</title>
+<path fill="none" stroke="#61748a" d="M113.48,-438.46C64.84,-407.41 0,-366 0,-366 0,-366 0,-356 0,-356 0,-356 9.2,-345.43 21.52,-331.28"/>
+<polygon fill="#61748a" stroke="#61748a" points="25.43,-326.78 23.69,-332.56 23.63,-328.86 21.82,-330.93 21.82,-330.93 21.82,-330.93 23.63,-328.86 19.95,-329.31 25.43,-326.78 25.43,-326.78"/>
+<text text-anchor="middle" x="8" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;POST_LIKE -->
+<g id="edge4" class="edge">
+<title>ACCOUNT USER-&gt;POST_LIKE</title>
+<path fill="none" stroke="#61748a" d="M120.12,-438.46C77.64,-407.41 21,-366 21,-366 21,-366 21,-356 21,-356 21,-356 152,-331 152,-331 152,-331 160.49,-320.34 170.93,-307.26"/>
+<polygon fill="#61748a" stroke="#61748a" points="174.53,-302.74 173.03,-308.58 172.81,-304.89 171.1,-307.04 171.1,-307.04 171.1,-307.04 172.81,-304.89 169.16,-305.5 174.53,-302.74 174.53,-302.74"/>
+<text text-anchor="middle" x="29" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;POST_SAVE -->
+<g id="edge6" class="edge">
+<title>ACCOUNT USER-&gt;POST_SAVE</title>
+<path fill="none" stroke="#61748a" d="M133.09,-438.46C102.62,-407.41 62,-366 62,-366 62,-366 62,-356 62,-356 62,-356 265,-331 265,-331 265,-331 273.79,-320.34 284.59,-307.26"/>
+<polygon fill="#61748a" stroke="#61748a" points="288.32,-302.74 286.73,-308.56 286.57,-304.86 284.82,-306.98 284.82,-306.98 284.82,-306.98 286.57,-304.86 282.91,-305.41 288.32,-302.74 288.32,-302.74"/>
+<text text-anchor="middle" x="70" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;USER_FOLLOW -->
+<g id="edge8" class="edge">
+<title>ACCOUNT USER-&gt;USER_FOLLOW</title>
+<path fill="none" stroke="#61748a" d="M209.38,-507.54C237.53,-529.95 269,-555 269,-555 269,-555 806.5,-572 806.5,-572 806.5,-572 837.5,-572 837.5,-572 837.5,-572 997,-555 997,-555 997,-555 1010.48,-539.43 1025.69,-521.86"/>
+<polygon fill="#61748a" stroke="#61748a" points="1029.59,-517.36 1027.86,-523.14 1027.79,-519.44 1025.99,-521.52 1025.99,-521.52 1025.99,-521.52 1027.79,-519.44 1024.12,-519.9 1029.59,-517.36 1029.59,-517.36"/>
+<text text-anchor="middle" x="822" y="-582.8" font-family="Arial" font-size="9.00">1:M × 2</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;HEALTH_ARTICLE -->
+<g id="edge11" class="edge">
+<title>ACCOUNT USER-&gt;HEALTH_ARTICLE</title>
+<path fill="none" stroke="#61748a" d="M209.38,-507.54C237.53,-529.95 269,-555 269,-555 269,-555 450,-572 450,-572 450,-572 466,-572 466,-572 466,-572 669,-555 669,-555 669,-555 671.38,-552.53 675.31,-548.45"/>
+<polygon fill="#61748a" stroke="#61748a" points="679.33,-544.28 677.29,-549.96 677.42,-546.26 675.51,-548.24 675.51,-548.24 675.51,-548.24 677.42,-546.26 673.73,-546.52 679.33,-544.28 679.33,-544.28"/>
+<text text-anchor="middle" x="458" y="-582.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;HEALTH_QUESTION -->
+<g id="edge14" class="edge">
+<title>ACCOUNT USER-&gt;HEALTH_QUESTION</title>
+<path fill="none" stroke="#61748a" d="M209.38,-507.54C237.53,-529.95 269,-555 269,-555 269,-555 636,-572 636,-572 636,-572 652,-572 652,-572 652,-572 826,-555 826,-555 826,-555 828.6,-552.52 832.9,-548.42"/>
+<polygon fill="#61748a" stroke="#61748a" points="836.89,-544.61 834.62,-550.2 834.9,-546.51 832.91,-548.41 832.91,-548.41 832.91,-548.41 834.9,-546.51 831.2,-546.62 836.89,-544.61 836.89,-544.61"/>
+<text text-anchor="middle" x="644" y="-582.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;ADVICE_RESPONSE -->
+<g id="edge16" class="edge">
+<title>ACCOUNT USER-&gt;ADVICE_RESPONSE</title>
+<path fill="none" stroke="#61748a" d="M161.89,-438.46C158.08,-407.41 153,-366 153,-366 153,-366 153,-356 153,-356 153,-356 811,-331 811,-331 811,-331 819.63,-324.89 831.84,-316.25"/>
+<polygon fill="#61748a" stroke="#61748a" points="836.49,-312.96 833.43,-318.16 834.24,-314.55 832,-316.14 832,-316.14 832,-316.14 834.24,-314.55 830.57,-314.12 836.49,-312.96 836.49,-312.96"/>
+<text text-anchor="middle" x="161" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;ADVICE_REVIEW -->
+<g id="edge18" class="edge">
+<title>ACCOUNT USER-&gt;ADVICE_REVIEW</title>
+<path fill="none" stroke="#61748a" d="M166.87,-438.45C167.75,-404.19 169,-356 169,-356 169,-356 512,-331 512,-331 512,-331 553,-186 553,-186 553,-186 929,-161 929,-161 929,-161 929,-151 929,-151 929,-151 927.45,-143.06 925.28,-131.97"/>
+<polygon fill="#61748a" stroke="#61748a" points="924.17,-126.3 927.66,-131.23 924.7,-129 925.23,-131.7 925.23,-131.7 925.23,-131.7 924.7,-129 922.8,-132.17 924.17,-126.3 924.17,-126.3"/>
+<text text-anchor="middle" x="561" y="-256.3" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;POST_SHARE -->
+<g id="edge20" class="edge">
+<title>ACCOUNT USER-&gt;POST_SHARE</title>
+<path fill="none" stroke="#61748a" d="M168.31,-438.45C170.68,-404.19 174,-356 174,-356 174,-356 383,-331 383,-331 383,-331 388.42,-325.04 396.12,-316.56"/>
+<polygon fill="#61748a" stroke="#61748a" points="400.08,-312.21 398.21,-317.95 398.23,-314.25 396.38,-316.28 396.38,-316.28 396.38,-316.28 398.23,-314.25 394.55,-314.62 400.08,-312.21 400.08,-312.21"/>
+<text text-anchor="middle" x="182" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- POST&#45;&gt;COMMENT -->
+<g id="edge2" class="edge">
+<title>POST-&gt;COMMENT</title>
+<path fill="none" stroke="#61748a" d="M278.91,-423.95C262.55,-406.5 248,-391 248,-391 248,-391 153,-331 153,-331 153,-331 150.55,-328.46 146.57,-324.34"/>
+<polygon fill="#61748a" stroke="#61748a" points="142.52,-320.14 148.12,-322.38 144.43,-322.12 146.34,-324.1 146.34,-324.1 146.34,-324.1 144.43,-322.12 144.56,-325.82 142.52,-320.14 142.52,-320.14"/>
+<text text-anchor="middle" x="215" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- POST&#45;&gt;POST_LIKE -->
+<g id="edge5" class="edge">
+<title>POST-&gt;POST_LIKE</title>
+<path fill="none" stroke="#61748a" d="M280.03,-390.75C264.88,-362.75 248.39,-332.29 235.12,-307.77"/>
+<polygon fill="#61748a" stroke="#61748a" points="232.34,-302.63 237.14,-306.29 233.65,-305.05 234.96,-307.47 234.96,-307.47 234.96,-307.47 233.65,-305.05 232.78,-308.65 232.34,-302.63 232.34,-302.63"/>
+<text text-anchor="middle" x="275" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- POST&#45;&gt;POST_SAVE -->
+<g id="edge7" class="edge">
+<title>POST-&gt;POST_SAVE</title>
+<path fill="none" stroke="#61748a" d="M324,-390.75C324,-362.98 324,-332.8 324,-308.39"/>
+<polygon fill="#61748a" stroke="#61748a" points="324,-302.63 326.48,-308.13 324,-305.38 324,-308.13 324,-308.13 324,-308.13 324,-305.38 321.53,-308.13 324,-302.63 324,-302.63"/>
+<text text-anchor="middle" x="332" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- POST&#45;&gt;POST_TAG -->
+<g id="edge9" class="edge">
+<title>POST-&gt;POST_TAG</title>
+<path fill="none" stroke="#61748a" d="M369.14,-445.48C438.66,-404.63 564,-331 564,-331 564,-331 577.76,-314.6 592.11,-297.51"/>
+<polygon fill="#61748a" stroke="#61748a" points="595.76,-293.16 594.12,-298.96 593.99,-295.26 592.22,-297.37 592.22,-297.37 592.22,-297.37 593.99,-295.26 590.33,-295.78 595.76,-293.16 595.76,-293.16"/>
+<text text-anchor="middle" x="527" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- POST&#45;&gt;POST_SHARE -->
+<g id="edge19" class="edge">
+<title>POST-&gt;POST_SHARE</title>
+<path fill="none" stroke="#61748a" d="M369.12,-394.68C384.05,-369.09 400.4,-341.07 414.32,-317.21"/>
+<polygon fill="#61748a" stroke="#61748a" points="417.25,-312.19 416.62,-318.19 415.87,-314.56 414.48,-316.94 414.48,-316.94 414.48,-316.94 415.87,-314.56 412.34,-315.69 417.25,-312.19 417.25,-312.19"/>
+<text text-anchor="middle" x="398" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- TAG&#45;&gt;POST_TAG -->
+<g id="edge10" class="edge">
+<title>TAG-&gt;POST_TAG</title>
+<path fill="none" stroke="#61748a" d="M624,-429C624,-390.89 624,-335.73 624,-298.79"/>
+<polygon fill="#61748a" stroke="#61748a" points="624,-293.02 626.48,-298.52 624,-295.77 624,-298.52 624,-298.52 624,-298.52 624,-295.77 621.53,-298.52 624,-293.02 624,-293.02"/>
+<text text-anchor="middle" x="632" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- TAG&#45;&gt;ARTICLE_TAG -->
+<g id="edge13" class="edge">
+<title>TAG-&gt;ARTICLE_TAG</title>
+<path fill="none" stroke="#61748a" d="M648.08,-428.65C658.78,-409.4 669,-391 669,-391 669,-391 700.65,-336.95 723.37,-298.15"/>
+<polygon fill="#61748a" stroke="#61748a" points="726.37,-293.02 725.73,-299.02 724.98,-295.4 723.59,-297.77 723.59,-297.77 723.59,-297.77 724.98,-295.4 721.46,-296.52 726.37,-293.02 726.37,-293.02"/>
+<text text-anchor="middle" x="696" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- HEALTH_ARTICLE&#45;&gt;ARTICLE_TAG -->
+<g id="edge12" class="edge">
+<title>HEALTH_ARTICLE-&gt;ARTICLE_TAG</title>
+<path fill="none" stroke="#61748a" d="M747.33,-400.35C747.01,-366.35 746.64,-327.04 746.37,-298.61"/>
+<polygon fill="#61748a" stroke="#61748a" points="746.32,-293.07 748.84,-298.55 746.34,-295.82 746.37,-298.57 746.37,-298.57 746.37,-298.57 746.34,-295.82 743.89,-298.59 746.32,-293.07 746.32,-293.07"/>
+<text text-anchor="middle" x="755" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- HEALTH_QUESTION&#45;&gt;ADVICE_RESPONSE -->
+<g id="edge15" class="edge">
+<title>HEALTH_QUESTION-&gt;ADVICE_RESPONSE</title>
+<path fill="none" stroke="#61748a" d="M912,-400.35C912,-379.89 912,-357.51 912,-336.73"/>
+<polygon fill="#61748a" stroke="#61748a" points="912,-331.2 914.48,-336.7 912,-333.95 912,-336.7 912,-336.7 912,-336.7 912,-333.95 909.53,-336.7 912,-331.2 912,-331.2"/>
+<text text-anchor="middle" x="920" y="-358.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ADVICE_RESPONSE&#45;&gt;ADVICE_REVIEW -->
+<g id="edge17" class="edge">
+<title>ADVICE_RESPONSE-&gt;ADVICE_REVIEW</title>
+<path fill="none" stroke="#61748a" d="M912,-186C912,-168.39 912,-149.59 912,-132.15"/>
+<polygon fill="#61748a" stroke="#61748a" points="912,-126.29 914.48,-131.79 912,-129.04 912,-131.79 912,-131.79 912,-131.79 912,-129.04 909.53,-131.79 912,-126.29 912,-126.29"/>
+<text text-anchor="middle" x="920" y="-153.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER -->
+<g id="node1" class="node">
+<title>ACCOUNT USER</title>
+<polygon fill="#297c82" stroke="transparent" points="95,-477 95,-506 237,-506 237,-477 95,-477"/>
+<text text-anchor="start" x="102" y="-488.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ACCOUNT USER</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="95,-458 95,-477 237,-477 237,-458 95,-458"/>
+<text text-anchor="start" x="99" y="-465" font-family="Arial" font-size="10.00">REF user_id → USER.user_id</text>
+<polygon fill="white" stroke="transparent" points="95,-439 95,-458 237,-458 237,-439 95,-439"/>
+<text text-anchor="start" x="99" y="-446" font-family="Arial" font-size="10.00">email (reference only)</text>
+<polygon fill="none" stroke="#bcc9d6" points="94,-438.5 94,-507.5 238,-507.5 238,-438.5 94,-438.5"/>
+</g>
+<!-- POST -->
+<g id="node2" class="node">
+<title>POST</title>
+<polygon fill="#204467" stroke="transparent" points="280,-525 280,-554 368,-554 368,-525 280,-525"/>
+<text text-anchor="start" x="287" y="-536.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">POST</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="280,-506 280,-525 368,-525 368,-506 280,-506"/>
+<text text-anchor="start" x="284" y="-513" font-family="Arial" font-size="10.00">PK post_id</text>
+<polygon fill="white" stroke="transparent" points="280,-487 280,-506 368,-506 368,-487 280,-487"/>
+<text text-anchor="start" x="284" y="-494" font-family="Arial" font-size="10.00">FK author_user_id</text>
+<polygon fill="white" stroke="transparent" points="280,-468 280,-487 368,-487 368,-468 280,-468"/>
+<text text-anchor="start" x="284" y="-475" font-family="Arial" font-size="10.00">FK pet_id?</text>
+<polygon fill="white" stroke="transparent" points="280,-449 280,-468 368,-468 368,-449 280,-449"/>
+<text text-anchor="start" x="284" y="-456" font-family="Arial" font-size="10.00">body</text>
+<polygon fill="white" stroke="transparent" points="280,-430 280,-449 368,-449 368,-430 280,-430"/>
+<text text-anchor="start" x="284" y="-437" font-family="Arial" font-size="10.00">post_type</text>
+<polygon fill="white" stroke="transparent" points="280,-411 280,-430 368,-430 368,-411 280,-411"/>
+<text text-anchor="start" x="284" y="-418" font-family="Arial" font-size="10.00">status</text>
+<polygon fill="white" stroke="transparent" points="280,-392 280,-411 368,-411 368,-392 280,-392"/>
+<text text-anchor="start" x="284" y="-399" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="279,-391 279,-555 369,-555 369,-391 279,-391"/>
+</g>
+<!-- COMMENT -->
+<g id="node3" class="node">
+<title>COMMENT</title>
+<polygon fill="#204467" stroke="transparent" points="27,-300.5 27,-329.5 142,-329.5 142,-300.5 27,-300.5"/>
+<text text-anchor="start" x="34" y="-312.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">COMMENT</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="27,-281.5 27,-300.5 142,-300.5 142,-281.5 27,-281.5"/>
+<text text-anchor="start" x="31" y="-288.5" font-family="Arial" font-size="10.00">PK comment_id</text>
+<polygon fill="white" stroke="transparent" points="27,-262.5 27,-281.5 142,-281.5 142,-262.5 27,-262.5"/>
+<text text-anchor="start" x="31" y="-269.5" font-family="Arial" font-size="10.00">FK post_id</text>
+<polygon fill="white" stroke="transparent" points="27,-243.5 27,-262.5 142,-262.5 142,-243.5 27,-243.5"/>
+<text text-anchor="start" x="31" y="-250.5" font-family="Arial" font-size="10.00">FK author_user_id</text>
+<polygon fill="white" stroke="transparent" points="27,-224.5 27,-243.5 142,-243.5 142,-224.5 27,-224.5"/>
+<text text-anchor="start" x="31" y="-231.5" font-family="Arial" font-size="10.00">FK parent_comment_id?</text>
+<polygon fill="white" stroke="transparent" points="27,-205.5 27,-224.5 142,-224.5 142,-205.5 27,-205.5"/>
+<text text-anchor="start" x="31" y="-212.5" font-family="Arial" font-size="10.00">body</text>
+<polygon fill="white" stroke="transparent" points="27,-186.5 27,-205.5 142,-205.5 142,-186.5 27,-186.5"/>
+<text text-anchor="start" x="31" y="-193.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="25.5,-186 25.5,-331 142.5,-331 142.5,-186 25.5,-186"/>
+</g>
+<!-- POST_LIKE -->
+<g id="node4" class="node">
+<title>POST_LIKE</title>
+<polygon fill="#204467" stroke="transparent" points="164,-272.5 164,-301.5 254,-301.5 254,-272.5 164,-272.5"/>
+<text text-anchor="start" x="171" y="-284.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">POST_LIKE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="164,-253.5 164,-272.5 254,-272.5 254,-253.5 164,-253.5"/>
+<text text-anchor="start" x="168" y="-260.5" font-family="Arial" font-size="10.00">PK/FK user_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="164,-234.5 164,-253.5 254,-253.5 254,-234.5 164,-234.5"/>
+<text text-anchor="start" x="168" y="-241.5" font-family="Arial" font-size="10.00">PK/FK post_id</text>
+<polygon fill="white" stroke="transparent" points="164,-215.5 164,-234.5 254,-234.5 254,-215.5 164,-215.5"/>
+<text text-anchor="start" x="168" y="-222.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="163,-214.5 163,-302.5 255,-302.5 255,-214.5 163,-214.5"/>
+</g>
+<!-- POST_SAVE -->
+<g id="node5" class="node">
+<title>POST_SAVE</title>
+<polygon fill="#204467" stroke="transparent" points="276,-272.5 276,-301.5 372,-301.5 372,-272.5 276,-272.5"/>
+<text text-anchor="start" x="283" y="-284.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">POST_SAVE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="276,-253.5 276,-272.5 372,-272.5 372,-253.5 276,-253.5"/>
+<text text-anchor="start" x="280" y="-260.5" font-family="Arial" font-size="10.00">PK/FK user_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="276,-234.5 276,-253.5 372,-253.5 372,-234.5 276,-234.5"/>
+<text text-anchor="start" x="280" y="-241.5" font-family="Arial" font-size="10.00">PK/FK post_id</text>
+<polygon fill="white" stroke="transparent" points="276,-215.5 276,-234.5 372,-234.5 372,-215.5 276,-215.5"/>
+<text text-anchor="start" x="280" y="-222.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="275,-214.5 275,-302.5 373,-302.5 373,-214.5 275,-214.5"/>
+</g>
+<!-- USER_FOLLOW -->
+<g id="node6" class="node">
+<title>USER_FOLLOW</title>
+<polygon fill="#204467" stroke="transparent" points="1008,-487 1008,-516 1128,-516 1128,-487 1008,-487"/>
+<text text-anchor="start" x="1015" y="-498.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">USER_FOLLOW</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1008,-468 1008,-487 1128,-487 1128,-468 1008,-468"/>
+<text text-anchor="start" x="1012" y="-475" font-family="Arial" font-size="10.00">PK/FK follower_user_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1008,-449 1008,-468 1128,-468 1128,-449 1008,-449"/>
+<text text-anchor="start" x="1012" y="-456" font-family="Arial" font-size="10.00">PK/FK followed_user_id</text>
+<polygon fill="white" stroke="transparent" points="1008,-430 1008,-449 1128,-449 1128,-430 1008,-430"/>
+<text text-anchor="start" x="1012" y="-437" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="1007,-429 1007,-517 1129,-517 1129,-429 1007,-429"/>
+</g>
+<!-- TAG -->
+<g id="node7" class="node">
+<title>TAG</title>
+<polygon fill="#204467" stroke="transparent" points="590,-487 590,-516 659,-516 659,-487 590,-487"/>
+<text text-anchor="start" x="597" y="-498.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">TAG</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="590,-468 590,-487 659,-487 659,-468 590,-468"/>
+<text text-anchor="start" x="594" y="-475" font-family="Arial" font-size="10.00">PK tag_id</text>
+<polygon fill="white" stroke="transparent" points="590,-449 590,-468 659,-468 659,-449 590,-449"/>
+<text text-anchor="start" x="594" y="-456" font-family="Arial" font-size="10.00">UQ tag_name</text>
+<polygon fill="white" stroke="transparent" points="590,-430 590,-449 659,-449 659,-430 590,-430"/>
+<text text-anchor="start" x="594" y="-437" font-family="Arial" font-size="10.00">is_active</text>
+<polygon fill="none" stroke="#bcc9d6" points="588.5,-429 588.5,-517 659.5,-517 659.5,-429 588.5,-429"/>
+</g>
+<!-- POST_TAG -->
+<g id="node8" class="node">
+<title>POST_TAG</title>
+<polygon fill="#204467" stroke="transparent" points="580,-262.5 580,-291.5 668,-291.5 668,-262.5 580,-262.5"/>
+<text text-anchor="start" x="587" y="-274.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">POST_TAG</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="580,-243.5 580,-262.5 668,-262.5 668,-243.5 580,-243.5"/>
+<text text-anchor="start" x="584" y="-250.5" font-family="Arial" font-size="10.00">PK/FK post_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="580,-224.5 580,-243.5 668,-243.5 668,-224.5 580,-224.5"/>
+<text text-anchor="start" x="584" y="-231.5" font-family="Arial" font-size="10.00">PK/FK tag_id</text>
+<polygon fill="none" stroke="#bcc9d6" points="579,-224 579,-293 669,-293 669,-224 579,-224"/>
+</g>
+<!-- HEALTH_ARTICLE -->
+<g id="node9" class="node">
+<title>HEALTH_ARTICLE</title>
+<polygon fill="#204467" stroke="transparent" points="681,-515 681,-544 816,-544 816,-515 681,-515"/>
+<text text-anchor="start" x="688" y="-526.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">HEALTH_ARTICLE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="681,-496 681,-515 816,-515 816,-496 681,-496"/>
+<text text-anchor="start" x="685" y="-503" font-family="Arial" font-size="10.00">PK article_id</text>
+<polygon fill="white" stroke="transparent" points="681,-477 681,-496 816,-496 816,-477 681,-477"/>
+<text text-anchor="start" x="685" y="-484" font-family="Arial" font-size="10.00">FK author_user_id</text>
+<polygon fill="white" stroke="transparent" points="681,-458 681,-477 816,-477 816,-458 681,-458"/>
+<text text-anchor="start" x="685" y="-465" font-family="Arial" font-size="10.00">title</text>
+<polygon fill="white" stroke="transparent" points="681,-439 681,-458 816,-458 816,-439 681,-439"/>
+<text text-anchor="start" x="685" y="-446" font-family="Arial" font-size="10.00">content</text>
+<polygon fill="white" stroke="transparent" points="681,-420 681,-439 816,-439 816,-420 681,-420"/>
+<text text-anchor="start" x="685" y="-427" font-family="Arial" font-size="10.00">status</text>
+<polygon fill="white" stroke="transparent" points="681,-401 681,-420 816,-420 816,-401 681,-401"/>
+<text text-anchor="start" x="685" y="-408" font-family="Arial" font-size="10.00">published_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="679.5,-400.5 679.5,-545.5 816.5,-545.5 816.5,-400.5 679.5,-400.5"/>
+</g>
+<!-- ARTICLE_TAG -->
+<g id="node10" class="node">
+<title>ARTICLE_TAG</title>
+<polygon fill="#204467" stroke="transparent" points="692,-262.5 692,-291.5 801,-291.5 801,-262.5 692,-262.5"/>
+<text text-anchor="start" x="699" y="-274.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ARTICLE_TAG</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="692,-243.5 692,-262.5 801,-262.5 801,-243.5 692,-243.5"/>
+<text text-anchor="start" x="696" y="-250.5" font-family="Arial" font-size="10.00">PK/FK article_id</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="692,-224.5 692,-243.5 801,-243.5 801,-224.5 692,-224.5"/>
+<text text-anchor="start" x="696" y="-231.5" font-family="Arial" font-size="10.00">PK/FK tag_id</text>
+<polygon fill="none" stroke="#bcc9d6" points="690.5,-224 690.5,-293 801.5,-293 801.5,-224 690.5,-224"/>
+</g>
+<!-- HEALTH_QUESTION -->
+<g id="node11" class="node">
+<title>HEALTH_QUESTION</title>
+<polygon fill="#204467" stroke="transparent" points="838,-515 838,-544 986,-544 986,-515 838,-515"/>
+<text text-anchor="start" x="845" y="-526.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">HEALTH_QUESTION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="838,-496 838,-515 986,-515 986,-496 838,-496"/>
+<text text-anchor="start" x="842" y="-503" font-family="Arial" font-size="10.00">PK question_id</text>
+<polygon fill="white" stroke="transparent" points="838,-477 838,-496 986,-496 986,-477 838,-477"/>
+<text text-anchor="start" x="842" y="-484" font-family="Arial" font-size="10.00">FK asker_user_id</text>
+<polygon fill="white" stroke="transparent" points="838,-458 838,-477 986,-477 986,-458 838,-458"/>
+<text text-anchor="start" x="842" y="-465" font-family="Arial" font-size="10.00">FK pet_id?</text>
+<polygon fill="white" stroke="transparent" points="838,-439 838,-458 986,-458 986,-439 838,-439"/>
+<text text-anchor="start" x="842" y="-446" font-family="Arial" font-size="10.00">FK directed_to_user_id?</text>
+<polygon fill="white" stroke="transparent" points="838,-420 838,-439 986,-439 986,-420 838,-420"/>
+<text text-anchor="start" x="842" y="-427" font-family="Arial" font-size="10.00">question_text</text>
+<polygon fill="white" stroke="transparent" points="838,-401 838,-420 986,-420 986,-401 838,-401"/>
+<text text-anchor="start" x="842" y="-408" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="837,-400.5 837,-545.5 987,-545.5 987,-400.5 837,-400.5"/>
+</g>
+<!-- ADVICE_RESPONSE -->
+<g id="node12" class="node">
+<title>ADVICE_RESPONSE</title>
+<polygon fill="#204467" stroke="transparent" points="838,-300.5 838,-329.5 987,-329.5 987,-300.5 838,-300.5"/>
+<text text-anchor="start" x="845" y="-312.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ADVICE_RESPONSE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="838,-281.5 838,-300.5 987,-300.5 987,-281.5 838,-281.5"/>
+<text text-anchor="start" x="842" y="-288.5" font-family="Arial" font-size="10.00">PK response_id</text>
+<polygon fill="white" stroke="transparent" points="838,-262.5 838,-281.5 987,-281.5 987,-262.5 838,-262.5"/>
+<text text-anchor="start" x="842" y="-269.5" font-family="Arial" font-size="10.00">FK question_id</text>
+<polygon fill="white" stroke="transparent" points="838,-243.5 838,-262.5 987,-262.5 987,-243.5 838,-243.5"/>
+<text text-anchor="start" x="842" y="-250.5" font-family="Arial" font-size="10.00">FK author_user_id</text>
+<polygon fill="white" stroke="transparent" points="838,-224.5 838,-243.5 987,-243.5 987,-224.5 838,-224.5"/>
+<text text-anchor="start" x="842" y="-231.5" font-family="Arial" font-size="10.00">source_type</text>
+<polygon fill="white" stroke="transparent" points="838,-205.5 838,-224.5 987,-224.5 987,-205.5 838,-205.5"/>
+<text text-anchor="start" x="842" y="-212.5" font-family="Arial" font-size="10.00">response_text</text>
+<polygon fill="white" stroke="transparent" points="838,-186.5 838,-205.5 987,-205.5 987,-186.5 838,-186.5"/>
+<text text-anchor="start" x="842" y="-193.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="836.5,-186 836.5,-331 987.5,-331 987.5,-186 836.5,-186"/>
+</g>
+<!-- ADVICE_REVIEW -->
+<g id="node13" class="node">
+<title>ADVICE_REVIEW</title>
+<polygon fill="#204467" stroke="transparent" points="849,-96 849,-125 976,-125 976,-96 849,-96"/>
+<text text-anchor="start" x="856" y="-107.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ADVICE_REVIEW</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="849,-77 849,-96 976,-96 976,-77 849,-77"/>
+<text text-anchor="start" x="853" y="-84" font-family="Arial" font-size="10.00">PK review_id</text>
+<polygon fill="white" stroke="transparent" points="849,-58 849,-77 976,-77 976,-58 849,-58"/>
+<text text-anchor="start" x="853" y="-65" font-family="Arial" font-size="10.00">FK response_id</text>
+<polygon fill="white" stroke="transparent" points="849,-39 849,-58 976,-58 976,-39 849,-39"/>
+<text text-anchor="start" x="853" y="-46" font-family="Arial" font-size="10.00">FK reviewer_user_id</text>
+<polygon fill="white" stroke="transparent" points="849,-20 849,-39 976,-39 976,-20 849,-20"/>
+<text text-anchor="start" x="853" y="-27" font-family="Arial" font-size="10.00">rating</text>
+<polygon fill="white" stroke="transparent" points="849,-1 849,-20 976,-20 976,-1 849,-1"/>
+<text text-anchor="start" x="853" y="-8" font-family="Arial" font-size="10.00">feedback</text>
+<polygon fill="none" stroke="#bcc9d6" points="847.5,0 847.5,-126 976.5,-126 976.5,0 847.5,0"/>
+</g>
+<!-- POST_SHARE -->
+<g id="node14" class="node">
+<title>POST_SHARE</title>
+<polygon fill="#204467" stroke="transparent" points="395,-281.5 395,-310.5 502,-310.5 502,-281.5 395,-281.5"/>
+<text text-anchor="start" x="402" y="-293.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">POST_SHARE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="395,-262.5 395,-281.5 502,-281.5 502,-262.5 395,-262.5"/>
+<text text-anchor="start" x="399" y="-269.5" font-family="Arial" font-size="10.00">PK share_id</text>
+<polygon fill="white" stroke="transparent" points="395,-243.5 395,-262.5 502,-262.5 502,-243.5 395,-243.5"/>
+<text text-anchor="start" x="399" y="-250.5" font-family="Arial" font-size="10.00">FK post_id</text>
+<polygon fill="white" stroke="transparent" points="395,-224.5 395,-243.5 502,-243.5 502,-224.5 395,-224.5"/>
+<text text-anchor="start" x="399" y="-231.5" font-family="Arial" font-size="10.00">FK user_id</text>
+<polygon fill="white" stroke="transparent" points="395,-205.5 395,-224.5 502,-224.5 502,-205.5 395,-205.5"/>
+<text text-anchor="start" x="399" y="-212.5" font-family="Arial" font-size="10.00">shared_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="393.5,-205 393.5,-312 502.5,-312 502.5,-205 393.5,-205"/>
+</g>
+</g>
+</g>
+  <g transform="translate(1565.0,698.1) scale(1.18000)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 837.5)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-18,18 -18,-837.5 632,-837.5 632,18 -18,18"/>
+<text text-anchor="middle" x="307" y="-800.3" font-family="Arial" font-size="19.00" fill="#23324d">Moderation &amp; Oversight  |  PetMed Sprint II</text>
+<!-- ACCOUNT USER&#45;&gt;REPORT -->
+<g id="edge1" class="edge">
+<title>ACCOUNT USER-&gt;REPORT</title>
+<path fill="none" stroke="#61748a" d="M144.2,-539.5C167.21,-539.5 192.35,-539.5 214.2,-539.5"/>
+<polygon fill="#61748a" stroke="#61748a" points="219.97,-539.5 214.47,-541.98 217.22,-539.5 214.47,-539.5 214.47,-539.5 214.47,-539.5 217.22,-539.5 214.47,-537.03 219.97,-539.5 219.97,-539.5"/>
+<text text-anchor="middle" x="182" y="-545.3" font-family="Arial" font-size="9.00">1:M (reporter)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;MODERATION_CASE -->
+<g id="edge3" class="edge">
+<title>ACCOUNT USER-&gt;MODERATION_CASE</title>
+<path fill="none" stroke="#61748a" d="M87.08,-504.99C106.28,-462.3 137,-394 137,-394 137,-394 161.55,-376.45 189.71,-356.33"/>
+<polygon fill="#61748a" stroke="#61748a" points="194.25,-353.08 191.22,-358.29 192.01,-354.67 189.78,-356.27 189.78,-356.27 189.78,-356.27 192.01,-354.67 188.34,-354.26 194.25,-353.08 194.25,-353.08"/>
+<text text-anchor="middle" x="167.5" y="-396.8" font-family="Arial" font-size="9.00">1:M (assignee)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;MODERATION_ACTION -->
+<g id="edge5" class="edge">
+<title>ACCOUNT USER-&gt;MODERATION_ACTION</title>
+<path fill="none" stroke="#61748a" d="M114.53,-504.75C155.08,-472.58 210,-429 210,-429 210,-429 267,-394 267,-394 267,-394 360,-369 360,-369 360,-369 360,-224 360,-224 360,-224 344,-198.36 325.64,-168.95"/>
+<polygon fill="#61748a" stroke="#61748a" points="322.68,-164.2 327.69,-167.56 324.14,-166.54 325.59,-168.87 325.59,-168.87 325.59,-168.87 324.14,-166.54 323.49,-170.18 322.68,-164.2 322.68,-164.2"/>
+<text text-anchor="middle" x="382" y="-294.3" font-family="Arial" font-size="9.00">1:M (actor)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;SYSTEM_SETTING -->
+<g id="edge6" class="edge">
+<title>ACCOUNT USER-&gt;SYSTEM_SETTING</title>
+<path fill="none" stroke="#61748a" d="M115.29,-574.16C155.76,-606.57 210,-650 210,-650 210,-650 252.5,-662 252.5,-662 252.5,-662 301.5,-662 301.5,-662 301.5,-662 334,-650 334,-650 334,-650 348.31,-630.23 364.83,-607.42"/>
+<polygon fill="#61748a" stroke="#61748a" points="368.16,-602.82 366.94,-608.72 366.55,-605.05 364.93,-607.27 364.93,-607.27 364.93,-607.27 366.55,-605.05 362.93,-605.82 368.16,-602.82 368.16,-602.82"/>
+<text text-anchor="middle" x="277" y="-677.8" font-family="Arial" font-size="9.00">1:M (admin)</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;AUDIT_EVENT -->
+<g id="edge7" class="edge">
+<title>ACCOUNT USER-&gt;AUDIT_EVENT</title>
+<path fill="none" stroke="#61748a" d="M110.89,-574.28C151.4,-610.49 209,-662 209,-662 209,-662 225,-662 225,-662 225,-662 494,-650 494,-650 494,-650 502.51,-635.53 513.38,-617.06"/>
+<polygon fill="#61748a" stroke="#61748a" points="516.19,-612.28 515.53,-618.28 514.79,-614.65 513.4,-617.02 513.4,-617.02 513.4,-617.02 514.79,-614.65 511.27,-615.77 516.19,-612.28 516.19,-612.28"/>
+<text text-anchor="middle" x="217" y="-677.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- REPORT&#45;&gt;MODERATION_CASE -->
+<g id="edge2" class="edge">
+<title>REPORT-&gt;MODERATION_CASE</title>
+<path fill="none" stroke="#61748a" d="M272,-428.93C272,-410.72 272,-392.18 272,-374.98"/>
+<polygon fill="#61748a" stroke="#61748a" points="272,-369.2 274.48,-374.7 272,-371.95 272,-374.7 272,-374.7 272,-374.7 272,-371.95 269.53,-374.7 272,-369.2 272,-369.2"/>
+<text text-anchor="middle" x="280" y="-396.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- MODERATION_CASE&#45;&gt;MODERATION_ACTION -->
+<g id="edge4" class="edge">
+<title>MODERATION_CASE-&gt;MODERATION_ACTION</title>
+<path fill="none" stroke="#61748a" d="M272,-223.85C272,-206.49 272,-187.75 272,-169.77"/>
+<polygon fill="#61748a" stroke="#61748a" points="272,-164.22 274.48,-169.72 272,-166.97 272,-169.72 272,-169.72 272,-169.72 272,-166.97 269.53,-169.72 272,-164.22 272,-164.22"/>
+<text text-anchor="middle" x="280" y="-191.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER -->
+<g id="node1" class="node">
+<title>ACCOUNT USER</title>
+<polygon fill="#297c82" stroke="transparent" points="1,-543.5 1,-572.5 143,-572.5 143,-543.5 1,-543.5"/>
+<text text-anchor="start" x="8" y="-555.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ACCOUNT USER</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1,-524.5 1,-543.5 143,-543.5 143,-524.5 1,-524.5"/>
+<text text-anchor="start" x="5" y="-531.5" font-family="Arial" font-size="10.00">REF user_id → USER.user_id</text>
+<polygon fill="white" stroke="transparent" points="1,-505.5 1,-524.5 143,-524.5 143,-505.5 1,-505.5"/>
+<text text-anchor="start" x="5" y="-512.5" font-family="Arial" font-size="10.00">email (reference only)</text>
+<polygon fill="none" stroke="#bcc9d6" points="0,-505 0,-574 144,-574 144,-505 0,-505"/>
+</g>
+<!-- REPORT -->
+<g id="node2" class="node">
+<title>REPORT</title>
+<polygon fill="#204467" stroke="transparent" points="221,-619.5 221,-648.5 323,-648.5 323,-619.5 221,-619.5"/>
+<text text-anchor="start" x="228" y="-631.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">REPORT</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="221,-600.5 221,-619.5 323,-619.5 323,-600.5 221,-600.5"/>
+<text text-anchor="start" x="225" y="-607.5" font-family="Arial" font-size="10.00">PK report_id</text>
+<polygon fill="white" stroke="transparent" points="221,-581.5 221,-600.5 323,-600.5 323,-581.5 221,-581.5"/>
+<text text-anchor="start" x="225" y="-588.5" font-family="Arial" font-size="10.00">FK reporter_user_id</text>
+<polygon fill="white" stroke="transparent" points="221,-562.5 221,-581.5 323,-581.5 323,-562.5 221,-562.5"/>
+<text text-anchor="start" x="225" y="-569.5" font-family="Arial" font-size="10.00">FK post_id?</text>
+<polygon fill="white" stroke="transparent" points="221,-543.5 221,-562.5 323,-562.5 323,-543.5 221,-543.5"/>
+<text text-anchor="start" x="225" y="-550.5" font-family="Arial" font-size="10.00">FK comment_id?</text>
+<polygon fill="white" stroke="transparent" points="221,-524.5 221,-543.5 323,-543.5 323,-524.5 221,-524.5"/>
+<text text-anchor="start" x="225" y="-531.5" font-family="Arial" font-size="10.00">FK reported_user_id?</text>
+<polygon fill="white" stroke="transparent" points="221,-505.5 221,-524.5 323,-524.5 323,-505.5 221,-505.5"/>
+<text text-anchor="start" x="225" y="-512.5" font-family="Arial" font-size="10.00">FK response_id?</text>
+<polygon fill="white" stroke="transparent" points="221,-486.5 221,-505.5 323,-505.5 323,-486.5 221,-486.5"/>
+<text text-anchor="start" x="225" y="-493.5" font-family="Arial" font-size="10.00">FK product_id?</text>
+<polygon fill="white" stroke="transparent" points="221,-467.5 221,-486.5 323,-486.5 323,-467.5 221,-467.5"/>
+<text text-anchor="start" x="225" y="-474.5" font-family="Arial" font-size="10.00">reason</text>
+<polygon fill="white" stroke="transparent" points="221,-448.5 221,-467.5 323,-467.5 323,-448.5 221,-448.5"/>
+<text text-anchor="start" x="225" y="-455.5" font-family="Arial" font-size="10.00">status</text>
+<polygon fill="white" stroke="transparent" points="221,-429.5 221,-448.5 323,-448.5 323,-429.5 221,-429.5"/>
+<text text-anchor="start" x="225" y="-436.5" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="220,-429 220,-650 324,-650 324,-429 220,-429"/>
+</g>
+<!-- MODERATION_CASE -->
+<g id="node3" class="node">
+<title>MODERATION_CASE</title>
+<polygon fill="#204467" stroke="transparent" points="196,-338.5 196,-367.5 349,-367.5 349,-338.5 196,-338.5"/>
+<text text-anchor="start" x="203" y="-350.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">MODERATION_CASE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="196,-319.5 196,-338.5 349,-338.5 349,-319.5 196,-319.5"/>
+<text text-anchor="start" x="200" y="-326.5" font-family="Arial" font-size="10.00">PK case_id</text>
+<polygon fill="white" stroke="transparent" points="196,-300.5 196,-319.5 349,-319.5 349,-300.5 196,-300.5"/>
+<text text-anchor="start" x="200" y="-307.5" font-family="Arial" font-size="10.00">FK report_id</text>
+<polygon fill="white" stroke="transparent" points="196,-281.5 196,-300.5 349,-300.5 349,-281.5 196,-281.5"/>
+<text text-anchor="start" x="200" y="-288.5" font-family="Arial" font-size="10.00">FK assigned_moderator_id?</text>
+<polygon fill="white" stroke="transparent" points="196,-262.5 196,-281.5 349,-281.5 349,-262.5 196,-262.5"/>
+<text text-anchor="start" x="200" y="-269.5" font-family="Arial" font-size="10.00">case_status</text>
+<polygon fill="white" stroke="transparent" points="196,-243.5 196,-262.5 349,-262.5 349,-243.5 196,-243.5"/>
+<text text-anchor="start" x="200" y="-250.5" font-family="Arial" font-size="10.00">opened_at</text>
+<polygon fill="white" stroke="transparent" points="196,-224.5 196,-243.5 349,-243.5 349,-224.5 196,-224.5"/>
+<text text-anchor="start" x="200" y="-231.5" font-family="Arial" font-size="10.00">closed_at?</text>
+<polygon fill="none" stroke="#bcc9d6" points="194.5,-224 194.5,-369 349.5,-369 349.5,-224 194.5,-224"/>
+</g>
+<!-- MODERATION_ACTION -->
+<g id="node4" class="node">
+<title>MODERATION_ACTION</title>
+<polygon fill="#204467" stroke="transparent" points="188,-134 188,-163 356,-163 356,-134 188,-134"/>
+<text text-anchor="start" x="195" y="-145.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">MODERATION_ACTION</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="188,-115 188,-134 356,-134 356,-115 188,-115"/>
+<text text-anchor="start" x="192" y="-122" font-family="Arial" font-size="10.00">PK action_id</text>
+<polygon fill="white" stroke="transparent" points="188,-96 188,-115 356,-115 356,-96 188,-96"/>
+<text text-anchor="start" x="192" y="-103" font-family="Arial" font-size="10.00">FK case_id</text>
+<polygon fill="white" stroke="transparent" points="188,-77 188,-96 356,-96 356,-77 188,-77"/>
+<text text-anchor="start" x="192" y="-84" font-family="Arial" font-size="10.00">FK actor_user_id</text>
+<polygon fill="white" stroke="transparent" points="188,-58 188,-77 356,-77 356,-58 188,-58"/>
+<text text-anchor="start" x="192" y="-65" font-family="Arial" font-size="10.00">FK target_user_id?</text>
+<polygon fill="white" stroke="transparent" points="188,-39 188,-58 356,-58 356,-39 188,-39"/>
+<text text-anchor="start" x="192" y="-46" font-family="Arial" font-size="10.00">action_type</text>
+<polygon fill="white" stroke="transparent" points="188,-20 188,-39 356,-39 356,-20 188,-20"/>
+<text text-anchor="start" x="192" y="-27" font-family="Arial" font-size="10.00">reason</text>
+<polygon fill="white" stroke="transparent" points="188,-1 188,-20 356,-20 356,-1 188,-1"/>
+<text text-anchor="start" x="192" y="-8" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="187,0 187,-164 357,-164 357,0 187,0"/>
+</g>
+<!-- SYSTEM_SETTING -->
+<g id="node5" class="node">
+<title>SYSTEM_SETTING</title>
+<polygon fill="#204467" stroke="transparent" points="345,-572.5 345,-601.5 483,-601.5 483,-572.5 345,-572.5"/>
+<text text-anchor="start" x="352" y="-584.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">SYSTEM_SETTING</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="345,-553.5 345,-572.5 483,-572.5 483,-553.5 345,-553.5"/>
+<text text-anchor="start" x="349" y="-560.5" font-family="Arial" font-size="10.00">PK setting_id</text>
+<polygon fill="white" stroke="transparent" points="345,-534.5 345,-553.5 483,-553.5 483,-534.5 345,-534.5"/>
+<text text-anchor="start" x="349" y="-541.5" font-family="Arial" font-size="10.00">UQ setting_key</text>
+<polygon fill="white" stroke="transparent" points="345,-515.5 345,-534.5 483,-534.5 483,-515.5 345,-515.5"/>
+<text text-anchor="start" x="349" y="-522.5" font-family="Arial" font-size="10.00">setting_value</text>
+<polygon fill="white" stroke="transparent" points="345,-496.5 345,-515.5 483,-515.5 483,-496.5 345,-496.5"/>
+<text text-anchor="start" x="349" y="-503.5" font-family="Arial" font-size="10.00">updated_at</text>
+<polygon fill="white" stroke="transparent" points="345,-477.5 345,-496.5 483,-496.5 483,-477.5 345,-477.5"/>
+<text text-anchor="start" x="349" y="-484.5" font-family="Arial" font-size="10.00">FK updated_by_user_id</text>
+<polygon fill="none" stroke="#bcc9d6" points="344,-476.5 344,-602.5 484,-602.5 484,-476.5 344,-476.5"/>
+</g>
+<!-- AUDIT_EVENT -->
+<g id="node6" class="node">
+<title>AUDIT_EVENT</title>
+<polygon fill="#204467" stroke="transparent" points="505,-581.5 505,-610.5 613,-610.5 613,-581.5 505,-581.5"/>
+<text text-anchor="start" x="512" y="-593.3" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">AUDIT_EVENT</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="505,-562.5 505,-581.5 613,-581.5 613,-562.5 505,-562.5"/>
+<text text-anchor="start" x="509" y="-569.5" font-family="Arial" font-size="10.00">PK audit_id</text>
+<polygon fill="white" stroke="transparent" points="505,-543.5 505,-562.5 613,-562.5 613,-543.5 505,-543.5"/>
+<text text-anchor="start" x="509" y="-550.5" font-family="Arial" font-size="10.00">FK actor_user_id</text>
+<polygon fill="white" stroke="transparent" points="505,-524.5 505,-543.5 613,-543.5 613,-524.5 505,-524.5"/>
+<text text-anchor="start" x="509" y="-531.5" font-family="Arial" font-size="10.00">event_type</text>
+<polygon fill="white" stroke="transparent" points="505,-505.5 505,-524.5 613,-524.5 613,-505.5 505,-505.5"/>
+<text text-anchor="start" x="509" y="-512.5" font-family="Arial" font-size="10.00">entity_name</text>
+<polygon fill="white" stroke="transparent" points="505,-486.5 505,-505.5 613,-505.5 613,-486.5 505,-486.5"/>
+<text text-anchor="start" x="509" y="-493.5" font-family="Arial" font-size="10.00">entity_id</text>
+<polygon fill="white" stroke="transparent" points="505,-467.5 505,-486.5 613,-486.5 613,-467.5 505,-467.5"/>
+<text text-anchor="start" x="509" y="-474.5" font-family="Arial" font-size="10.00">occurred_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="504,-467 504,-612 614,-612 614,-467 504,-467"/>
+</g>
+</g>
+</g>
+  <g transform="translate(65.0,1960.2) scale(1.18000)"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 604)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-18,18 -18,-604 659,-604 659,18 -18,18"/>
+<text text-anchor="middle" x="320.5" y="-566.8" font-family="Arial" font-size="19.00" fill="#23324d">Catalog &amp; Reference  |  PetMed Sprint II</text>
+<!-- ACCOUNT USER&#45;&gt;PRODUCT_REVIEW -->
+<g id="edge2" class="edge">
+<title>ACCOUNT USER-&gt;PRODUCT_REVIEW</title>
+<path fill="none" stroke="#61748a" d="M90.91,-290.49C108.59,-259.17 135.73,-211.06 159.44,-169.05"/>
+<polygon fill="#61748a" stroke="#61748a" points="162.17,-164.22 161.62,-170.23 160.82,-166.61 159.46,-169.01 159.46,-169.01 159.46,-169.01 160.82,-166.61 157.31,-167.79 162.17,-164.22 162.17,-164.22"/>
+<text text-anchor="middle" x="157" y="-191.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER&#45;&gt;HEALTH_RESOURCE -->
+<g id="edge3" class="edge">
+<title>ACCOUNT USER-&gt;HEALTH_RESOURCE</title>
+<path fill="none" stroke="#61748a" d="M100.22,-359.76C123.94,-388.97 154,-426 154,-426 154,-426 200,-440 200,-440 200,-440 216,-440 216,-440 216,-440 262,-426 262,-426 262,-426 266.94,-420.26 274.47,-411.52"/>
+<polygon fill="#61748a" stroke="#61748a" points="278.36,-407 276.65,-412.79 276.57,-409.09 274.77,-411.17 274.77,-411.17 274.77,-411.17 276.57,-409.09 272.9,-409.55 278.36,-407 278.36,-407"/>
+<text text-anchor="middle" x="208" y="-453.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- PRODUCT&#45;&gt;PRODUCT_REVIEW -->
+<g id="edge1" class="edge">
+<title>PRODUCT-&gt;PRODUCT_REVIEW</title>
+<path fill="none" stroke="#61748a" d="M208,-252.34C208,-226.44 208,-196.9 208,-169.83"/>
+<polygon fill="#61748a" stroke="#61748a" points="208,-164.1 210.48,-169.6 208,-166.85 208,-169.6 208,-169.6 208,-169.6 208,-166.85 205.53,-169.6 208,-164.1 208,-164.1"/>
+<text text-anchor="middle" x="216" y="-191.8" font-family="Arial" font-size="9.00">1:M</text>
+</g>
+<!-- ACCOUNT USER -->
+<g id="node1" class="node">
+<title>ACCOUNT USER</title>
+<polygon fill="#297c82" stroke="transparent" points="1,-329 1,-358 143,-358 143,-329 1,-329"/>
+<text text-anchor="start" x="8" y="-340.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">ACCOUNT USER</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="1,-310 1,-329 143,-329 143,-310 1,-310"/>
+<text text-anchor="start" x="5" y="-317" font-family="Arial" font-size="10.00">REF user_id → USER.user_id</text>
+<polygon fill="white" stroke="transparent" points="1,-291 1,-310 143,-310 143,-291 1,-291"/>
+<text text-anchor="start" x="5" y="-298" font-family="Arial" font-size="10.00">email (reference only)</text>
+<polygon fill="none" stroke="#bcc9d6" points="0,-290.5 0,-359.5 144,-359.5 144,-290.5 0,-290.5"/>
+</g>
+<!-- PRODUCT -->
+<g id="node2" class="node">
+<title>PRODUCT</title>
+<polygon fill="#204467" stroke="transparent" points="166,-367 166,-396 251,-396 251,-367 166,-367"/>
+<text text-anchor="start" x="173" y="-378.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PRODUCT</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="166,-348 166,-367 251,-367 251,-348 166,-348"/>
+<text text-anchor="start" x="170" y="-355" font-family="Arial" font-size="10.00">PK product_id</text>
+<polygon fill="white" stroke="transparent" points="166,-329 166,-348 251,-348 251,-329 166,-329"/>
+<text text-anchor="start" x="170" y="-336" font-family="Arial" font-size="10.00">UQ product_code</text>
+<polygon fill="white" stroke="transparent" points="166,-310 166,-329 251,-329 251,-310 166,-310"/>
+<text text-anchor="start" x="170" y="-317" font-family="Arial" font-size="10.00">name</text>
+<polygon fill="white" stroke="transparent" points="166,-291 166,-310 251,-310 251,-291 166,-291"/>
+<text text-anchor="start" x="170" y="-298" font-family="Arial" font-size="10.00">description</text>
+<polygon fill="white" stroke="transparent" points="166,-272 166,-291 251,-291 251,-272 166,-272"/>
+<text text-anchor="start" x="170" y="-279" font-family="Arial" font-size="10.00">usage_guidance</text>
+<polygon fill="white" stroke="transparent" points="166,-253 166,-272 251,-272 251,-253 166,-253"/>
+<text text-anchor="start" x="170" y="-260" font-family="Arial" font-size="10.00">is_active</text>
+<polygon fill="none" stroke="#bcc9d6" points="164.5,-252.5 164.5,-397.5 251.5,-397.5 251.5,-252.5 164.5,-252.5"/>
+</g>
+<!-- PRODUCT_REVIEW -->
+<g id="node3" class="node">
+<title>PRODUCT_REVIEW</title>
+<polygon fill="#204467" stroke="transparent" points="136,-134 136,-163 280,-163 280,-134 136,-134"/>
+<text text-anchor="start" x="143" y="-145.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">PRODUCT_REVIEW</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="136,-115 136,-134 280,-134 280,-115 136,-115"/>
+<text text-anchor="start" x="140" y="-122" font-family="Arial" font-size="10.00">PK review_id</text>
+<polygon fill="white" stroke="transparent" points="136,-96 136,-115 280,-115 280,-96 136,-96"/>
+<text text-anchor="start" x="140" y="-103" font-family="Arial" font-size="10.00">FK product_id</text>
+<polygon fill="white" stroke="transparent" points="136,-77 136,-96 280,-96 280,-77 136,-77"/>
+<text text-anchor="start" x="140" y="-84" font-family="Arial" font-size="10.00">FK reviewer_user_id</text>
+<polygon fill="white" stroke="transparent" points="136,-58 136,-77 280,-77 280,-58 136,-58"/>
+<text text-anchor="start" x="140" y="-65" font-family="Arial" font-size="10.00">rating</text>
+<polygon fill="white" stroke="transparent" points="136,-39 136,-58 280,-58 280,-39 136,-39"/>
+<text text-anchor="start" x="140" y="-46" font-family="Arial" font-size="10.00">review_text</text>
+<polygon fill="white" stroke="transparent" points="136,-20 136,-39 280,-39 280,-20 136,-20"/>
+<text text-anchor="start" x="140" y="-27" font-family="Arial" font-size="10.00">is_active</text>
+<polygon fill="white" stroke="transparent" points="136,-1 136,-20 280,-20 280,-1 136,-1"/>
+<text text-anchor="start" x="140" y="-8" font-family="Arial" font-size="10.00">created_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="135,0 135,-164 281,-164 281,0 135,0"/>
+</g>
+<!-- MEDICATION_REFERENCE -->
+<g id="node4" class="node">
+<title>MEDICATION_REFERENCE</title>
+<polygon fill="#204467" stroke="transparent" points="448,-396 448,-425 640,-425 640,-396 448,-396"/>
+<text text-anchor="start" x="455" y="-407.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">MEDICATION_REFERENCE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="448,-377 448,-396 640,-396 640,-377 448,-377"/>
+<text text-anchor="start" x="452" y="-384" font-family="Arial" font-size="10.00">PK medication_ref_id</text>
+<polygon fill="white" stroke="transparent" points="448,-358 448,-377 640,-377 640,-358 448,-358"/>
+<text text-anchor="start" x="452" y="-365" font-family="Arial" font-size="10.00">UQ medication_code</text>
+<polygon fill="white" stroke="transparent" points="448,-339 448,-358 640,-358 640,-339 448,-339"/>
+<text text-anchor="start" x="452" y="-346" font-family="Arial" font-size="10.00">name</text>
+<polygon fill="white" stroke="transparent" points="448,-320 448,-339 640,-339 640,-320 448,-320"/>
+<text text-anchor="start" x="452" y="-327" font-family="Arial" font-size="10.00">uses</text>
+<polygon fill="white" stroke="transparent" points="448,-301 448,-320 640,-320 640,-301 448,-301"/>
+<text text-anchor="start" x="452" y="-308" font-family="Arial" font-size="10.00">dosage_guidance</text>
+<polygon fill="white" stroke="transparent" points="448,-282 448,-301 640,-301 640,-282 448,-282"/>
+<text text-anchor="start" x="452" y="-289" font-family="Arial" font-size="10.00">warnings</text>
+<polygon fill="white" stroke="transparent" points="448,-263 448,-282 640,-282 640,-263 448,-263"/>
+<text text-anchor="start" x="452" y="-270" font-family="Arial" font-size="10.00">side_effects</text>
+<polygon fill="white" stroke="transparent" points="448,-244 448,-263 640,-263 640,-244 448,-244"/>
+<text text-anchor="start" x="452" y="-251" font-family="Arial" font-size="10.00">source</text>
+<polygon fill="white" stroke="transparent" points="448,-225 448,-244 640,-244 640,-225 448,-225"/>
+<text text-anchor="start" x="452" y="-232" font-family="Arial" font-size="10.00">last_reviewed_at</text>
+<polygon fill="none" stroke="#bcc9d6" points="447,-224 447,-426 641,-426 641,-224 447,-224"/>
+</g>
+<!-- HEALTH_RESOURCE -->
+<g id="node5" class="node">
+<title>HEALTH_RESOURCE</title>
+<polygon fill="#204467" stroke="transparent" points="273,-377 273,-406 426,-406 426,-377 273,-377"/>
+<text text-anchor="start" x="280" y="-388.8" font-family="Arial" font-weight="bold" font-size="14.00" fill="white">HEALTH_RESOURCE</text>
+<polygon fill="#f2f7fc" stroke="transparent" points="273,-358 273,-377 426,-377 426,-358 273,-358"/>
+<text text-anchor="start" x="277" y="-365" font-family="Arial" font-size="10.00">PK resource_id</text>
+<polygon fill="white" stroke="transparent" points="273,-339 273,-358 426,-358 426,-339 273,-339"/>
+<text text-anchor="start" x="277" y="-346" font-family="Arial" font-size="10.00">FK author_user_id?</text>
+<polygon fill="white" stroke="transparent" points="273,-320 273,-339 426,-339 426,-320 273,-320"/>
+<text text-anchor="start" x="277" y="-327" font-family="Arial" font-size="10.00">title</text>
+<polygon fill="white" stroke="transparent" points="273,-301 273,-320 426,-320 426,-301 273,-301"/>
+<text text-anchor="start" x="277" y="-308" font-family="Arial" font-size="10.00">resource_type</text>
+<polygon fill="white" stroke="transparent" points="273,-282 273,-301 426,-301 426,-282 273,-282"/>
+<text text-anchor="start" x="277" y="-289" font-family="Arial" font-size="10.00">body</text>
+<polygon fill="white" stroke="transparent" points="273,-263 273,-282 426,-282 426,-263 273,-263"/>
+<text text-anchor="start" x="277" y="-270" font-family="Arial" font-size="10.00">keywords</text>
+<polygon fill="white" stroke="transparent" points="273,-244 273,-263 426,-263 426,-244 273,-244"/>
+<text text-anchor="start" x="277" y="-251" font-family="Arial" font-size="10.00">is_active</text>
+<polygon fill="none" stroke="#bcc9d6" points="271.5,-243 271.5,-407 426.5,-407 426.5,-243 271.5,-243"/>
+</g>
+</g>
+</g>
+  <text x="65" y="2844" font-size="17" font-family="Arial" fill="#48657a">ACCOUNT USER copies are reference aliases to the one USER table. FK fields marked ? are optional. PK/FK pairs represent composite primary keys.</text>
+</svg>
