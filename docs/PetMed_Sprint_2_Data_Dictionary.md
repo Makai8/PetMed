@@ -115,20 +115,20 @@ Description: Stores a treatment or care plan for a pet.
 | start_date | Treatment start date. | DATE | None | No | Valid date |
 | end_date | Treatment end date. | DATE | None | No | Valid date; on/after start_date |
 
-## 10. MEDICATION_RECORD
+## 10. PET_MEDICATION
 
-Description: Stores medication details associated with a pet and optionally a treatment.
+Description: Stores medications a pet is taking, with dosage and schedule; optionally linked to a medication reference entry.
 
 | Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
 | --- | --- | --- | --- | --- | --- |
-| medication_id | Unique medication record identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
-| pet_id | Pet associated with the medication. | INT UNSIGNED | FK → PET.pet_id | Yes | Existing pet |
-| treatment_id | Related treatment, when applicable. | INT UNSIGNED | FK → TREATMENT.treatment_id | No | Existing treatment or null |
-| medication_name | Medication name. | VARCHAR(150) | None | Yes | Non-empty text |
-| dose | Dose amount and/or unit as entered. | VARCHAR(100) | None | No | Text; standardize units if possible |
-| frequency | How often medication is given. | VARCHAR(100) | None | No | Text or controlled schedule |
-| start_date | Medication start date. | DATE | None | No | Valid date |
-| end_date | Medication end date. | DATE | None | No | Valid date; on/after start_date |
+| pet_medication_id | Unique pet medication record identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| pet_id | Pet taking the medication. | INT UNSIGNED | FK → PET.pet_id | Yes | Existing pet |
+| medication_ref_id | Related medication reference entry, when one exists. | INT UNSIGNED | FK → MEDICATION_REFERENCE.reference_id | No | Existing reference entry or null |
+| name | Medication name as entered by the owner. | VARCHAR(150) | None | Yes | Non-empty text |
+| dosage | Dose amount and unit. | VARCHAR(100) | None | Yes | Text; e.g. 10 mg |
+| frequency | How often the medication is given. | VARCHAR(100) | None | Yes | Text or controlled schedule; e.g. twice daily |
+| start_date | Medication start date. | DATE | None | Yes | Valid date |
+| end_date | Medication end date. | DATE | None | No | Valid date; on/after start_date; null if ongoing |
 
 ## 11. REMINDER
 
@@ -138,7 +138,7 @@ Description: Stores a scheduled reminder for an owner, optionally linked to a me
 | --- | --- | --- | --- | --- | --- |
 | reminder_id | Unique reminder identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
 | pet_id | Pet the reminder concerns. | INT UNSIGNED | FK → PET.pet_id | Yes | Existing pet |
-| medication_id | Related medication, if applicable. | INT UNSIGNED | FK → MEDICATION_RECORD.medication_id | No | Existing medication record or null |
+| pet_medication_id | Related pet medication, if applicable. | INT UNSIGNED | FK → PET_MEDICATION.pet_medication_id | No | Existing pet medication record or null |
 | owner_id | User receiving/owning the reminder. | INT UNSIGNED | FK → USER.user_id | Yes | Should be the pet's owner |
 | due_at | Date and time the reminder is due. | DATETIME | None | Yes | Valid date/time |
 | reminder_type | Type of reminder. | VARCHAR(30) | None | Yes | Agree on values; e.g. medication, appointment, treatment, general |
@@ -419,6 +419,92 @@ Description: Stores reference information about medications.
 | warnings | Warnings and safety information. | TEXT | None | Yes | Text; confirm if warnings may be blank |
 | source_url | URL of the source used for the reference. | VARCHAR(2048) | None | Yes | Valid URL; confirm if a source URL is mandatory |
 | last_reviewed_at | Date and time the reference was last reviewed. | DATETIME | None | No | Valid date/time; null until reviewed |
+
+## 35. USER_ROLE
+
+Description: Associates users with roles; resolves the many-to-many relationship so a user can hold more than one role.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| user_id | User receiving the role. | INT UNSIGNED | PK, FK → USER.user_id | Yes | Existing user; part of composite primary key |
+| role_id | Role assigned to the user. | INT UNSIGNED | PK, FK → ROLE.role_id | Yes | Existing role; part of composite primary key |
+| assigned_at | Date and time the role was assigned. | DATETIME | None | Yes | Valid date/time; default CURRENT_TIMESTAMP recommended |
+
+## 36. VERIFICATION_REVIEW
+
+Description: Records each administrator decision on a professional profile, keeping a history of verification reviews.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| review_id | Unique verification review identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| profile_id | Professional profile being reviewed. | INT UNSIGNED | FK → PROFESSIONAL_PROFILE.profile_id | Yes | Existing profile |
+| admin_user_id | Administrator who made the decision. | INT UNSIGNED | FK → USER.user_id | Yes | Existing user with the administrator role |
+| decision | Outcome of the review. | VARCHAR(20) | None | Yes | approved, rejected, suspended, revoked (confirm with team) |
+| reviewed_at | Date and time the decision was made. | DATETIME | None | Yes | Valid date/time |
+| notes | Reason or comments supporting the decision. | TEXT | None | No | Text |
+
+## 37. USER_RESTRICTION
+
+Description: Stores warnings, suspensions, and other limits placed on a user as the result of a moderation action.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| restriction_id | Unique restriction identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| user_id | User who is restricted. | INT UNSIGNED | FK → USER.user_id | Yes | Existing user |
+| action_id | Moderation action that created the restriction. | INT UNSIGNED | FK → MODERATION_ACTION.action_id | Yes | Existing moderation action |
+| starts_at | Date and time the restriction begins. | DATETIME | None | Yes | Valid date/time |
+| ends_at | Date and time the restriction ends. | DATETIME | None | No | Later than starts_at; null for an indefinite restriction |
+| status | Current restriction state. | VARCHAR(20) | None | Yes | active, expired, lifted (confirm with team) |
+
+## 38. ADVICE_REVIEW
+
+Description: Stores a user's rating and feedback on an advice response.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| review_id | Unique advice review identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| response_id | Advice response being reviewed. | INT UNSIGNED | FK → ADVICE_RESPONSE.response_id | Yes | Existing advice response |
+| reviewer_user_id | User who wrote the review. | INT UNSIGNED | FK → USER.user_id | Yes | Existing user; one review per user per response |
+| rating | Rating given to the advice. | TINYINT | None | Yes | Whole number from 1 to 5 |
+| feedback | Written feedback on the advice. | TEXT | None | No | Text |
+
+## 39. POST_SHARE
+
+Description: Records each time a user shares a community post.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| share_id | Unique share identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| post_id | Post that was shared. | INT UNSIGNED | FK → POST.post_id | Yes | Existing post |
+| user_id | User who shared the post. | INT UNSIGNED | FK → USER.user_id | Yes | Existing user |
+| shared_at | Date and time the post was shared. | DATETIME | None | Yes | Valid date/time; default CURRENT_TIMESTAMP recommended |
+
+## 40. AUDIT_EVENT
+
+Description: Keeps a permanent log of important system actions for accountability.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| audit_id | Unique audit event identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| actor_user_id | User who performed the action. | INT UNSIGNED | FK → USER.user_id | Yes | Existing user |
+| event_type | Type of action performed. | VARCHAR(50) | None | Yes | e.g. create, update, delete, login, role_change |
+| entity_name | Table affected by the action. | VARCHAR(50) | None | Yes | Name of an existing table |
+| entity_id | Identifier of the affected record. | INT UNSIGNED | None | Yes | Not a foreign key because it can refer to any table |
+| occurred_at | Date and time the action occurred. | DATETIME | None | Yes | Valid date/time; records are never updated or deleted |
+
+## 41. HEALTH_RESOURCE
+
+Description: Stores searchable pet-health reference material such as guides, FAQs, and condition overviews.
+
+| Field Name | Description | Data Type | Key | Required | Allowed Values / Constraints |
+| --- | --- | --- | --- | --- | --- |
+| resource_id | Unique health resource identifier. | INT UNSIGNED | PK | Yes | Auto-increment |
+| author_user_id | User who wrote the resource, if any. | INT UNSIGNED | FK → USER.user_id | No | Existing user; null for system-provided content |
+| title | Resource title. | VARCHAR(200) | None | Yes | Non-empty text |
+| resource_type | Category of resource. | VARCHAR(30) | None | Yes | guide, faq, condition, symptom, medication (confirm with team) |
+| body | Main content of the resource. | TEXT | None | Yes | Non-empty text |
+| keywords | Search terms for the resource. | VARCHAR(500) | None | No | Comma-separated text |
+| is_active | Whether the resource is visible. | BOOLEAN | None | Yes | TRUE/FALSE; default TRUE recommended |
 
 Key Abbreviations
 
