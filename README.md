@@ -554,7 +554,7 @@ Meetings
 - [ ] Add more rules found while reviewing the requirements
 - [ ] Save in `docs/`
 
-## 6. Review and Revise - David
+## 6. Review and Revise - David B
 - [ ] Check for missing entities
 - [ ] Check for duplicate data
 - [ ] Check for missing relationships
