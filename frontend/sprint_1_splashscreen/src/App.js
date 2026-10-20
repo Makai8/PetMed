@@ -28,7 +28,7 @@ function App() {
             </p>
 
             <div className="hero-actions">
-              <button type="button" className="primary-button">Get Started</button>
+              <button type="button" className="primary-button">Get Started Here!</button>
               <button type="button" className="secondary-button">Learn More</button>
             </div>
 

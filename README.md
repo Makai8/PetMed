@@ -475,3 +475,128 @@ Meetings
 - [ ] GitHub repository link
 - [ ] Presentation
 - [ ] Meeting documentation
+
+
+# Sprint 2
+
+# SPRINT 2 – Database Design
+
+## 0. Team Setup
+- [ ] Confirm Scrum Master for Sprint 2
+- [ ] Schedule meetings spread across the sprint (not all near the deadline)
+- [ ] Hold at least 2 face-to-face meetings
+- [ ] Take a photo at each face-to-face meeting and add the photos to GitHub
+- [ ] Keep meeting documentation (date, attendees, decisions, action items)
+- [ ] Pick the ERD tool (draw.io, Lucidchart, dbdiagram.io, etc.) and share it with everyone
+- [ ] Assign each team member a section of the ERD, data dictionary, or business rules
+
+## 1. Review Functional Requirements and Sprint 1 UI - TEAM
+- [ ] Reread the full Functional Requirements (all five roles, not just the Sprint 1 use cases)
+- [ ] Reread the "Additional System Requirements" (multiple pets per owner, advice source labels, verified badges, searchable health content, product listings, notifications)
+- [ ] Go through the Sprint 1 screens and list the data each screen shows or collects
+- [ ] Write a master list of data the system must store
+- [ ] Note requirements that are unclear and questions for the instructor
+
+## 2. Create the ERD - DP
+- [ ] Identify entities. Candidates from the requirements:
+  - [ ] User / Role / Permission
+  - [ ] Professional profile and verification (credentials, specialty, status)
+  - [ ] Pet (species, breed, age, weight, allergies, conditions)
+  - [ ] Symptom / health event log
+  - [ ] Medication / treatment record and Reminder
+  - [ ] Post, Comment, Like, Save, Follow
+  - [ ] Category / Tag (and an associative entity linking tags to posts)
+  - [ ] Health question / advice response (with source type: Community, Expert, or Veterinarian)
+  - [ ] Veterinary referral (in-person care recommendation and reason)
+  - [ ] Data-sharing authorization (owner permits a vet to view symptom history)
+  - [ ] Report, Moderation Case, Moderation Action (warnings, restrictions)
+  - [ ] Notification and Message
+  - [ ] Product, Product Review, Medication Reference information
+  - [ ] System Setting (supported pet types, reminder rules, content policies)
+- [ ] Add attributes for each entity
+- [ ] Mark primary keys
+- [ ] Add foreign keys
+- [ ] Draw relationships with cardinality (1:1, 1:M, M:M)
+- [ ] Resolve all many-to-many relationships with associative entities
+- [ ] Make sure the ERD covers the complete system, not only Sprint 1 screens
+- [ ] Make sure the ERD is readable by another developer
+- [ ] Save the ERD image/file in `docs/`
+
+## 3. Verify the ERD Supports the Functional Requirements - Makel
+- [ ] Check every Pet Owner requirement against the ERD
+- [ ] Check every Veterinarian requirement
+- [ ] Check every Pet Health Expert requirement
+- [ ] Check every Community Moderator requirement
+- [ ] Check every Administrator requirement
+- [ ] Check the All Roles requirements (registration, profile, notifications, messaging)
+- [ ] Check the Additional System Requirements
+- [ ] Avoid creating one entity per use case (store only the data a use case needs)
+- [ ] Pick 3+ important use cases to demo in the presentation and trace the data each uses
+
+## 4. Create the Data Dictionary - Makai
+- [ ] Create a table for every entity in the ERD
+- [ ] For each field, list: name, description, data type, key (PK/FK/none), required or optional
+- [ ] Make sure FK fields match the PK they reference
+- [ ] Make sure data types are consistent (IDs, dates, status values)
+- [ ] Define allowed values for status/type fields (verification status, advice source type, report status, etc.)
+- [ ] Save in `docs/`
+
+## 5. Identify Business Rules - Miles
+- [ ] Write business rules for the database, for example:
+  - [ ] User email must be unique
+  - [ ] A pet belongs to exactly one owner; an owner can have many pets
+  - [ ] A comment must belong to a post
+  - [ ] A post belongs to one creator
+  - [ ] Vet/Expert professional privileges are enabled only after admin verification
+  - [ ] Advice must be labeled with its source type
+  - [ ] A vet can view a pet's symptom history only when the owner authorizes it
+  - [ ] Only moderators/admins can close moderation cases
+- [ ] Add more rules found while reviewing the requirements
+- [ ] Save in `docs/`
+
+## 6. Review and Revise - David
+- [ ] Check for missing entities
+- [ ] Check for duplicate data
+- [ ] Check for missing relationships
+- [ ] Check cardinality
+- [ ] Check for missing foreign keys
+- [ ] Check for attributes stored in the wrong entity
+- [ ] Check for use-case data not represented
+- [ ] Remove unnecessary entities or attributes
+- [ ] Record changes made after reviewing the Sprint 1 UI designs
+- [ ] List open design questions to resolve before implementation (Sprint 3)
+- [ ] Update the final ERD and data dictionary after review
+
+## 7. GitHub Requirements
+- [ ] ER diagram is in the repository
+- [ ] Data dictionary is in the repository
+- [ ] Business rules are in the repository
+- [ ] Supporting database design documentation is in the repository
+- [ ] Meeting documentation and face-to-face meeting photos are in the repository
+- [ ] Every team member makes at least one meaningful commit from their own account
+- [ ] Every team member pulls the current repository during the sprint
+- [ ] Repository link is ready to submit
+
+## 8. Presentation
+- [ ] Explain the overall database design
+- [ ] Show the complete ERD
+- [ ] Identify the major entities and what each represents
+- [ ] Explain important relationships and cardinalities
+- [ ] Show how the database supports 3+ use cases
+- [ ] Show the data dictionary and explain several important fields
+- [ ] Explain at least 3 business rules
+- [ ] Identify changes made after reviewing the Sprint 1 UI designs
+- [ ] Identify open questions before database implementation
+- [ ] Show the Sprint 2 materials in GitHub
+- [ ] Assign who presents each section and do one practice run
+
+## 9. Final Submission
+- [ ] Complete ER diagram
+- [ ] Data dictionary
+- [ ] Database business rules
+- [ ] GitHub repository link
+- [ ] Presentation
+- [ ] Meeting documentation
+
+## Do NOT (Sprint 2 restrictions)
+- [ ] Do not create database tables, MySQL scripts, or database application code (implementation is Sprint 3)
