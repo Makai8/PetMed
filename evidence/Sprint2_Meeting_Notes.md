@@ -7,9 +7,9 @@
 
 ## Meeting 1 – Sprint Planning (face-to-face)
 
-**Date:** October 12, 2026 [Confirm]
+**Date:** October 12, 2026 
 **Format:** Face-to-face (photo: `evidence/team meeting 01.jpeg`)
-**Attendees:** David, Makai, Makhel, Miles, Dorien Parris [confirm]
+**Attendees:** David, Makai, Makhel, Miles, Dorien Parris 
 
 **Discussion**
 - Reviewed the Sprint Cycle II requirements for the database design.
@@ -34,9 +34,9 @@
 
 ## Meeting 2 – Business Rules, User Roles and ERD Approach (face-to-face)
 
-**Date:** October 14, 2026 [Confirm]
+**Date:** October 14, 2026 
 **Format:** Face-to-face (photo: `evidence/team meeting 02.jpeg`)
-**Attendees:** David, Makai, Makhel, Miles, Dorien Parris [confirm]
+**Attendees:** David, Makai, Makhel, Miles, Dorien Parris 
 
 **Discussion**
 - Reviewed the draft business rules.
