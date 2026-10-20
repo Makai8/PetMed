@@ -227,7 +227,7 @@ Description: Stores a health question submitted by a user, optionally about a pe
 | created_at | Date/time question was submitted. | DATETIME | None | Yes | Valid date/time |
 | status | Question state. | VARCHAR(20) | None | Yes | Suggested: open, answered, closed; confirm with team |
 
-## 19. ADVICE_RESPONSE
+## 19. ADVICE_RESPONSES
 
 Description: Stores an answer to a health question and labels its source.
 
