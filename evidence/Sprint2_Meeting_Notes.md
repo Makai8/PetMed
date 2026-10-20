@@ -7,7 +7,7 @@
 
 ## Meeting 1 – Sprint Planning (face-to-face)
 
-**Date:** October 12, 2026 [confirm]
+**Date:** October 12, 2026 [Confirm]
 **Format:** Face-to-face (photo: `evidence/team meeting 01.jpeg`)
 **Attendees:** David, Makai, Makhel, Miles, Dorien Parris [confirm]
 
@@ -34,7 +34,7 @@
 
 ## Meeting 2 – Business Rules, User Roles and ERD Approach (face-to-face)
 
-**Date:** [date]
+**Date:** October 14, 2026 [Confirm]
 **Format:** Face-to-face (photo: `evidence/team meeting 02.jpeg`)
 **Attendees:** David, Makai, Makhel, Miles, Dorien Parris [confirm]
 
