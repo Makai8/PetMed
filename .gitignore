@@ -1,0 +1,11 @@
+# Local editor configuration may contain database credentials.
+/.vscode/
+
+# Local SQLTools session, not a project database script.
+/MySQL local.session.sql
+
+# Microsoft Office temporary lock files.
+~$*
+
+# Generated frontend build output.
+/frontend/sprint_1_splashscreen/build/

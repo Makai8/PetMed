@@ -1,16 +1,338 @@
-# React + Vite
+# PetMed Frontends
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This folder contains two React projects. Run commands in the folder for the version you want:
 
-Currently, two official plugins are available:
+| Version | Folder from repository root | Start command | Address |
+|---|---|---|---|
+| Vite frontend (local PetMed homepage changes) | `frontend` | `npm run dev` | `http://localhost:5173` |
+| Sprint 1 splash screen | `frontend/sprint_1_splashscreen` | `npm start` | `http://localhost:3000` |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Run `npm install` in the chosen folder if dependencies are missing. Both projects support `npm run build`; the Vite frontend also supports `npm run lint`.
 
-## React Compiler
+In PowerShell, use `npm.cmd` in place of `npm` if execution policy blocks `npm.ps1`; changing execution policy is not necessary.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Database setup is documented in [the backend README](../backend/README.md), and login checks are in [CHECK_MYSQL_LOGIN.md](../backend/CHECK_MYSQL_LOGIN.md).
 
-## Expanding the ESLint configuration
+The instructions below apply specifically to the Sprint 1 splash screen.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Running the PetMed Sprint 1 Splash Screen
+
+The React application is located at:
+
+```text
+frontend/sprint_1_splashscreen
+```
+
+Before running the project, make sure Node.js and npm are installed.
+
+Check Node.js:
+
+```bash
+node --version
+```
+
+Check npm:
+
+```bash
+npm --version
+```
+
+If either command is not recognized, install the LTS version of Node.js from:
+
+```text
+https://nodejs.org/
+```
+
+npm is included with Node.js.
+
+---
+
+# Git Bash Instructions
+
+Open Git Bash inside the main PetMed repository folder.
+
+## Step 1 - Pull the latest version from GitHub
+
+```bash
+git pull origin main
+```
+
+## Step 2 - Go to the Sprint 1 splash screen
+
+```bash
+cd frontend/sprint_1_splashscreen
+```
+
+## Step 3 - Confirm the project files are present
+
+```bash
+pwd
+ls
+```
+
+You should see:
+
+```text
+package.json
+public/
+src/
+README.md
+```
+
+## Step 4 - Install the required packages
+
+```bash
+npm install
+```
+
+The first installation may take several minutes.
+
+Warnings may appear during installation. If the installation completes successfully, continue to the next step.
+
+## Step 5 - Start the React application
+
+```bash
+npm start
+```
+
+A successful start should display:
+
+```text
+Compiled successfully!
+
+You can now view petmed-frontend in the browser.
+
+Local: http://localhost:3000
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+in your browser.
+
+## Git Bash - Full Copy-and-Paste Commands
+
+```bash
+git pull origin main
+cd frontend/sprint_1_splashscreen
+pwd
+ls
+npm install
+npm start
+```
+
+## Git Bash - Quick Start After Dependencies Are Installed
+
+After `npm install` has already been completed once:
+
+```bash
+git pull origin main
+cd frontend/sprint_1_splashscreen
+npm start
+```
+
+To stop the development server, press:
+
+```text
+Ctrl + C
+```
+
+---
+
+# PowerShell Instructions
+
+Open PowerShell inside the main PetMed repository folder.
+
+## Step 1 - Pull the latest version from GitHub
+
+```powershell
+git pull origin main
+```
+
+## Step 2 - Go to the Sprint 1 splash screen
+
+```powershell
+cd frontend\sprint_1_splashscreen
+```
+
+## Step 3 - Confirm the project files are present
+
+```powershell
+Get-Location
+Get-ChildItem
+```
+
+You should see:
+
+```text
+package.json
+public
+src
+README.md
+```
+
+## Step 4 - Install the required packages
+
+```powershell
+npm install
+```
+
+Wait for the installation to finish.
+
+## Step 5 - Start the React application
+
+```powershell
+npm start
+```
+
+A successful start should display:
+
+```text
+Compiled successfully!
+
+You can now view petmed-frontend in the browser.
+
+Local: http://localhost:3000
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+in your browser.
+
+## PowerShell - Full Copy-and-Paste Commands
+
+```powershell
+git pull origin main
+cd frontend\sprint_1_splashscreen
+Get-Location
+Get-ChildItem
+npm install
+npm start
+```
+
+## PowerShell - Quick Start After Dependencies Are Installed
+
+```powershell
+git pull origin main
+cd frontend\sprint_1_splashscreen
+npm start
+```
+
+To stop the development server, press:
+
+```text
+Ctrl + C
+```
+
+---
+
+# Troubleshooting
+
+## package.json Not Found
+
+If you receive an error similar to:
+
+```text
+npm error code ENOENT
+npm error enoent Could not read package.json
+```
+
+you are probably running npm from the wrong folder.
+
+The correct project folder is:
+
+```text
+frontend/sprint_1_splashscreen
+```
+
+### Git Bash
+
+```bash
+cd frontend/sprint_1_splashscreen
+ls
+```
+
+### PowerShell
+
+```powershell
+cd frontend\sprint_1_splashscreen
+Get-ChildItem
+```
+
+Make sure `package.json` appears before running:
+
+```bash
+npm install
+npm start
+```
+
+---
+
+# Git Bash Path Note
+
+Git Bash uses forward slashes.
+
+Windows path:
+
+```text
+C:\Users\YourName\GitHub\PetMed
+```
+
+Git Bash equivalent:
+
+```text
+/c/Users/YourName/GitHub/PetMed
+```
+
+If Git Bash is already opened inside the PetMed repository, you do not need to type the full computer-specific path.
+
+You can simply run:
+
+```bash
+git pull origin main
+cd frontend/sprint_1_splashscreen
+npm install
+npm start
+```
+
+---
+
+# Sprint Cycle I Verification
+
+The PetMed React splash screen was successfully tested using:
+
+```bash
+npm install
+npm start
+```
+
+The development server returned:
+
+```text
+Compiled successfully!
+```
+
+and the application was available at:
+
+```text
+http://localhost:3000
+```
+
+This verifies that the React frontend environment is working correctly.
+
+
+# PowerShell blocks npm.ps1
+
+Use the Windows command wrapper in the Sprint 1 folder:
+
+```powershell
+npm.cmd install
+npm.cmd start
+```
