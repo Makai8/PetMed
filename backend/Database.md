@@ -1,6 +1,6 @@
 ## Database Setup (MySQL)
 
-PetMed uses a **MySQL** database named `petmed`. The full schema (41 tables, 69 foreign keys and the business-rule checks) is in [`backend/PetMedDB.sql`](backend/PetMedDB.sql) and matches the Sprint 2 ERD.
+PetMed uses a **MySQL** database named `petmed`. The full schema (41 tables, 69 foreign keys and the business-rule checks) is in [`backend/PetMedDB.sql`](PetMedDB.sql) and matches the Sprint 2 ERD.
 
 ### 1. Install the tools
 

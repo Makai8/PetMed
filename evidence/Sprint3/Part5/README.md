@@ -1,7 +1,7 @@
 # Sprint Cycle III — Part 5: Demonstrate Database Queries
 
 These screenshots record queries executed against the local PetMed MySQL database.
-The database scripts are in [backend](../../../backend/): [schema](../../../backend/PetMedDB.sql), [sample data](../../../backend/seed.sql), and [queries](../../../backend/queries.sql).
+The database scripts are in [backend](../../../backend/): [schema](../../../backend/PetMedDB.sql), [sample data](../../../backend/seed.sql), and [queries](../../../backend/queries.sql). The full presentation set, including the use cases and practice queries, is in [presentation_queries.sql](../../../backend/presentation_queries.sql).
 
 ## A–C: Retrieve/search, related data, and add data
 
@@ -26,3 +26,5 @@ The second screenshot demonstrates Bella's weight before and after an UPDATE:
 ## E: Instructor query
 
 The instructor-requested query is a live presentation requirement. These screenshots provide evidence for A–D; they do not complete E in advance.
+
+To prepare, the team practiced the queries at the end of [presentation_queries.sql](../../../backend/presentation_queries.sql). They need all three sample data files loaded (see [backend/README.md](../../../backend/README.md), step 7).

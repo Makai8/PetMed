@@ -1,6 +1,6 @@
 ## Database Setup (MySQL)
 
-PetMed uses a **MySQL** database named `petmed`. The full schema (41 tables, 69 foreign keys and the business-rule checks) is in [`backend/PetMedDB.sql`](backend/PetMedDB.sql) and matches the Sprint 2 ERD.
+PetMed uses a **MySQL** database named `petmed`. The full schema (41 tables, 69 foreign keys and the business-rule checks) is in [`backend/PetMedDB.sql`](PetMedDB.sql) and matches the Sprint 2 ERD.
 
 ### 1. Install the tools
 
@@ -14,8 +14,11 @@ PetMed uses a **MySQL** database named `petmed`. The full schema (41 tables, 69 
 Run this in PowerShell, then restart VS Code:
 
 ```powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\MySQL\MySQL Server 26.10\bin", "User")
+$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+[Environment]::SetEnvironmentVariable("Path", "$userPath;C:\Program Files\MySQL\MySQL Server 26.10\bin", "User")
 ```
+
+To use it right away without restarting, also run: `$env:Path += ";C:\Program Files\MySQL\MySQL Server 26.10\bin"`
 
 ### 3. Save your login (one time)
 
@@ -45,7 +48,30 @@ It should print **41**. To open a prompt inside the database, run `mysql --login
 
 ### 6. Browse it in VS Code
 
-Open the **SQLTools** sidebar and connect with **PetMed local**, which is defined in `.vscode/settings.json` and asks for your own password. To set up your own connection instead, use host `localhost`, port `3306`, database `petmed` and user `root`.
+In the **SQLTools** sidebar, add a new **MySQL** connection with host `localhost`, port `3306`, database `petmed` and user `root`. Leave the password empty and choose **Ask on connect**, so it is never saved to a file. Your editor settings in `.vscode/` stay on your own computer and are not committed.
+
+### 7. Load the sample data
+
+From the `backend` folder, run these **in this order** after step 4:
+
+```powershell
+Get-Content .\seed.sql -Raw | mysql --login-path=petmed
+Get-Content .\sample_data_health_records.sql -Raw | mysql --login-path=petmed
+Get-Content .\sample_data_more.sql -Raw | mysql --login-path=petmed
+```
+
+| File | What it adds |
+|---|---|
+| [`seed.sql`](seed.sql) | 8 users in 5 roles, 6 pets, symptoms, posts, comments, questions, products |
+| [`sample_data_health_records.sql`](sample_data_health_records.sql) | Pet allergies, conditions and medications |
+| [`sample_data_more.sql`](sample_data_more.sql) | Everything else, so **all 41 tables** have data: permissions, vet profiles, treatments, reminders, record sharing, tags, likes, articles, answers, reviews, reports and moderation |
+
+To start over with clean data, drop the database (step 4), then run step 4 and these three files again.
+
+### 8. Run the queries
+
+- [`queries.sql`](queries.sql): search, related data, add, modify and business-rule tests. Explained with expected results in [`QUERIES.md`](QUERIES.md).
+- [`presentation_queries.sql`](presentation_queries.sql): the Sprint III presentation queries (A–D, the 3 use cases, the 3 rules and practice queries). It needs all three sample data files loaded.
 
 ### Running the database
 
@@ -97,6 +123,87 @@ Get-Content .\your_file.sql -Raw | mysql --login-path=petmed petmed
 | `Access denied for user 'root'@'localhost'` | Wrong password. Re-run the `mysql_config_editor set` command from step 3. |
 | `'mysql' is not recognized` | MySQL isn't on your PATH yet. Do step 2, then restart VS Code. |
 | `Unknown database 'petmed'` | The database hasn't been created yet. Do step 4. |
+
+### Common SQL commands
+
+Run these at the `mysql>` prompt (`mysql --login-path=petmed petmed`). Every SQL statement ends with a **semicolon** `;`, and text values go in **single quotes** `'like this'`.
+
+**Look around**
+
+```sql
+SHOW TABLES;              -- list all 41 tables
+DESCRIBE Pet;             -- show a table's columns and types
+SELECT * FROM Pet;        -- show every row and column in a table
+```
+
+**Add rows (INSERT)**
+
+```sql
+-- A new user (user_id is assigned automatically, starting at 87370000)
+INSERT INTO User (email, password_hash, full_name, account_status)
+VALUES ('maya@petmed.com', 'hashed_pw', 'Maya Lopez', 'active');
+
+-- A pet owned by that user (pet_id starts at 7380000)
+INSERT INTO Pet (owner_user_id, name, species, breed, birth_date, weight)
+VALUES ((SELECT user_id FROM User WHERE email = 'maya@petmed.com'),
+        'Rex', 'dog', 'Labrador', '2021-04-12', 30.5);
+
+-- A symptom for that pet
+INSERT INTO Symptom_Log (pet_id, symptom, severity, observed_at, notes)
+VALUES ((SELECT pet_id FROM Pet WHERE name = 'Rex'),
+        'vomiting', 'mild', '2026-11-01 08:30:00', 'After breakfast');
+```
+
+**Find rows (SELECT)**
+
+```sql
+-- Pick columns, filter with WHERE, sort with ORDER BY
+SELECT name, species, weight FROM Pet WHERE species = 'dog' ORDER BY name;
+
+-- Pattern match: % means "anything"
+SELECT full_name, email FROM User WHERE email LIKE '%@petmed.com';
+
+-- Only the first few rows
+SELECT * FROM Pet ORDER BY weight DESC LIMIT 5;
+
+-- Count rows per group
+SELECT species, COUNT(*) AS total FROM Pet GROUP BY species;
+```
+
+**Combine tables (JOIN)**
+
+```sql
+-- Each pet with its owner's name
+SELECT u.full_name AS owner, p.name AS pet, p.species
+FROM Pet p
+JOIN User u ON u.user_id = p.owner_user_id;
+
+-- A pet's symptom history, newest first
+SELECT p.name, s.symptom, s.severity, s.observed_at
+FROM Symptom_Log s
+JOIN Pet p ON p.pet_id = s.pet_id
+WHERE p.name = 'Rex'
+ORDER BY s.observed_at DESC;
+```
+
+**Change rows (UPDATE)**
+
+```sql
+UPDATE Pet SET weight = 31.2 WHERE name = 'Rex';
+UPDATE User SET account_status = 'suspended' WHERE email = 'maya@petmed.com';
+```
+
+**Remove rows (DELETE)**
+
+```sql
+-- Delete child rows before their parent: symptoms, then the pet, then the user.
+-- The database blocks deleting a user who still owns a pet.
+DELETE FROM Symptom_Log WHERE symptom = 'vomiting';
+DELETE FROM Pet WHERE name = 'Rex';
+DELETE FROM User WHERE email = 'maya@petmed.com';
+```
+
+> ⚠️ **Always include a `WHERE` on `UPDATE` and `DELETE`.** Without one, the command changes or deletes **every row** in the table.
 
 ### ID numbering
 
