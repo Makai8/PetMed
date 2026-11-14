@@ -16,6 +16,7 @@ function Home() {
 
         <nav className="main-nav" aria-label="Main navigation">
           <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
           <a href="#about">About</a>
           <a href="#help">Help</a>
           <a href="#contact">Contact Us</a>

@@ -40,7 +40,8 @@ class PetMedTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.client = create_app().test_client()
+        cls.app = create_app()
+        cls.client = cls.app.test_client()
 
     def login(self, email, password=PASSWORD):
         return self.client.post("/api/login", json={"email": email, "password": password})
@@ -127,6 +128,42 @@ class TestWebsiteAccess(PetMedTestCase):
     def test_other_sites_are_not_allowed(self):
         res = self.client.get("/api/health", headers={"Origin": "http://evil.example"})
         self.assertIsNone(res.headers.get("Access-Control-Allow-Origin"))
+
+
+class TestSignUp(PetMedTestCase):
+    NEW_EMAIL = "test.signup@petmed.com"
+
+    def tearDown(self):
+        # Remove the test account so the other tests still see 8 users
+        from db import execute, query_one
+        with self.app.app_context():
+            row = query_one("SELECT user_id FROM User WHERE email = %s", (self.NEW_EMAIL,))
+            if row:
+                execute("DELETE FROM User_Role WHERE user_id = %s", (row["user_id"],))
+                execute("DELETE FROM User WHERE user_id = %s", (row["user_id"],))
+
+    def signup(self, **fields):
+        body = {"full_name": "Test Owner", "email": self.NEW_EMAIL, "password": "Pets2026"}
+        body.update(fields)
+        return self.client.post("/api/signup", json=body)
+
+    def test_new_pet_owner_can_sign_up_and_then_sign_in(self):
+        res = self.signup()
+        self.assertEqual(res.status_code, 201)
+        self.assertEqual(res.get_json()["role"], "pet_owner")
+        self.assertEqual(self.login(self.NEW_EMAIL, "Pets2026").status_code, 200)
+
+    def test_email_already_used_is_rejected(self):
+        res = self.signup(email=OWNER)
+        self.assertEqual(res.status_code, 409)
+
+    def test_weak_password_is_rejected(self):
+        self.assertEqual(self.signup(password="short1").status_code, 400)
+        self.assertEqual(self.signup(password="nonumbers").status_code, 400)
+
+    def test_missing_name_or_bad_email_is_rejected(self):
+        self.assertEqual(self.signup(full_name="").status_code, 400)
+        self.assertEqual(self.signup(email="not-an-email").status_code, 400)
 
 
 class TestRetrieval(PetMedTestCase):

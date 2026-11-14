@@ -3,6 +3,7 @@ import { AuthProvider } from './auth/AuthContext.jsx'
 import RequireRole from './auth/RequireRole.jsx'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import CommunityFeed from './pages/CommunityFeed.jsx'
 import HealthQuestions from './pages/HealthQuestions.jsx'
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
 
           {/* Pet Owner */}

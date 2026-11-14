@@ -80,6 +80,9 @@ function Login() {
           </button>
         </form>
 
+        <p className="login-switch">
+          New to PetMed? <Link to="/signup">Create an account</Link>
+        </p>
         <Link to="/" className="login-back">Back to home</Link>
       </div>
     </div>

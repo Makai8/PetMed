@@ -10,7 +10,7 @@
 4. Start the API: `python src/app.py`, then check <http://localhost:4000/api/health> shows `"users_in_database": 8`.
 5. Start the website: `cd frontend`, then `npm run dev`. Open <http://localhost:5173>.
 6. Keep a MySQL prompt open in a third terminal: `mysql -u root -p petmed`.
-7. Run the tests once: `python -m pytest tests -v` should end with **19 passed**.
+7. Run the tests once: `python -m pytest tests -v` should end with **23 passed**.
 
 Every sample account uses the password **`PetMed123!`**.
 
@@ -21,6 +21,7 @@ Every sample account uses the password **`PetMed123!`**.
 | 1 | GitHub | Open the repo, then **Insights → Contributors** (or the commit list) | Sprint IV commits from all five members |
 | 2 | Invalid sign-in | Click **Log In**, use `maya.johnson@petmed.com` with password `wrong` | "Invalid email or password." |
 | 3 | Suspended account | Sign in as `sofia.ramirez@petmed.com` with the right password | "This account is suspended." |
+| 3b | Sign up (optional) | Click **Create an account**, sign up as a new pet owner | Lands on the Pet Owner dashboard; the new user appears in Manage Users |
 | 4 | Administrator | `daniel.owens@petmed.com`, then **Manage Users**. Search `carter`, then Role = Veterinarian, then Status = Suspended | 8 users; Dr. James Carter; 2 vets; Sofia Ramirez |
 | 5 | Pet Owner | `maya.johnson@petmed.com`, then **Community Feed**. Search `garlic`, then clear it and click **#nutrition** | 8 posts; 1 post; 4 posts |
 | 6 | Authorization (website) | Still as Maya, type `http://localhost:5173/admin/users` in the address bar | Access denied page |
@@ -29,7 +30,7 @@ Every sample account uses the password **`PetMed123!`**.
 | 9 | Pet Health Expert | `kevin.nguyen@petmed.com`, then **Questions in My Expertise** | Specialty Nutrition: 2 questions sent to Kevin, 4 posts tagged #nutrition |
 | 10 | Community Moderator | `tasha.brooks@petmed.com`, then **Reported Posts and Advice**. Switch the filters | 2 open reports (the garlic post and the cooked-bones advice); Resolved shows the older one |
 | 11 | Real database | In the MySQL prompt run the INSERT below, then refresh Maya's feed | The new post appears at the top |
-| 12 | Tests | Run `python -m pytest tests -v` | 19 passed |
+| 12 | Tests | Run `python -m pytest tests -v` | 23 passed |
 
 Use **Log Out** between roles.
 
@@ -73,5 +74,5 @@ DELETE FROM Post WHERE body = 'Live demo: Bella says hi to the class!';
 - [ ] Wrong password is rejected; suspended account is rejected
 - [ ] Each role's feature shows the expected data (table above)
 - [ ] Another role's page shows Access denied, and the API answers 403 (step 7)
-- [ ] `python -m pytest tests -v` shows 19 passed
+- [ ] `python -m pytest tests -v` shows 23 passed
 - [ ] **Every member** has pulled and run the app on their own computer and saved a screenshot to `evidence/Sprint4/` (for example `evidence/Sprint4/miles-running.png`)

@@ -72,6 +72,7 @@ Every sample account uses the demo password **`PetMed123!`** (the database store
 | Endpoint | Allowed role | File |
 |---|---|---|
 | `POST /api/login`, `GET /api/me` | anyone / any signed-in user | `auth.py` |
+| `POST /api/signup` (creates a Pet Owner account) | anyone | `routes/signup.py` |
 | `GET /api/admin/users?q=&role=&status=` | administrator | `routes/admin.py` |
 | `GET /api/feed?q=&tag=` | pet_owner | `routes/owner.py` |
 | `GET /api/vet/questions?show=all\|mine\|open\|unanswered&q=` | veterinarian | `routes/vet.py` |
@@ -96,4 +97,4 @@ With the database rebuilt (step 1) and `src/.env` filled in:
 python -m pytest tests -v
 ```
 
-19 tests cover sign-in for every role, rejected sign-ins, the role checks on every feature, and the data each feature returns.
+23 tests cover sign-in for every role, rejected sign-ins, sign up, the role checks on every feature, and the data each feature returns.

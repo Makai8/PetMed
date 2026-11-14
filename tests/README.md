@@ -5,6 +5,7 @@
 | Group | What it proves |
 |---|---|
 | Sign-in | Each of the five roles signs in and the right role comes back; wrong password, unknown email, empty form and a suspended account are rejected |
+| Sign up | A new Pet Owner can sign up and then sign in; a used email, a weak password, a missing name and a bad email are rejected (the test account is deleted afterward) |
 | Authorization | No token or a fake token gets 401; each feature answers 200 for its own role and 403 for the other four; only the website's address may call the API |
 | Retrieval | Each feature returns the expected rows from MySQL (user search, feed search and topic filter, vet question filters, expert specialty, reported content filters) |
 
@@ -14,4 +15,4 @@ Run from the repository root, after rebuilding the database with all five script
 python -m pytest tests -v
 ```
 
-The tests only read data, so you can run them as often as you like.
+The tests leave the data as they found it, so you can run them as often as you like.

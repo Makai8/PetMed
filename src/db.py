@@ -58,3 +58,17 @@ def query(sql, params=()):
 def query_one(sql, params=()):
     rows = query(sql, params)
     return rows[0] if rows else None
+
+
+def execute(sql, params=()):
+    """Run an INSERT, UPDATE or DELETE, save it, and return the new row's id."""
+    conn = get_db()
+    if config.DB_ENGINE == "sqlite":
+        cur = conn.execute(sql.replace("%s", "?"), tuple(params))
+    else:
+        cur = conn.cursor()
+        cur.execute(sql, tuple(params))
+    new_id = cur.lastrowid
+    cur.close()
+    conn.commit()
+    return new_id

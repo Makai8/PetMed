@@ -24,6 +24,25 @@ export async function apiGet(path, token) {
   }
 }
 
+// Sends JSON to the API (used by sign up). Same reply shape as apiGet.
+export async function apiPost(path, body) {
+  try {
+    const response = await fetch(`${API_URL}/api${path}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+    const data = await response.json().catch(() => ({}))
+    return { ok: response.ok, status: response.status, data }
+  } catch {
+    return {
+      ok: false,
+      status: 0,
+      data: { message: 'Cannot reach the PetMed API. Start it with: python src/app.py' },
+    }
+  }
+}
+
 // "2026-10-28 10:00:00" -> "Oct 28, 2026"
 export function formatDate(value) {
   if (!value) return ''

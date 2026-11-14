@@ -104,6 +104,22 @@
   text-decoration: none;
 }
 
+.login-switch {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.login-switch a {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.login-hint {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .denied-icon {
   font-size: 3.5rem;
 }
