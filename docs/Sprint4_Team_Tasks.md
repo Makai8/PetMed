@@ -2,61 +2,133 @@
 
 **Scrum Master:** Dorien Parris · **Presentation:** Tuesday, November 17, 2026
 
-David already pushed the website foundation (sign-in page, role dashboards, route guards, log out). The steps below add the database API and turn each role's placeholder page into a working, database-backed page. Every member commits and pushes their own part **from their own GitHub account**. Dorien sends each member a zip with their files already in the right folders.
+## Already on GitHub
 
-## Order
+- **David:** website foundation: sign-in page, role dashboards, route guards, log out.
+- **Dorien:** Sprint IV sample data, the Python API (`src/`, port 4000), the five database-backed role pages, tests, demo guide and meeting notes.
 
-Steps 1–3 come first, in order. Steps 4–7 can happen in any order after step 3.
+## Your task (Makai, Miles, Makel)
 
-| Step | Who | Zip | What it adds | Commit message |
-|---|---|---|---|---|
-| 1 | Dorien | `1-Dorien-sample-data.zip` | Sprint IV sample data (real password hashes, posts, questions, reports) and this task list | `Add Sprint IV sample data and team tasks` |
-| 2 | Makai | `2-Makai-api.zip` | Python API on port 4000: database sign-in (`POST /api/login`), tokens, role checks (`src/`) | `Add Flask API with database sign-in and role-based authorization` |
-| 3 | Miles | `3-Miles-connect-pages.zip` | Connects the role pages to the API, shared page layout and styles, and the Pet Owner community feed | `Connect use case pages to the API and add Pet Owner community feed` |
-| 4 | Makai | `4-Makai-veterinarian.zip` | Veterinarian: view pet-health questions | `Add Veterinarian pet-health questions` |
-| 5 | Dorien | `5-Dorien-administrator.zip` | Administrator: search, browse and list users; demo guide; meeting notes | `Add Administrator user search, demo guide and meeting notes` |
-| 6 | David | `6-David-expert-and-tests.zip` | Pet Health Expert: questions and posts in the approved specialty; all Sprint IV tests | `Add Pet Health Expert page and Sprint IV tests` |
-| 7 | Makel | `7-Makel-moderator.zip` | Community Moderator: reported posts and advice; README run instructions | `Add Community Moderator reported content and run instructions` |
+Each task is a small change to your role's page. Commit and push it **from your own GitHub account**. That's how the instructor checks that everyone contributed.
 
-**David, after step 2:** in `frontend/src/auth/authApi.js` set `USE_TEST_USERS = false`, then commit and push (`Use database sign-in`). From then on, sign-in checks the database instead of the built-in test list. The password stays `PetMed123!`.
-
-## How to add your part
-
-In a terminal opened in your PetMed folder (the one with `backend`, `frontend` and `src`):
+Before starting, get the latest code:
 
 ```powershell
 git pull
-Expand-Archive "$HOME\Downloads\<your zip name>.zip" -DestinationPath . -Force
-git status
-git add .
-git commit -m "<your commit message from the table>"
+```
+
+### Makai: connect sign-in to the database + unanswered count (Veterinarian)
+
+1. In `frontend/src/auth/authApi.js`, change line 8 from `const USE_TEST_USERS = true` to:
+
+   ```js
+   const USE_TEST_USERS = false
+   ```
+
+   Sign-in now checks the database through the API instead of the built-in test list.
+
+2. In `frontend/src/pages/HealthQuestions.jsx`, find this line:
+
+   ```jsx
+   <p className="uc-count">{d.count} {d.count === 1 ? 'question' : 'questions'}</p>
+   ```
+
+   and replace it with:
+
+   ```jsx
+   <p className="uc-count">{d.count} {d.count === 1 ? 'question' : 'questions'} · {d.questions.filter((item) => item.answer_list.length === 0).length} unanswered</p>
+   ```
+
+   Check: signed in as Dr. Carter, Pet Health Questions shows **6 questions · 3 unanswered**.
+
+```powershell
+git add frontend/src/auth/authApi.js frontend/src/pages/HealthQuestions.jsx
+git commit -m "Use database sign-in and show unanswered count for vets"
 git push
 ```
 
-- `git status` should list only the files in your zip. If it shows anything else, ask before committing.
-- If `git push` is rejected, run `git pull --no-edit` and then `git push` again.
-- On macOS, unzip into the PetMed folder instead of using `Expand-Archive`.
+### Miles: Clear button (Pet Owner community feed)
 
-## Then run the app on your own computer (everyone, this is checked)
+In `frontend/src/pages/CommunityFeed.jsx`, find this line:
 
-Follow the five steps in [`src/README.md`](../src/README.md) once all steps above are pushed:
+```jsx
+        <button className="primary-button uc-button" type="submit">Search</button>
+```
 
-1. Rebuild the database with all five scripts, including the new `sample_data_sprint4.sql`.
+and add this line right below it:
+
+```jsx
+        <button type="button" className="uc-chip" onClick={() => { setText(''); setSearch(''); setTag('') }}>Clear</button>
+```
+
+Check: signed in as Maya, click **#nutrition** (4 posts), then **Clear** (back to 8 posts).
+
+```powershell
+git add frontend/src/pages/CommunityFeed.jsx
+git commit -m "Add Clear button to the community feed"
+git push
+```
+
+### Makel: "Assigned to you" label (Community Moderator)
+
+In `frontend/src/pages/ReportedContent.jsx`:
+
+1. Below the line `import UseCaseLayout from '../components/UseCaseLayout.jsx'`, add:
+
+   ```jsx
+   import { useAuth } from '../auth/AuthContext.jsx'
+   ```
+
+2. Right below `function ReportedContent() {`, add:
+
+   ```jsx
+     const { user } = useAuth()
+   ```
+
+3. Find the line that starts with `<span className="uc-muted uc-small">Report #` and add this line right below it:
+
+   ```jsx
+                     {r.assigned_to === user.name && <span className="uc-pill uc-pill-mine">Assigned to you</span>}
+   ```
+
+Check: signed in as Tasha, the garlic report shows **Assigned to you**.
+
+```powershell
+git add frontend/src/pages/ReportedContent.jsx
+git commit -m "Show which reports are assigned to the signed-in moderator"
+git push
+```
+
+If `git push` is rejected, run `git pull --no-edit`, then `git push` again.
+
+## Everyone: run the app on your own computer (this is checked)
+
+Follow the five steps in [`src/README.md`](../src/README.md):
+
+1. Rebuild the database with all five scripts, including `sample_data_sprint4.sql`.
 2. `python -m pip install -r src/requirements.txt`
 3. Copy `src/.env.example` to `src/.env` and put your own MySQL password in it. Never commit `src/.env`.
 4. `python src/app.py` (the API, port 4000)
 5. In a second terminal: `cd frontend`, `npm install`, `npm run dev`, then open <http://localhost:5173>.
 
-Sign in with your role's sample account (password `PetMed123!`) and take a screenshot with your feature open. Save it as `evidence/Sprint4/<your-name>-running.png`, then commit and push it. That's your proof that you can pull and run the current system.
+Sign in with your role's account (password `PetMed123!`), open your feature, and take a screenshot. Save it as `evidence/Sprint4/<your-name>-running.png`, then commit and push it.
+
+| Member | Sign in as | Feature to screenshot |
+|---|---|---|
+| Dorien | `daniel.owens@petmed.com` | Manage Users |
+| David | `kevin.nguyen@petmed.com` | Questions in My Expertise |
+| Makai | `dr.james.carter@petmed.com` | Pet Health Questions |
+| Miles | `maya.johnson@petmed.com` | Community Feed |
+| Makel | `tasha.brooks@petmed.com` | Reported Posts and Advice |
 
 ## Who explains what in the demo
 
-| Member | Knows and presents |
+| Member | Presents |
 |---|---|
 | Dorien | GitHub and the team's commits; Administrator user search |
 | David | Sign-in page, invalid sign-ins, dashboards and route guards; Pet Health Expert; running the tests |
-| Miles | How the pages load data from the API; Pet Owner feed |
-| Makai | How the server checks roles (`auth.py`, `@require_roles`); Veterinarian questions |
+| Miles | Pet Owner feed |
+| Makai | How the server checks roles (`src/auth.py`); Veterinarian questions |
 | Makel | Community Moderator reports; proving the data is live from MySQL |
 
-Read your own files before Tuesday so you can explain them. The full demo order is in [`Sprint4_Demo_Guide.md`](Sprint4_Demo_Guide.md).
+Read the files for your part before Tuesday so you can explain them. The full demo order is in [`Sprint4_Demo_Guide.md`](Sprint4_Demo_Guide.md).

@@ -312,6 +312,31 @@ Meetings
 <img width="400" height="400" alt="original (1)" src="https://github.com/user-attachments/assets/2c093ff9-6f11-4bf6-b757-bbcd0e410b54" />
 
 
+## Sprint Cycle IV: Sign-in, Authorization and Data Retrieval
+
+PetMed now runs as a real application: a **React** website (`frontend/`) talking to a **Python Flask** API (`src/`) that reads the **MySQL** `petmed` database from Sprint III.
+
+What works:
+
+- **Sign-in for all five roles.** The server checks the password against the database, identifies the user's role, and opens that role's landing page.
+- **Role-based navigation.** Each role's dashboard shows every major feature planned for the final app; the Sprint IV feature works and the rest are marked "Coming soon".
+- **Authorization.** A user who opens another role's page gets "Access denied", and the API itself answers 403 if the request is made anyway.
+- **One database-backed feature per role:**
+
+| Role | Feature |
+|---|---|
+| Administrator | Search, browse and list users |
+| Pet Owner | Browse and search the community feed |
+| Veterinarian | View pet-health questions submitted by pet owners |
+| Pet Health Expert | Browse questions and posts in their approved specialty |
+| Community Moderator | View reported posts and reported health advice |
+
+**To run it on your machine**, follow the five steps in [`src/README.md`](src/README.md): rebuild the database, install the Python packages, add your MySQL password to `src/.env`, start the API (`python src/app.py`, port 4000), then start the website (`cd frontend`, `npm install`, `npm run dev`) and open <http://localhost:5173>.
+
+Sample accounts and the demo password are listed in [`src/README.md`](src/README.md#sample-accounts). Tests: `python -m pytest tests -v` (see [`tests/README.md`](tests/README.md)).
+
+---
+
 ## project diagrams
 
 

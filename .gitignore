@@ -9,3 +9,9 @@
 
 # Generated frontend build output.
 /frontend/sprint_1_splashscreen/build/
+
+# Python API: local settings hold your MySQL password, never commit them.
+/src/.env
+__pycache__/
+.pytest_cache/
+.venv/

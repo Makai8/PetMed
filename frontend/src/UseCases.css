@@ -1,0 +1,302 @@
+/* ------------------------------------------------------------
+   Sprint IV use case pages (search bars, lists, cards, tables).
+   Same colors as App.css and Portal.css.
+   ------------------------------------------------------------ */
+
+.uc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.uc-toolbar input,
+.uc-toolbar select {
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.uc-toolbar input[type='search'] {
+  flex: 1 1 260px;
+}
+
+.uc-toolbar input:focus,
+.uc-toolbar select:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 1px;
+}
+
+.uc-button {
+  padding: 11px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--green);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.uc-button:hover {
+  background: var(--green-dark);
+}
+
+.uc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.uc-chip {
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.uc-chip.active {
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--white);
+}
+
+.uc-count {
+  margin: 4px 0 12px;
+  font-weight: 800;
+}
+
+.uc-muted {
+  color: var(--muted);
+}
+
+.uc-small {
+  font-size: 0.85rem;
+}
+
+.uc-mono {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+.uc-empty {
+  padding: 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Table (Manage Users) */
+.uc-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.uc-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.uc-table th,
+.uc-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.uc-table th {
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 0.85rem;
+}
+
+.uc-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Cards (feed, questions, reports) */
+.uc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.uc-card {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.uc-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.uc-card-head > .uc-pill:last-child {
+  margin-left: auto;
+}
+
+.uc-avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+.uc-body {
+  margin: 0 0 8px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.uc-quote {
+  font-style: italic;
+}
+
+.uc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.uc-card-foot {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.uc-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px dashed var(--line);
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.uc-unanswered {
+  color: #a34a12;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.uc-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef2ef;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.uc-pill-active,
+.uc-pill-answered,
+.uc-pill-resolved,
+.uc-pill-update {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.uc-pill-suspended,
+.uc-pill-open,
+.uc-pill-advice {
+  background: #fdeee3;
+  color: #a34a12;
+}
+
+.uc-pill-post,
+.uc-pill-question {
+  background: #e6effa;
+  color: #1f4e79;
+}
+
+.uc-pill-mine,
+.uc-pill-tip {
+  background: #f1e8fb;
+  color: #5b2c86;
+}
+
+.uc-specialty {
+  margin: -16px 0 18px;
+}
+
+.uc-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.uc-section-title {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+.uc-reported {
+  margin: 0 0 10px;
+  padding: 12px 14px;
+  border-left: 4px solid #d9772f;
+  border-radius: 6px;
+  background: #fff8f2;
+}
+
+.uc-reported p {
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+
+.uc-reported cite {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+/* Loading and server error messages */
+.uc-alert {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 640px;
+  padding: 24px;
+  border: 1px solid #f2c4bd;
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.uc-alert p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .uc-two-col {
+    grid-template-columns: 1fr;
+  }
+}
