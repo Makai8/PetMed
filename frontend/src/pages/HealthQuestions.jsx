@@ -40,8 +40,12 @@ function HealthQuestions() {
 
       {d && (
         <>
-          <p className="uc-count">{d.count} {d.count === 1 ? 'question' : 'questions'}</p>
+          <p className="uc-count">
+            {d.count} {d.count === 1 ? 'question' : 'questions'} ·{' '}
+            {d.questions.filter((item) => item.answer_list.length === 0).length} unanswered
+          </p>
           <div className="uc-list">
+
             {d.questions.map((item) => (
               <article key={item.question_id} className="uc-card">
                 <header className="uc-card-head">
