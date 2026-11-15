@@ -24,6 +24,7 @@ function CommunityFeed() {
         <input type="search" placeholder="Search posts, people or pets" value={text}
                onChange={(e) => setText(e.target.value)} aria-label="Search the feed" />
         <button className="primary-button uc-button" type="submit">Search</button>
+        <button type="button" className="uc-chip" onClick={() => { setText(''); setSearch(''); setTag('') }}>Clear</button>
       </form>
 
       {d && (

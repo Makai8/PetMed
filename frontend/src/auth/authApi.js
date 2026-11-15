@@ -5,7 +5,7 @@
 // Flip it to false once the backend login route is ready.
 // ------------------------------------------------------------
 
-const USE_TEST_USERS = true
+const USE_TEST_USERS = false
 const API_URL = 'http://localhost:4000'
 const TEST_PASSWORD = 'PetMed123!'
 
