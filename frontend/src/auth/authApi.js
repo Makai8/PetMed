@@ -6,7 +6,8 @@
 // ------------------------------------------------------------
 
 const USE_TEST_USERS = false
-const API_URL = 'http://localhost:4000'
+// Empty = same address as the website; Vite forwards /api to the API (vite.config.js)
+const API_URL = ''
 const TEST_PASSWORD = 'PetMed123!'
 
 // Same people as backend/seed.sql

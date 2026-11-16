@@ -6,6 +6,7 @@ http://localhost:5173) calls it for sign-in and for every role's data.
 """
 import datetime
 import decimal
+import os
 import importlib
 import pkgutil
 
@@ -72,4 +73,6 @@ def create_app():
 
 
 if __name__ == "__main__":
-    create_app().run(host="127.0.0.1", port=4000, debug=True)
+    # Debug mode (auto-reload, error pages) only when PETMED_DEBUG=1.
+    # Keep it off when the site is shared with other people.
+    create_app().run(host="127.0.0.1", port=4000, debug=os.getenv("PETMED_DEBUG") == "1")

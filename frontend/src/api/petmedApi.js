@@ -4,7 +4,9 @@
 // checks the user's role again before returning any data.
 // ------------------------------------------------------------
 
-const API_URL = 'http://localhost:4000'
+// Empty = same address as the website. Vite forwards every /api request to
+// the API on port 4000 (vite.config.js), so this also works through a shared link.
+const API_URL = ''
 
 // Returns { ok, status, data }. HTTP errors don't throw, so each
 // page can show the server's own message (for example a 403).
