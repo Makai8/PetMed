@@ -43,6 +43,12 @@ function ReportedContent() {
                   </span>
                   <span className="uc-muted uc-small">Report #{r.report_id} · {formatDate(r.created_at)}</span>
                   <span className={`uc-pill uc-pill-${r.status}`}>{r.status}</span>
+
+                  {r.assigned_to === 'Tasha' && (
+                    <span className="uc-pill uc-pill-open">
+                      Assigned to you
+                    </span>
+                  )}
                 </header>
 
                 <blockquote className="uc-reported">
