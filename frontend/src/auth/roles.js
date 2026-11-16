@@ -20,6 +20,7 @@ export const roles = {
       { icon: '🔎', title: 'Search Health Information', text: 'Symptoms, conditions and medications.' },
       { icon: '🛒', title: 'Products and Treatments', text: 'View approved pet health products.' },
       { icon: '⭐', title: 'Rate and Review', text: 'Review advice and products.' },
+      { icon: '🎓', title: 'Request a Professional Role', text: 'Apply to be a vet, expert, moderator or admin.', path: '/request-role' },
     ],
   },
   veterinarian: {
@@ -71,7 +72,7 @@ export const roles = {
     welcome: 'Manage users, professionals and platform settings.',
     menu: [
       { icon: '👥', title: 'Manage Users', text: 'Search and list user accounts.', path: '/admin/users' },
-      { icon: '✅', title: 'Verify Professionals', text: 'Approve vets and experts.' },
+      { icon: '✅', title: 'Role Requests', text: 'Approve vets, experts, moderators and admins.', path: '/admin/role-requests' },
       { icon: '🔐', title: 'Roles and Permissions', text: 'Assign role permissions.' },
       { icon: '🏷️', title: 'Health Categories and Tags', text: 'Maintain categories and tags.' },
       { icon: '💊', title: 'Products and Medications', text: 'Maintain approved product info.' },

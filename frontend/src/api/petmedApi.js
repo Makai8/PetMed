@@ -26,12 +26,16 @@ export async function apiGet(path, token) {
   }
 }
 
-// Sends JSON to the API (used by sign up). Same reply shape as apiGet.
-export async function apiPost(path, body) {
+// Sends JSON to the API (sign up, role requests, approvals).
+// Pass the user's token for anything that needs a signed in user.
+// Same reply shape as apiGet.
+export async function apiPost(path, body, token) {
+  const headers = { 'Content-Type': 'application/json' }
+  if (token) headers.Authorization = `Bearer ${token}`
   try {
     const response = await fetch(`${API_URL}/api${path}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify(body),
     })
     const data = await response.json().catch(() => ({}))

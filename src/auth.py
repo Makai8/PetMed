@@ -39,9 +39,11 @@ def make_token(user_id):
 
 
 def roles_for(user_id):
+    """The user's roles, most powerful first (administrator ... pet_owner).
+    The first one picks the landing page after sign-in."""
     rows = query(
         "SELECT r.role_name FROM User_Role ur JOIN Role r ON r.role_id = ur.role_id "
-        "WHERE ur.user_id = %s ORDER BY r.role_id",
+        "WHERE ur.user_id = %s ORDER BY r.role_id DESC",
         (user_id,),
     )
     return [r["role_name"] for r in rows]

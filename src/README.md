@@ -15,6 +15,7 @@ cat seed.sql | mysql -u root -p
 cat sample_data_health_records.sql | mysql -u root -p
 cat sample_data_more.sql | mysql -u root -p
 cat sample_data_sprint4.sql | mysql -u root -p
+cat sprint5_role_requests.sql | mysql -u root -p
 ```
 
 **2. Install the Python packages (once).** From the repository root:
@@ -73,6 +74,8 @@ Every sample account uses the demo password **`PetMed123!`** (the database store
 |---|---|---|
 | `POST /api/login`, `GET /api/me` | anyone / any signed-in user | `auth.py` |
 | `POST /api/signup` (creates a Pet Owner account) | anyone | `routes/signup.py` |
+| `POST /api/role-requests`, `GET /api/role-requests/mine` (ask for an extra role) | any signed-in user | `routes/role_requests.py` |
+| `GET /api/admin/role-requests?status=`, `POST /api/admin/role-requests/<id>/approve\|reject` | administrator | `routes/role_requests.py` |
 | `GET /api/admin/users?q=&role=&status=` | administrator | `routes/admin.py` |
 | `GET /api/feed?q=&tag=` | pet_owner | `routes/owner.py` |
 | `GET /api/vet/questions?show=all\|mine\|open\|unanswered&q=` | veterinarian | `routes/vet.py` |
@@ -97,4 +100,4 @@ With the database rebuilt (step 1) and `src/.env` filled in:
 python -m pytest tests -v
 ```
 
-23 tests cover sign-in for every role, rejected sign-ins, sign up, the role checks on every feature, and the data each feature returns.
+28 tests cover sign-in for every role, rejected sign-ins, sign up, the role checks on every feature, and the data each feature returns.

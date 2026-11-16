@@ -3,11 +3,12 @@ import { useAuth } from '../auth/AuthContext.jsx'
 import { apiGet } from './petmedApi.js'
 
 // Loads `path` from the API for the signed in user, again whenever `path`
-// changes (for example after a new search). Returns
-// { loading, status, data } and keeps the last results while reloading.
+// changes (for example after a new search) or reload() is called. Returns
+// { loading, status, data, reload } and keeps the last results while reloading.
 export default function useApiData(path) {
   const { user } = useAuth()
   const [result, setResult] = useState({ status: null, data: null, path: null })
+  const [version, setVersion] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -17,7 +18,7 @@ export default function useApiData(path) {
     return () => {
       cancelled = true
     }
-  }, [path, user.token])
+  }, [path, user.token, version])
 
-  return { ...result, loading: result.path !== path }
+  return { ...result, loading: result.path !== path, reload: () => setVersion((v) => v + 1) }
 }

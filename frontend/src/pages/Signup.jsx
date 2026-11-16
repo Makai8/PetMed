@@ -48,10 +48,11 @@ function Signup() {
       return
     }
 
-    // Account created: sign in with it right away
+    // Account created: sign in with it right away, then offer the
+    // optional step of requesting a professional or staff role
     try {
-      const signedIn = await login(email, password)
-      navigate(roles[signedIn.role].home)
+      await login(email, password)
+      navigate('/request-role?new=1')
     } catch {
       navigate('/login')
     }

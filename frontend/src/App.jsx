@@ -11,6 +11,8 @@ import ExpertQuestions from './pages/ExpertQuestions.jsx'
 import ReportedContent from './pages/ReportedContent.jsx'
 import ManageUsers from './pages/ManageUsers.jsx'
 import Unauthorized from './pages/Unauthorized.jsx'
+import RequestRole from './pages/RequestRole.jsx'
+import RoleRequests from './pages/RoleRequests.jsx'
 import './App.css'
 
 // ------------------------------------------------------------
@@ -27,6 +29,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
+
+          {/* Any signed in user: ask for a professional or staff role */}
+          <Route path="/request-role" element={<RequestRole />} />
 
           {/* Pet Owner */}
           <Route path="/owner" element={<RequireRole role="pet_owner"><Dashboard /></RequireRole>} />
@@ -47,6 +52,7 @@ function App() {
           {/* Administrator */}
           <Route path="/admin" element={<RequireRole role="administrator"><Dashboard /></RequireRole>} />
           <Route path="/admin/users" element={<RequireRole role="administrator"><ManageUsers /></RequireRole>} />
+          <Route path="/admin/role-requests" element={<RequireRole role="administrator"><RoleRequests /></RequireRole>} />
 
           {/* Any unknown address goes home */}
           <Route path="*" element={<Navigate to="/" replace />} />
