@@ -1,0 +1,215 @@
+/* ------------------------------------------------------------
+   Role home screens (components/RoleHome.jsx): numbers, short
+   lists and quick links at the top of each role's dashboard.
+   Each role has its own accent color (same as the welcome splash).
+   ------------------------------------------------------------ */
+
+.rh {
+  --accent: var(--green);
+  --accent-soft: var(--green-soft);
+  margin: 6px 0 8px;
+}
+
+.rh-veterinarian { --accent: #1f6fb2; --accent-soft: #e6f0fa; }
+.rh-pet_health_expert { --accent: #6b3fa0; --accent-soft: #f1e8fb; }
+.rh-community_moderator { --accent: #b5541f; --accent-soft: #fdeee3; }
+.rh-administrator { --accent: #12343b; --accent-soft: #e6eeef; }
+
+.rh-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.rh-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.rh-stat strong {
+  color: var(--accent);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.rh-stat span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.rh-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.rh-panel {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.rh-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.rh-panel-head h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.rh-link {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.rh-link:hover {
+  text-decoration: underline;
+}
+
+.rh-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rh-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.rh-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.rh-list span {
+  color: var(--ink);
+}
+
+.rh-list small,
+.rh-inline,
+.rh-muted {
+  color: var(--muted);
+}
+
+.rh-inline {
+  font-size: 0.85rem;
+}
+
+.rh-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.rh-list span .rh-tag {
+  margin: 0 6px 0 0;
+}
+
+.rh-pets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.rh-pet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  text-align: center;
+}
+
+.rh-pet-icon {
+  font-size: 1.8rem;
+}
+
+.rh-pet small {
+  color: var(--muted);
+}
+
+.rh-specialty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+
+.rh-badge {
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  font-weight: 800;
+}
+
+.rh-status {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.rh-status-approved {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.rh-status-pending {
+  background: #fdeee3;
+  color: #a34a12;
+}
+
+.rh-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.rh-loading {
+  margin: 8px 0 18px;
+}
+
+.rh-all {
+  margin: 28px 0 0;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+@media (max-width: 760px) {
+  .rh-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -3,6 +3,7 @@ import { useAuth } from '../auth/AuthContext.jsx'
 import { roles } from '../auth/roles.js'
 import PortalHeader from '../components/PortalHeader.jsx'
 import WelcomeSplash from '../components/WelcomeSplash.jsx'
+import RoleHome from '../components/RoleHome.jsx'
 import '../Portal.css'
 
 // ------------------------------------------------------------
@@ -27,6 +28,8 @@ function Dashboard() {
         <p className="eyebrow">{role.label.toUpperCase()} DASHBOARD</p>
         <h1 className="portal-title">Welcome, {greetingName}.</h1>
         <p className="portal-subtitle">{role.welcome}</p>
+
+        <RoleHome />
 
         <div className="menu-grid">
           {role.menu.map((item) =>
