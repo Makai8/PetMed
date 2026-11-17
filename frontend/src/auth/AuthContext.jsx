@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
   async function login(email, password) {
     const signedIn = await loginRequest(email, password)
     sessionStorage.setItem('petmedUser', JSON.stringify(signedIn))
+    sessionStorage.setItem('petmedSplash', '1') // show the welcome splash once
     setUser(signedIn)
     return signedIn
   }

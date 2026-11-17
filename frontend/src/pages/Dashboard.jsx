@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext.jsx'
 import { roles } from '../auth/roles.js'
 import PortalHeader from '../components/PortalHeader.jsx'
+import WelcomeSplash from '../components/WelcomeSplash.jsx'
 import '../Portal.css'
 
 // ------------------------------------------------------------
@@ -19,6 +20,7 @@ function Dashboard() {
 
   return (
     <div className="portal-shell">
+      <WelcomeSplash />
       <PortalHeader />
 
       <main className="portal-main">
