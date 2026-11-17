@@ -287,3 +287,31 @@
     display: none;
   }
 }
+
+/* Sign up: "I'm signing up as" (user type) */
+.signup-select,
+.signup-request textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.signup-request {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid var(--green);
+  border-radius: 14px;
+  background: var(--green-soft);
+}
+
+.signup-request .login-hint {
+  margin: 0 0 4px;
+  color: var(--ink);
+}

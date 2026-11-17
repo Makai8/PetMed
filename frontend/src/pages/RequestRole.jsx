@@ -24,7 +24,9 @@ const PROFESSIONAL = ['veterinarian', 'pet_health_expert']
 
 function RequestRoleForm() {
   const { user } = useAuth()
-  const isNew = new URLSearchParams(useLocation().search).get('new') === '1'
+  const params = new URLSearchParams(useLocation().search)
+  const isNew = params.get('new') === '1'
+  const justRequested = params.get('requested') === '1'
   const result = useApiData('/role-requests/mine')
   const d = result.status === 200 ? result.data : null
 
@@ -73,6 +75,14 @@ function RequestRoleForm() {
           <strong>Your account is ready! 🎉</strong>
           <p>You're signed in as a Pet Owner. If you're also a vet, an expert, or want to help run PetMed, request a role below. Otherwise, skip this step.</p>
           <Link to={roles[user.role].home} className="secondary-button uc-skip">Skip for now</Link>
+        </div>
+      )}
+
+      {justRequested && (
+        <div className="uc-welcome">
+          <strong>Your account is ready! 🎉</strong>
+          <p>You're signed in as a Pet Owner for now. Your role request is pending below; an administrator will review it. After it's approved, log out and sign in again to use your new role.</p>
+          <Link to={roles[user.role].home} className="secondary-button uc-skip">Go to my dashboard</Link>
         </div>
       )}
 

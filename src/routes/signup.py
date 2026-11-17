@@ -1,7 +1,8 @@
-"""Sign up: anyone can create a Pet Owner account.
+"""Sign up: anyone can create an account. Every new account is a Pet Owner.
 
-Veterinarians and Pet Health Experts need their credentials checked, so for
-now an administrator creates those accounts (Verify Professionals, a later sprint).
+The form can also ask for another role ("user type"): Veterinarian, Pet Health
+Expert, Community Moderator or Administrator. That becomes a pending role
+request, and the user stays a Pet Owner until an administrator approves it.
 """
 import re
 
@@ -10,6 +11,7 @@ from werkzeug.security import generate_password_hash
 
 from auth import PET_OWNER, make_token, public_user
 from db import execute, query_one
+from routes.role_requests import check_request, save_request
 
 bp = Blueprint("signup", __name__, url_prefix="/api")
 
@@ -44,6 +46,16 @@ def signup():
     if query_one("SELECT user_id FROM User WHERE LOWER(email) = %s", (email,)):
         return jsonify(message="An account with this email already exists. Try signing in."), 409
 
+    # Optional user type: anything but Pet Owner becomes a pending request
+    wanted = str(data.get("requested_role") or PET_OWNER)
+    role_request = None
+    if wanted != PET_OWNER:
+        role_request = {k: data.get(k, "") for k in ("reason", "credentials", "specialty", "organization", "experience")}
+        role_request["role"] = wanted
+        problem, code = check_request(role_request, [PET_OWNER])
+        if problem:
+            return jsonify(message=problem), code
+
     role = query_one("SELECT role_id FROM Role WHERE role_name = %s", (PET_OWNER,))
     user_id = execute(
         "INSERT INTO User (email, password_hash, full_name, account_status) VALUES (%s, %s, %s, 'active')",
@@ -51,5 +63,10 @@ def signup():
     )
     execute("INSERT INTO User_Role (user_id, role_id) VALUES (%s, %s)", (user_id, role["role_id"]))
 
+    requested = None
+    if role_request:
+        request_id, _error = save_request(user_id, role_request)
+        requested = {"request_id": request_id, "role": wanted, "status": "pending"}
+
     user = {"user_id": user_id, "full_name": full_name, "email": email}
-    return jsonify(token=make_token(user_id), **public_user(user, [PET_OWNER])), 201
+    return jsonify(token=make_token(user_id), requested_role=requested, **public_user(user, [PET_OWNER])), 201

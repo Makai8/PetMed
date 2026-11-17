@@ -100,4 +100,4 @@ With the database rebuilt (step 1) and `src/.env` filled in:
 python -m pytest tests -v
 ```
 
-28 tests cover sign-in for every role, rejected sign-ins, sign up, the role checks on every feature, and the data each feature returns.
+31 tests cover sign-in for every role, rejected sign-ins, sign up, the role checks on every feature, and the data each feature returns.

@@ -5,11 +5,13 @@ import { useAuth } from '../auth/AuthContext.jsx'
 import { roles } from '../auth/roles.js'
 import logo from '../assets/petmed-logo.png'
 import '../Portal.css'
+import '../UseCases.css'
 
 // ------------------------------------------------------------
 // Sign up page: creates a Pet Owner account in the database
 // (POST /api/signup, src/routes/signup.py), then signs the new
-// user in. Veterinarians and experts are added by an administrator.
+// user in. "I'm signing up as" lets them ask for another role;
+// they stay a Pet Owner until an administrator approves it.
 // ------------------------------------------------------------
 
 function Signup() {
@@ -19,8 +21,15 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
+  const [userType, setUserType] = useState('pet_owner')
+  const [reason, setReason] = useState('')
+  const [credentials, setCredentials] = useState('')
+  const [specialty, setSpecialty] = useState('')
+  const [organization, setOrganization] = useState('')
+  const [experience, setExperience] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const professional = userType === 'veterinarian' || userType === 'pet_health_expert'
 
   // Already signed in, skip the form
   if (user) {
@@ -41,18 +50,28 @@ function Signup() {
     }
 
     setLoading(true)
-    const res = await apiPost('/signup', { full_name: fullName, email, password })
+    const res = await apiPost('/signup', {
+      full_name: fullName,
+      email,
+      password,
+      requested_role: userType,
+      reason,
+      credentials,
+      specialty,
+      organization,
+      experience,
+    })
     if (!res.ok) {
       setLoading(false)
       setError(res.data.message || 'Could not create the account.')
       return
     }
 
-    // Account created: sign in with it right away, then offer the
-    // optional step of requesting a professional or staff role
+    // Account created: sign in right away. Anyone who asked for another
+    // role sees their pending request; everyone else goes to their dashboard.
     try {
-      await login(email, password)
-      navigate('/request-role?new=1')
+      const signedIn = await login(email, password)
+      navigate(res.data.requested_role ? '/request-role?requested=1' : roles[signedIn.role].home)
     } catch {
       navigate('/login')
     }
@@ -65,7 +84,7 @@ function Signup() {
           <img src={logo} alt="PetMed logo" />
         </Link>
         <h1 className="login-title">Create your account</h1>
-        <p className="login-subtitle">Join PetMed as a pet owner</p>
+        <p className="login-subtitle">Join the PetMed community</p>
 
         <form onSubmit={handleSubmit} noValidate>
           <label htmlFor="fullName">Full name</label>
@@ -108,6 +127,48 @@ function Signup() {
             autoComplete="new-password"
           />
 
+          <label htmlFor="userType">I'm signing up as</label>
+          <select id="userType" className="signup-select" value={userType} onChange={(e) => setUserType(e.target.value)}>
+            <option value="pet_owner">Pet Owner</option>
+            <option value="veterinarian">Veterinarian</option>
+            <option value="pet_health_expert">Pet Health Expert</option>
+            <option value="community_moderator">Community Moderator</option>
+            <option value="administrator">Administrator</option>
+          </select>
+
+          {userType !== 'pet_owner' && (
+            <div className="signup-request">
+              <p className="login-hint">
+                You'll start as a <strong>Pet Owner</strong>. An administrator reviews your request
+                to become a {roles[userType].label}, and you get the new role once it's approved.
+              </p>
+
+              <label htmlFor="reason">Why are you requesting this role?</label>
+              <textarea id="reason" rows="3" value={reason} onChange={(e) => setReason(e.target.value)}
+                        placeholder="A few sentences about yourself" />
+
+              {professional && (
+                <>
+                  <label htmlFor="credentials">License number or credentials</label>
+                  <input id="credentials" value={credentials} onChange={(e) => setCredentials(e.target.value)}
+                         placeholder={userType === 'veterinarian' ? 'DVM, state license number' : 'Certifications or degree'} />
+
+                  <label htmlFor="specialty">{userType === 'veterinarian' ? 'Specialty (optional)' : 'Area of expertise'}</label>
+                  <input id="specialty" value={specialty} onChange={(e) => setSpecialty(e.target.value)}
+                         placeholder={userType === 'veterinarian' ? 'General Practice' : 'Nutrition, Training, Behavior…'} />
+
+                  <label htmlFor="organization">Where you work</label>
+                  <input id="organization" value={organization} onChange={(e) => setOrganization(e.target.value)}
+                         placeholder="Clinic or organization" />
+
+                  <label htmlFor="experience">Experience (optional)</label>
+                  <input id="experience" value={experience} onChange={(e) => setExperience(e.target.value)}
+                         placeholder="For example: 6 years in small animal practice" />
+                </>
+              )}
+            </div>
+          )}
+
           {error && <p className="login-error" role="alert">{error}</p>}
 
           <button type="submit" className="primary-button login-button" disabled={loading}>
@@ -118,7 +179,6 @@ function Signup() {
         <p className="login-switch">
           Already have an account? <Link to="/login">Sign in</Link>
         </p>
-        <p className="login-hint">Veterinarians and pet health experts: contact a PetMed administrator to have your account verified.</p>
       </div>
     </div>
   )

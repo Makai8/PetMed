@@ -103,6 +103,29 @@ class RoleRequestTests(unittest.TestCase):
         login = self.client.post("/api/login", json={"email": NEW_USERS[1], "password": NEW_PASSWORD}).get_json()
         self.assertEqual(login["roles"], ["pet_owner"])
 
+    def test_sign_up_with_a_user_type_starts_as_pet_owner_with_pending_request(self):
+        res = self.client.post("/api/signup", json={
+            "full_name": "Role Tester", "email": NEW_USERS[0], "password": NEW_PASSWORD,
+            "requested_role": "pet_health_expert", "reason": "Certified pet nutritionist.",
+            "credentials": "CPN certificate", "specialty": "Nutrition", "organization": "FAMU Extension"})
+        self.assertEqual(res.status_code, 201, res.get_json())
+        body = res.get_json()
+        self.assertEqual(body["role"], "pet_owner")
+        self.assertEqual(body["requested_role"]["status"], "pending")
+        mine = self.get("/api/role-requests/mine", body["token"]).get_json()["requests"]
+        self.assertEqual([(r["role"], r["status"]) for r in mine], [("pet_health_expert", "pending")])
+
+    def test_sign_up_with_incomplete_user_type_creates_no_account(self):
+        res = self.client.post("/api/signup", json={
+            "full_name": "Role Tester", "email": NEW_USERS[1], "password": NEW_PASSWORD,
+            "requested_role": "veterinarian", "reason": "Vet."})
+        self.assertEqual(res.status_code, 400)
+        self.assertEqual(self.client.post("/api/login", json={"email": NEW_USERS[1], "password": NEW_PASSWORD}).status_code, 401)
+
+    def test_sign_up_as_pet_owner_makes_no_request(self):
+        token = self.signup(NEW_USERS[0])
+        self.assertEqual(self.get("/api/role-requests/mine", token).get_json()["requests"], [])
+
     def test_bad_requests_are_refused(self):
         user = self.signup(NEW_USERS[0])
         self.assertEqual(self.post("/api/role-requests", user, {"role": "pet_owner", "reason": "x"}).status_code, 400)

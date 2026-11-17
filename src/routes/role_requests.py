@@ -32,40 +32,43 @@ def text(data, key, limit=2000):
 
 # ---------------------------------------------------------------- user side
 
-@bp.post("/role-requests")
-@require_roles()  # any signed-in user
-def create_request():
-    data = request.get_json(silent=True) or {}
+def check_request(data, current_roles):
+    """Check a role request before saving anything.
+    Returns (problem, http_status), or (None, None) if it's fine."""
+    role_name = str(data.get("role", ""))
+    if role_name not in REQUESTABLE:
+        return "Choose Veterinarian, Pet Health Expert, Community Moderator or Administrator.", 400
+    if not text(data, "reason"):
+        return "Tell the administrators why you're requesting this role.", 400
+    if role_name in current_roles:
+        return "You already have this role.", 409
+    if role_name in PROFESSIONAL:
+        if not text(data, "credentials") or not text(data, "organization"):
+            return "Enter your license or credentials and where you work.", 400
+        if role_name == PET_HEALTH_EXPERT and not text(data, "specialty"):
+            return "Enter your area of expertise, for example Nutrition.", 400
+    return None, None
+
+
+def save_request(user_id, data):
+    """Save a checked request (and a pending Professional_Profile for vets and
+    experts). Returns (request_id, None), or (None, (problem, http_status))."""
     role_name = str(data.get("role", ""))
     reason = text(data, "reason")
-    user_id = g.user["user_id"]
-
-    if role_name not in REQUESTABLE:
-        return jsonify(message="Choose Veterinarian, Pet Health Expert, Community Moderator or Administrator."), 400
-    if not reason:
-        return jsonify(message="Tell the administrators why you're requesting this role."), 400
-    if role_name in g.roles:
-        return jsonify(message="You already have this role."), 409
-
     role = query_one("SELECT role_id FROM Role WHERE role_name = %s", (role_name,))
     if query_one("SELECT request_id FROM Role_Request WHERE user_id = %s AND role_id = %s AND status = 'pending'",
                  (user_id, role["role_id"])):
-        return jsonify(message="You already have a pending request for this role."), 409
+        return None, ("You already have a pending request for this role.", 409)
 
     if role_name in PROFESSIONAL:
         details = {k: text(data, k, 255 if k in ("specialty", "organization") else 2000)
                    for k in ("credentials", "specialty", "organization", "experience")}
-        if not details["credentials"] or not details["organization"]:
-            return jsonify(message="Enter your license or credentials and where you work."), 400
-        if role_name == PET_HEALTH_EXPERT and not details["specialty"]:
-            return jsonify(message="Enter your area of expertise, for example Nutrition."), 400
         if role_name == VETERINARIAN and not details["specialty"]:
             details["specialty"] = "General Practice"
-
         profile = query_one("SELECT profile_id, professional_type, verification_status "
                             "FROM Professional_Profile WHERE user_id = %s", (user_id,))
         if profile and profile["professional_type"] != role_name and profile["verification_status"] != "rejected":
-            return jsonify(message="You already have a professional profile of another type."), 409
+            return None, ("You already have a professional profile of another type.", 409)
         if profile:
             execute("UPDATE Professional_Profile SET professional_type = %s, credentials = %s, specialty = %s, "
                     "organization = %s, experience = %s, verification_status = 'pending' WHERE profile_id = %s",
@@ -79,6 +82,19 @@ def create_request():
 
     request_id = execute("INSERT INTO Role_Request (user_id, role_id, reason, status, requested_at) "
                          "VALUES (%s, %s, %s, 'pending', %s)", (user_id, role["role_id"], reason, now()))
+    return request_id, None
+
+
+@bp.post("/role-requests")
+@require_roles()  # any signed-in user
+def create_request():
+    data = request.get_json(silent=True) or {}
+    problem, code = check_request(data, g.roles)
+    if problem:
+        return jsonify(message=problem), code
+    request_id, error = save_request(g.user["user_id"], data)
+    if error:
+        return jsonify(message=error[0]), error[1]
     return jsonify(request_id=request_id, status="pending",
                    message="Request sent. An administrator will review it."), 201
 
