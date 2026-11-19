@@ -11,7 +11,9 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  background: radial-gradient(circle at 50% 35%, var(--green-soft), #f6faf7 70%);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(60, 190, 110, 0.22), transparent 22rem),
+    var(--bg);
   cursor: pointer;
   animation: splash-in 0.35s ease-out;
   transition: opacity 0.4s ease;
@@ -54,6 +56,7 @@
   border-radius: 999px;
   background: var(--white);
   color: var(--accent);
+  border: 1px solid var(--line);
   font-weight: 800;
   box-shadow: 0 1px 2px rgba(18, 52, 59, 0.08);
 }
@@ -64,7 +67,7 @@
   margin-top: 14px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(18, 52, 59, 0.1);
+  background: var(--line);
 }
 
 .splash-bar span {

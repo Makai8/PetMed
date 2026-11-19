@@ -115,7 +115,7 @@
 
 .uc-table th {
   background: var(--green-soft);
-  color: var(--green-dark);
+  color: var(--forest);
   font-size: 0.85rem;
 }
 
@@ -156,7 +156,7 @@
   height: 40px;
   border-radius: 50%;
   background: var(--green-soft);
-  color: var(--green-dark);
+  color: var(--forest);
   font-weight: 800;
 }
 
@@ -220,8 +220,8 @@
 .uc-pill-answered,
 .uc-pill-resolved,
 .uc-pill-update {
-  background: var(--green-soft);
-  color: var(--green-dark);
+  background: #e3f4ea;
+  color: #1d7a46;
 }
 
 .uc-pill-suspended,
@@ -312,7 +312,7 @@
   gap: 8px;
   margin-bottom: 22px;
   padding: 18px 20px;
-  border: 1px solid var(--green);
+  border: 1px solid #c9d5e8;
   border-radius: 18px;
   background: var(--green-soft);
 }
@@ -422,8 +422,8 @@
   margin: 8px 0 0;
   padding: 10px 12px;
   border-radius: 10px;
-  background: var(--green-soft);
-  color: var(--green-dark);
+  background: #e3f4ea;
+  color: #1d7a46;
   font-weight: 700;
 }
 
@@ -479,8 +479,8 @@
 }
 
 .uc-pill-approved {
-  background: var(--green-soft);
-  color: var(--green-dark);
+  background: #e3f4ea;
+  color: #1d7a46;
 }
 
 .uc-pill-rejected {

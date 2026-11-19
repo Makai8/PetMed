@@ -18,6 +18,8 @@ function Dashboard() {
   // Doctors are greeted by last name, everyone else by first name
   const parts = user.name.split(' ')
   const greetingName = parts[0] === 'Dr.' ? `Dr. ${parts[parts.length - 1]}` : parts[0]
+  const hour = new Date().getHours()
+  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
 
   return (
     <div className="portal-shell">
@@ -26,7 +28,7 @@ function Dashboard() {
 
       <main className="portal-main">
         <p className="eyebrow">{role.label.toUpperCase()} DASHBOARD</p>
-        <h1 className="portal-title">Welcome, {greetingName}.</h1>
+        <h1 className="portal-title">{greeting}, {greetingName}.</h1>
         <p className="portal-subtitle">{role.welcome}</p>
 
         <RoleHome />

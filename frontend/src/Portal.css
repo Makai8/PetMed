@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------
-   Login page and signed in pages.
-   Uses the same colors as the Sprint 1 splash screen (App.css).
+   Login page and signed in pages: green theme with a dark green sidebar
+   (colors are defined in App.css).
    ------------------------------------------------------------ */
 
 /* Login and Access Denied card */
@@ -10,17 +10,19 @@
   place-items: center;
   padding: 24px;
   background:
-    radial-gradient(circle at 80% 18%, rgba(60, 190, 110, 0.16), transparent 24rem),
-    linear-gradient(180deg, #ffffff 0%, #f4faf6 100%);
+    radial-gradient(circle at 85% 12%, rgba(60, 190, 110, 0.18), transparent 26rem),
+    radial-gradient(circle at 5% 95%, rgba(15, 122, 69, 0.10), transparent 24rem),
+    var(--bg);
 }
 
 .login-card {
   width: min(420px, 100%);
   padding: 40px 36px 32px;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 20px;
+  border-top: 6px solid var(--green);
   background: var(--white);
-  box-shadow: 0 24px 60px rgba(15, 122, 69, 0.12);
+  box-shadow: 0 30px 70px rgba(25, 91, 56, 0.14);
   text-align: center;
 }
 
@@ -59,7 +61,7 @@
   border: 1px solid var(--line);
   border-radius: 12px;
   font: inherit;
-  background: #fbfdfc;
+  background: var(--bg);
 }
 
 .login-card input:focus {
@@ -83,7 +85,7 @@
   width: 100%;
   margin-top: 22px;
   padding: 14px 20px;
-  border-radius: 12px;
+  border-radius: 999px;
   border: 1px solid var(--green);
   font-weight: 800;
   text-align: center;
@@ -124,143 +126,266 @@
   font-size: 3.5rem;
 }
 
-/* Signed in layout */
+/* Signed in layout: dark green sidebar on the left, content on the right */
 .portal-shell {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 85% 0%, rgba(60, 190, 110, 0.12), transparent 26rem),
-    linear-gradient(180deg, #ffffff 0%, #f4faf6 100%);
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  background: var(--bg);
 }
 
-.portal-header {
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-  min-height: 86px;
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 16px;
+  overflow-y: auto;
+  background: var(--forest);
+  color: #cfe3d7;
+}
+
+.sidebar-brand {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 1px solid var(--line);
-}
-
-.portal-header .brand {
+  gap: 10px;
+  padding: 0 8px;
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 800;
   text-decoration: none;
 }
 
-.portal-user {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.sidebar-brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
-.portal-user-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-
-.role-badge {
-  padding: 3px 10px;
+.sidebar-role {
+  align-self: flex-start;
+  margin: 10px 8px 14px;
+  padding: 3px 12px;
   border-radius: 999px;
-  background: var(--green-soft);
-  color: var(--green-dark);
+  background: rgba(60, 190, 110, 0.18);
+  color: #a8ecc2;
   font-size: 0.78rem;
   font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #dcebe2;
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+}
+
+a.sidebar-link.active {
+  background: var(--green-soft);
+  color: var(--green-dark);
+  box-shadow: inset 4px 0 0 var(--mint);
+}
+
+.sidebar-link-soon {
+  color: #7fa08c;
+  cursor: default;
+}
+
+.sidebar-link small {
+  margin-left: auto;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #9dbca9;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.sidebar-user {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 10px;
+  margin-top: auto;
+  padding: 14px 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--mint);
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.sidebar-user-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebar-user-text strong {
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.sidebar-user-text small {
+  overflow: hidden;
+  color: #9dbca9;
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar .logout-button {
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
 .logout-button {
   padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid var(--green);
-  background: var(--white);
-  color: var(--green);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #ffffff;
   font-weight: 800;
   cursor: pointer;
 }
 
 .logout-button:hover {
-  background: var(--green-soft);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.uc-alert .logout-button {
+  border-color: var(--green);
+  color: var(--green);
 }
 
 .portal-main {
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 40px 0 60px;
+  width: 100%;
+  max-width: 1180px;
+  padding: 40px 44px 60px;
+}
+
+.portal-main .eyebrow {
+  color: var(--green);
 }
 
 .portal-title {
   margin: 0;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  color: var(--forest);
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .portal-subtitle {
-  margin: 12px 0 30px;
+  margin: 10px 0 28px;
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
-/* Menu cards */
+/* Menu cards (the "All features" list on each dashboard) */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
 }
 
 .menu-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 14px;
+  row-gap: 2px;
+  align-items: start;
+  padding: 16px 18px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   background: var(--white);
   color: var(--ink);
   text-decoration: none;
 }
 
+.menu-card strong {
+  padding-right: 64px;
+}
+
 .menu-card small {
+  grid-column: 2;
   color: var(--muted);
   line-height: 1.45;
 }
 
 .menu-icon {
-  font-size: 1.6rem;
-  margin-bottom: 4px;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--green-soft);
+  font-size: 1.35rem;
 }
 
 .menu-card-active {
-  border: 2px solid var(--green);
-  box-shadow: 0 14px 34px rgba(15, 122, 69, 0.14);
+  border-color: var(--green);
+  box-shadow: 0 10px 26px rgba(15, 122, 69, 0.14);
   transition: transform 0.15s;
 }
 
+.menu-card-active .menu-icon {
+  background: var(--green-soft);
+}
+
 .menu-card-active:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .menu-card-soon {
-  opacity: 0.72;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
 .menu-tag {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 3px 10px;
+  top: 14px;
+  right: 14px;
+  padding: 2px 10px;
   border-radius: 999px;
   background: var(--green);
   color: var(--white);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
 }
 
 .menu-tag-soon {
-  background: #eef2ef;
+  background: #eef1f6;
   color: var(--muted);
 }
 
@@ -282,9 +407,55 @@
   text-align: center;
 }
 
-@media (max-width: 620px) {
-  .portal-user-text {
+/* Phones and small tablets: the sidebar becomes a top bar */
+@media (max-width: 860px) {
+  .portal-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .sidebar-role {
+    margin: 0;
+  }
+
+  .sidebar-nav {
+    order: 3;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .sidebar-link {
+    white-space: nowrap;
+  }
+
+  .sidebar-link-soon {
     display: none;
+  }
+
+  .sidebar-user {
+    display: flex;
+    margin: 0 0 0 auto;
+    padding: 0;
+    border: none;
+  }
+
+  .sidebar-avatar,
+  .sidebar-user-text {
+    display: none;
+  }
+
+  .portal-main {
+    padding: 28px 18px 48px;
   }
 }
 

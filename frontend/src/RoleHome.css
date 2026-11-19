@@ -184,8 +184,8 @@
 }
 
 .rh-status-approved {
-  background: var(--green-soft);
-  color: var(--green-dark);
+  background: #e3f4ea;
+  color: #1d7a46;
 }
 
 .rh-status-pending {
