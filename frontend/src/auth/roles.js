@@ -2,7 +2,7 @@
 // Role settings: landing page, label and menu for each role.
 // Role names match the Role table in the database (seed.sql).
 // Menu items come from the PetMed Functional Requirements.
-// "path" is set only on the Sprint IV use case for that role.
+// "path" is set on the items that work so far (Sprint IV and V).
 // ------------------------------------------------------------
 
 export const roles = {
@@ -14,7 +14,7 @@ export const roles = {
       { icon: '📰', title: 'Community Feed', text: 'Browse pet health posts and discussions.', path: '/owner/feed' },
       { icon: '🐶', title: 'My Pets', text: 'Create and update pet profiles.' },
       { icon: '✏️', title: 'Create Post', text: 'Share a question or experience.' },
-      { icon: '🩺', title: 'Symptom Tracker', text: 'Record symptoms and health events.' },
+      { icon: '🩺', title: 'Symptom Tracker', text: 'Record symptoms and health events.', path: '/owner/symptoms' },
       { icon: '💊', title: 'Medications and Reminders', text: 'Track treatments and doses.' },
       { icon: '❓', title: 'Ask for Health Advice', text: 'Ask the community, a vet or an expert.' },
       { icon: '🔎', title: 'Search Health Information', text: 'Symptoms, conditions and medications.' },
@@ -28,8 +28,7 @@ export const roles = {
     home: '/vet',
     welcome: 'Review questions and guide pet owners with trusted advice.',
     menu: [
-      { icon: '❓', title: 'Pet Health Questions', text: 'View questions submitted by pet owners.', path: '/vet/questions' },
-      { icon: '🩺', title: 'Provide Guidance', text: 'Answer questions with general guidance.' },
+      { icon: '❓', title: 'Pet Health Questions', text: 'View and answer questions from pet owners.', path: '/vet/questions' },
       { icon: '📚', title: 'Publish Educational Content', text: 'Write posts on care and prevention.' },
       { icon: '📈', title: 'Symptom History', text: 'Review shared symptom records.' },
       { icon: '💊', title: 'Medication Review', text: 'Review recorded medications.' },
@@ -43,9 +42,8 @@ export const roles = {
     home: '/expert',
     welcome: 'Share guidance within your approved area of expertise.',
     menu: [
-      { icon: '🔎', title: 'Questions in My Expertise', text: 'Browse posts in your specialty.', path: '/expert/questions' },
+      { icon: '🔎', title: 'Questions in My Expertise', text: 'Browse and answer questions in your specialty.', path: '/expert/questions' },
       { icon: '🪪', title: 'Expertise Profile', text: 'Specialty, credentials and experience.' },
-      { icon: '💡', title: 'Answer Specialty Questions', text: 'Respond within your area.' },
       { icon: '📚', title: 'Publish Educational Content', text: 'Write articles and tips.' },
       { icon: '🌿', title: 'Recommend Resources', text: 'Suggest approved wellness resources.' },
       { icon: '⭐', title: 'Product Feedback', text: 'Review user product experiences.' },
@@ -58,7 +56,7 @@ export const roles = {
     home: '/moderator',
     welcome: 'Keep the PetMed community safe and constructive.',
     menu: [
-      { icon: '🚩', title: 'Reported Posts and Advice', text: 'View content reported by users.', path: '/moderator/reports' },
+      { icon: '🚩', title: 'Reported Posts and Advice', text: 'Review reports and record the action taken.', path: '/moderator/reports' },
       { icon: '💬', title: 'Moderate Comments', text: 'Review reported comments.' },
       { icon: '👤', title: 'Reported Users', text: 'Review reports about users.' },
       { icon: '📁', title: 'Moderation Cases', text: 'Create, track and close cases.' },
@@ -72,6 +70,7 @@ export const roles = {
     welcome: 'Manage users, professionals and platform settings.',
     menu: [
       { icon: '👥', title: 'Manage Users', text: 'Search and list user accounts.', path: '/admin/users' },
+      { icon: '🪪', title: 'Professional Verification', text: 'Verify vets and experts, or suspend them.', path: '/admin/verification' },
       { icon: '✅', title: 'Role Requests', text: 'Approve vets, experts, moderators and admins.', path: '/admin/role-requests' },
       { icon: '🔐', title: 'Roles and Permissions', text: 'Assign role permissions.' },
       { icon: '🏷️', title: 'Health Categories and Tags', text: 'Maintain categories and tags.' },

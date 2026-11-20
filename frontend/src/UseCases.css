@@ -487,3 +487,130 @@
   background: #fdecea;
   color: #b3261e;
 }
+
+/* ------------------------------------------------------------
+   Sprint V: forms that add or change data
+   ------------------------------------------------------------ */
+
+/* Inline reply / decision form inside a card (vet, expert, moderator) */
+.uc-reply {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+.uc-reply label,
+.uc-form select + label,
+.uc-form > label {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.uc-reply textarea,
+.uc-reply select,
+.uc-form select {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.uc-reply textarea:focus,
+.uc-reply select:focus,
+.uc-form select:focus {
+  outline: 2px solid var(--green-soft);
+  border-color: var(--green);
+}
+
+.uc-reply .uc-button {
+  justify-self: start;
+}
+
+/* Form on the left, list on the right (Symptom Tracker) */
+.uc-split {
+  display: grid;
+  grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.uc-panel {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.uc-severity {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.uc-severity legend {
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.uc-sev {
+  flex: 1;
+  padding: 9px 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.uc-sev input {
+  position: absolute;
+  opacity: 0;
+}
+
+.uc-sev:focus-within {
+  outline: 2px solid var(--green);
+}
+
+.uc-sev-mild.selected { border-color: #1d7a46; background: #e3f4ea; color: #1d7a46; }
+.uc-sev-moderate.selected { border-color: #a34a12; background: #fdeee3; color: #a34a12; }
+.uc-sev-severe.selected { border-color: #b3261e; background: #fdecea; color: #b3261e; }
+
+.uc-pill-mild { background: #e3f4ea; color: #1d7a46; }
+.uc-pill-moderate { background: #fdeee3; color: #a34a12; }
+.uc-pill-severe { background: #fdecea; color: #b3261e; }
+.uc-pill-escalated { background: #f1e8fb; color: #5b2c86; }
+
+/* A row that was just saved */
+.uc-new {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-soft);
+}
+
+/* Verification history under a professional */
+.uc-history {
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.uc-history li {
+  margin: 4px 0;
+}
+
+@media (max-width: 900px) {
+  .uc-split {
+    grid-template-columns: 1fr;
+  }
+}

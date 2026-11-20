@@ -63,7 +63,7 @@ class RoleHomeTests(unittest.TestCase):
         stats, _ = self.stats("community_moderator")
         self.assertEqual(stats["Suspended users"], 1)
         stats, body = self.stats("administrator")
-        self.assertEqual(stats["Total users"], 8)
+        self.assertEqual(stats["Total users"], 10)  # 8 + the 2 Sprint V applicants
         self.assertEqual(len(body["newest_users"]), 4)
 
 

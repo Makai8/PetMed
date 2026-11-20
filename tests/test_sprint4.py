@@ -134,7 +134,7 @@ class TestSignUp(PetMedTestCase):
     NEW_EMAIL = "test.signup@petmed.com"
 
     def tearDown(self):
-        # Remove the test account so the other tests still see 8 users
+        # Remove the test account so the other tests still see 10 users
         from db import execute, query_one
         with self.app.app_context():
             row = query_one("SELECT user_id FROM User WHERE email = %s", (self.NEW_EMAIL,))
@@ -169,7 +169,7 @@ class TestSignUp(PetMedTestCase):
 class TestRetrieval(PetMedTestCase):
     def test_admin_lists_all_users(self):
         body = self.get("/api/admin/users", ADMIN).get_json()
-        self.assertEqual(body["count"], 8)
+        self.assertEqual(body["count"], 10)  # 8 + the 2 Sprint V applicants
         self.assertEqual(len(body["roles"]), 5)
 
     def test_admin_searches_users(self):

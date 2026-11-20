@@ -4,8 +4,12 @@ import useApiData from '../api/useApiData.js'
 import UseCaseLayout from '../components/UseCaseLayout.jsx'
 
 // ------------------------------------------------------------
-// Veterinarian use case: view pet-health questions from pet owners.
-// Data: GET /api/vet/questions?show=&q=  (src/routes/vet.py)
+// Veterinarian use cases
+// Sprint IV: view pet-health questions from pet owners.
+//   GET  /api/vet/questions?show=&q=
+// Sprint V: answer a question with general veterinary guidance.
+//   POST /api/vet/questions/<question_id>/answer {response_text}
+// (src/routes/vet.py)
 // ------------------------------------------------------------
 
 const FILTERS = [
@@ -72,6 +76,8 @@ function HealthQuestions() {
                     ))}
                   </ul>
                 )}
+
+                {/* MAKAI: add the answer form here (Sprint V). See docs/Sprint5_Team_Tasks.md */}
               </article>
             ))}
             {d.count === 0 && <p className="uc-empty">No questions here.</p>}

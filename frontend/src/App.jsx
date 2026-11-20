@@ -13,6 +13,8 @@ import ManageUsers from './pages/ManageUsers.jsx'
 import Unauthorized from './pages/Unauthorized.jsx'
 import RequestRole from './pages/RequestRole.jsx'
 import RoleRequests from './pages/RoleRequests.jsx'
+import SymptomTracker from './pages/SymptomTracker.jsx'
+import Verification from './pages/Verification.jsx'
 import './App.css'
 
 // ------------------------------------------------------------
@@ -36,6 +38,7 @@ function App() {
           {/* Pet Owner */}
           <Route path="/owner" element={<RequireRole role="pet_owner"><Dashboard /></RequireRole>} />
           <Route path="/owner/feed" element={<RequireRole role="pet_owner"><CommunityFeed /></RequireRole>} />
+          <Route path="/owner/symptoms" element={<RequireRole role="pet_owner"><SymptomTracker /></RequireRole>} />
 
           {/* Veterinarian */}
           <Route path="/vet" element={<RequireRole role="veterinarian"><Dashboard /></RequireRole>} />
@@ -53,6 +56,7 @@ function App() {
           <Route path="/admin" element={<RequireRole role="administrator"><Dashboard /></RequireRole>} />
           <Route path="/admin/users" element={<RequireRole role="administrator"><ManageUsers /></RequireRole>} />
           <Route path="/admin/role-requests" element={<RequireRole role="administrator"><RoleRequests /></RequireRole>} />
+          <Route path="/admin/verification" element={<RequireRole role="administrator"><Verification /></RequireRole>} />
 
           {/* Any unknown address goes home */}
           <Route path="*" element={<Navigate to="/" replace />} />

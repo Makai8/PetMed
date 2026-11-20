@@ -3,11 +3,16 @@
 The specialty comes from Professional_Profile. Posts match when they carry the
 tag with the same name (specialty "Nutrition" -> tag "nutrition").
 An expert whose profile is not approved yet cannot use this feature.
+
+Sprint V: answer a question inside the expert's approved area
+(POST /api/expert/questions/<question_id>/answer  {"response_text": "..."}).
+A question is inside the expert's area when it was sent to this expert.
 """
 from flask import Blueprint, g, jsonify, request
 
 from auth import PET_HEALTH_EXPERT, require_roles
-from db import query, query_one
+from db import execute, query, query_one
+from helpers import clean, log_event, now
 
 bp = Blueprint("expert", __name__, url_prefix="/api/expert")
 
@@ -60,3 +65,33 @@ def expertise_topics():
         questions=query(q_sql, q_params),
         posts=query(p_sql, p_params),
     )
+
+
+# ------------------------------------------------------------- Sprint V
+
+MIN_ANSWER = 20
+
+
+@bp.post("/questions/<int:question_id>/answer")
+@require_roles(PET_HEALTH_EXPERT)
+def answer_question(question_id):
+    # ===================== MILES: build this (Sprint V) =====================
+    # An approved expert answers a question inside their area of expertise.
+    # "Inside their area" = the question was sent to this expert (directed_to_user_id).
+    # Worked example to copy from: update_status() in routes/verification.py
+    # Done when: python -m pytest tests -k Expert   passes (no skips).
+    #
+    # 1. data = request.get_json(silent=True) or {};  text = clean(data, "response_text")
+    #    Shorter than MIN_ANSWER characters -> 400.
+    # 2. profile = the expert's Professional_Profile (professional_type = PET_HEALTH_EXPERT).
+    #    Missing or verification_status != 'approved' -> 403 (same idea as expertise_topics() above).
+    # 3. question = query_one("SELECT question_id, directed_to_user_id FROM Health_Question WHERE question_id = %s", ...)
+    #    Not found -> 404.
+    #    directed_to_user_id != g.user["user_id"] -> 403 f"This question is outside your approved area ({profile['specialty']})."
+    # 4. Already answered by this expert -> 409.
+    # 5. INSERT INTO Advice_Response (...) with source_type PET_HEALTH_EXPERT and created_at now().
+    # 6. log_event(g.user["user_id"], "answer_question", "Advice_Response", response_id)
+    # 7. return jsonify(message="Your answer was posted.", response_id=response_id,
+    #                   author=g.user["full_name"], source_type=PET_HEALTH_EXPERT, response_text=text), 201
+    # Then delete the line below.
+    return jsonify(message="Not built yet: Miles is building Answer in My Expertise (Sprint V)."), 501

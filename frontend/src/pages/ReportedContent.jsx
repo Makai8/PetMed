@@ -4,10 +4,21 @@ import useApiData from '../api/useApiData.js'
 import UseCaseLayout from '../components/UseCaseLayout.jsx'
 
 // ------------------------------------------------------------
-// Community Moderator use case: view reported posts and reported
-// health advice. Data: GET /api/moderation/reports?type=&status=
+// Community Moderator use cases
+// Sprint IV: view reported posts and reported health advice.
+//   GET /api/moderation/reports?type=&status=
+// Sprint V: review a report and update its moderation case.
+//   POST /api/moderation/reports/<report_id>/decision {action, reason}
 // (src/routes/moderator.py)
 // ------------------------------------------------------------
+
+const ACTIONS = [
+  ['remove_content', 'Remove the content'],
+  ['warn_user', 'Warn the author'],
+  ['dismiss', 'Dismiss (no violation)'],
+  ['escalate', 'Escalate to an administrator'],
+]
+const ACTION_LABELS = Object.fromEntries(ACTIONS)
 
 function ReportedContent() {
   const [type, setType] = useState('all')
@@ -69,7 +80,10 @@ function ReportedContent() {
                 <p className="uc-muted uc-small">
                   Reported by {r.reported_by}
                   {r.case_status && <> · Case {r.case_status}{r.assigned_to ? `, assigned to ${r.assigned_to}` : ', not assigned yet'}</>}
+                  {r.last_action && <> · Last action: {ACTION_LABELS[r.last_action] || r.last_action}</>}
                 </p>
+
+                {/* MAKEL: add the decision form here (Sprint V). See docs/Sprint5_Team_Tasks.md */}
               </article>
             ))}
             {d.count === 0 && <p className="uc-empty">No reports here.</p>}

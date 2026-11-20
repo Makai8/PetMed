@@ -4,9 +4,12 @@ import useApiData from '../api/useApiData.js'
 import UseCaseLayout from '../components/UseCaseLayout.jsx'
 
 // ------------------------------------------------------------
-// Pet Health Expert use case: browse questions and posts in the
-// expert's approved area of expertise (from Professional_Profile).
-// Data: GET /api/expert/topics?q=  (src/routes/expert.py)
+// Pet Health Expert use cases
+// Sprint IV: browse questions and posts in the expert's approved
+//   area of expertise.  GET /api/expert/topics?q=
+// Sprint V: answer a question inside that area.
+//   POST /api/expert/questions/<question_id>/answer {response_text}
+// (src/routes/expert.py)
 // ------------------------------------------------------------
 
 function ExpertQuestions() {
@@ -44,6 +47,8 @@ function ExpertQuestions() {
                   {item.answers > 0
                     ? <span className="uc-pill uc-pill-answered">{item.answers} {item.answers === 1 ? 'answer' : 'answers'}</span>
                     : <span className="uc-unanswered">No answers yet</span>}
+
+                  {/* MILES: add the answer form here (Sprint V). See docs/Sprint5_Team_Tasks.md */}
                 </article>
               ))}
               {d.questions.length === 0 && <p className="uc-empty">No questions match.</p>}

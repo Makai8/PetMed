@@ -8,9 +8,10 @@
 | Sign up | A new Pet Owner can sign up and then sign in; a used email, a weak password, a missing name and a bad email are rejected (the test account is deleted afterward) |
 | Role requests (`test_sprint5_role_requests.py`) | A new user requests a role and keeps only Pet Owner until an administrator approves; approval gives the role, rejection doesn't; vets must give credentials; bad or repeat requests are refused; only administrators can review |
 | Authorization | No token or a fake token gets 401; each feature answers 200 for its own role and 403 for the other four; only the website's address may call the API |
+| Sprint V use cases (`test_sprint5_use_cases.py`) | Each of the five use cases saves valid data, refuses invalid or incomplete data without saving anything, really changes the database, and is refused for the other roles. A part that is still a starter shows as SKIPPED |
 | Retrieval | Each feature returns the expected rows from MySQL (user search, feed search and topic filter, vet question filters, expert specialty, reported content filters) |
 
-Run from the repository root, after rebuilding the database with all five scripts (see `src/README.md`):
+Run from the repository root, after rebuilding the database with all seven scripts (see `src/README.md`):
 
 ```powershell
 python -m pytest tests -v

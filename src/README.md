@@ -6,7 +6,7 @@ The server behind the PetMed website. It runs on port 4000, checks sign-ins, wor
 
 You need **Python 3.10+**, **Node.js**, **MySQL** and the `petmed` database.
 
-**1. Rebuild the database with the Sprint IV data.** From the `backend` folder:
+**1. Rebuild the database with the Sprint IV and V data.** From the `backend` folder:
 
 ```powershell
 mysql -u root -p -e "DROP DATABASE IF EXISTS petmed;"
@@ -16,6 +16,7 @@ cat sample_data_health_records.sql | mysql -u root -p
 cat sample_data_more.sql | mysql -u root -p
 cat sample_data_sprint4.sql | mysql -u root -p
 cat sprint5_role_requests.sql | mysql -u root -p
+cat sprint5_sample_data.sql | mysql -u root -p
 ```
 
 **2. Install the Python packages (once).** From the repository root:
@@ -81,6 +82,11 @@ Every sample account uses the demo password **`PetMed123!`** (the database store
 | `GET /api/vet/questions?show=all\|mine\|open\|unanswered&q=` | veterinarian | `routes/vet.py` |
 | `GET /api/expert/topics?q=` | pet_health_expert (approved profile only) | `routes/expert.py` |
 | `GET /api/moderation/reports?type=all\|post\|advice&status=open\|resolved\|all` | community_moderator | `routes/moderator.py` |
+| **Sprint V** `GET /api/admin/professionals?status=`, `POST /api/admin/professionals/<profile_id>/status` | administrator | `routes/verification.py` |
+| **Sprint V** `GET /api/owner/pets`, `GET /api/owner/symptoms`, `POST /api/owner/symptoms` | pet_owner | `routes/symptoms.py` |
+| **Sprint V** `POST /api/vet/questions/<question_id>/answer` | veterinarian (verified) | `routes/vet.py` |
+| **Sprint V** `POST /api/expert/questions/<question_id>/answer` | pet_health_expert (approved, own questions) | `routes/expert.py` |
+| **Sprint V** `POST /api/moderation/reports/<report_id>/decision` | community_moderator | `routes/moderator.py` |
 
 ## Files
 
@@ -90,7 +96,8 @@ Every sample account uses the demo password **`PetMed123!`** (the database store
 | `config.py` | Reads settings from `src/.env` |
 | `db.py` | Opens the MySQL connection and runs queries |
 | `auth.py` | Sign-in, tokens, and the `@require_roles` check |
-| `routes/*.py` | One file per role's Sprint IV use case |
+| `helpers.py` | Sprint V helpers for checking form data and logging actions (`missing`, `one_of`, `clean`, `log_event`) |
+| `routes/*.py` | One file per role's use cases (Sprint IV reads data, Sprint V adds or changes it) |
 
 ## Run the tests
 
