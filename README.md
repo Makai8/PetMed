@@ -289,10 +289,9 @@ Each team member must provide:
 
 ## Current Project Status
 
-**Sprint Cycle:** Sprint Cycle 0 - Team Setup and Project Preparation
+**Sprint Cycle:** Sprint Cycle V - Adding and Modifying Data (demo video due November 24, 2026)
 
-The team is currently preparing the development environment, GitHub repository, and project documentation. PetMed functionality, database design, and the final user interface will be developed during later sprint cycles.
-
+Sprints 0 through IV are complete: the team set up the repository, designed the UI and database, built the MySQL database, and built sign-in, role-based navigation, authorization and one data-retrieval feature per role. Sprint V adds one use case per role that adds or changes data in the database. The checklists for every sprint are at the end of this README, and each person's Sprint V tasks are in the [Sprint V checklist](#sprint-5--adding-and-modifying-data).
 
 ---
 
@@ -417,6 +416,36 @@ Sample accounts and the demo password are listed in [`src/README.md`](src/README
 <img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/16e07224-565d-4c8c-b592-dad8e9e28eec" />
 
 <img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/2e39f18d-fc78-4ca7-a81c-d4376f2d964e" />
+
+
+# SPRINT 0 – Team Setup and Project Preparation
+
+## 0. Team Setup
+- [x] Choose the Scrum Master for Sprint 0
+- [x] Review the complete PetMed Functional Requirements
+- [x] Understand the five system roles and their major use cases
+- [x] List unclear requirements and questions for the instructor
+
+## 1. Technologies
+- [x] Select the programming language (Python), frontend (React), database (MySQL), IDE and version control
+- [x] Record the selected technologies in this README
+
+## 2. GitHub Repository
+- [x] Create the shared GitHub repository
+- [x] Add every team member as a collaborator
+- [x] Create the initial repository structure (`frontend/`, `src/`, `backend/`, `docs/`, `tests/`, `evidence/`)
+- [x] Write the setup instructions in this README
+
+## 3. Every Team Member
+- [x] Clone the repository
+- [x] Make a Sprint 0 contribution and commit it from their own GitHub account
+- [x] Push the contribution
+- [x] Pull the final version and confirm all team changes are there
+- [x] Add a screenshot of a successful pull as evidence
+
+## Do NOT (Sprint 0 restrictions)
+- [x] No PetMed use cases, sign-in, database tables or final UI yet
+- [x] No ZIP files or file sharing to combine work: everything goes through GitHub
 
 
 # SPRINT 1
@@ -625,3 +654,181 @@ Sample accounts and the demo password are listed in [`src/README.md`](src/README
 
 ## Do NOT (Sprint 2 restrictions)
 - [ ] Do not create database tables, MySQL scripts, or database application code (implementation is Sprint 3)
+
+
+# SPRINT 3 – Database Implementation
+
+Due November 4, 2026 · Presentation November 5, 2026
+
+## 0. Team Setup
+- [x] Choose the Scrum Master for Sprint 3
+- [x] Spread meetings across the sprint and record them in [`evidence/Sprint3_Meeting_Notes.md`](evidence/Sprint3_Meeting_Notes.md)
+- [x] Assign each team member part of the implementation
+
+## 1. Review and Update the Design
+- [x] Review the Sprint 2 ERD and data dictionary against instructor and competition feedback
+- [x] Fix problems found during implementation
+- [x] Update the ERD and data dictionary to match the database that was built
+
+## 2. Implement the Database (MySQL)
+- [x] Create every table needed for the complete system, not only the next sprint ([`backend/PetMedDB.sql`](backend/PetMedDB.sql))
+- [x] Primary keys, foreign keys and relationships
+- [x] Appropriate data types, required fields and constraints
+- [x] Database setup and recreation instructions ([`backend/README.md`](backend/README.md))
+
+## 3. Meaningful Sample Data
+- [x] Realistic sample data in every major table (no "User1", "Item1")
+- [x] Data for all five roles
+- [x] Sample rows that show the important relationships (owners and pets, questions and answers, reports and cases)
+
+## 4. Demonstrate Queries ([`backend/QUERIES.md`](backend/QUERIES.md), [`backend/presentation_queries.sql`](backend/presentation_queries.sql))
+- [x] A. Retrieve/search records by useful criteria
+- [x] B. Retrieve related data across tables
+- [x] C. Add a new record
+- [x] D. Modify an existing record
+- [x] E. Practice answering a query the instructor asks on the spot
+
+## 5. Explain the Design
+- [x] Show how the database supports THREE important use cases (tables involved, relationships, data stored)
+- [x] Show at least THREE database rules or constraints, and where each is or will be enforced
+
+## 6. GitHub Requirements
+- [x] Creation scripts, sample-data scripts, query files, updated ERD and data dictionary are in the repository
+- [x] Every team member makes a meaningful commit from their own account
+- [x] Every team member pulls the current repository
+
+## 7. Presentation
+- [x] Explain why MySQL fits the project
+- [x] Show the updated ERD, the database structure and the sample data
+- [x] Run the retrieve, related-data, add and modify queries live
+- [x] Answer the instructor's queries
+- [x] Explain the three use cases and three rules
+- [x] Show the database materials in GitHub
+
+## 8. Final Submission
+- [x] Updated ER diagram and data dictionary
+- [x] Database schema, sample data and queries
+- [x] Setup and recreation instructions
+- [x] GitHub repository link, presentation and meeting documentation
+
+
+# SPRINT 4 – Sign-in, Authorization and Data Retrieval
+
+Presentation November 17, 2026 · Scrum Master: Dorien Parris · Details: [`docs/Sprint4_Team_Tasks.md`](docs/Sprint4_Team_Tasks.md), [`docs/Sprint4_Demo_Guide.md`](docs/Sprint4_Demo_Guide.md)
+
+## 0. Team Setup
+- [x] Choose the Scrum Master for Sprint 4 (Dorien Parris)
+- [x] Meetings on November 10, 12 and 16, recorded in [`evidence/Sprint4_Meeting_Notes.md`](evidence/Sprint4_Meeting_Notes.md)
+
+## 1. Sign-in for All Five Roles
+- [x] Sign-in page that checks the email and password against the MySQL database (David: page; Dorien: API)
+- [x] Identify the signed-in user's role
+- [x] Open that role's landing/navigation page
+- [x] Invalid sign-in is refused; suspended accounts are refused
+- [x] Sign-in uses the database instead of test users (Makai)
+
+## 2. Role-Based Navigation and Authorization
+- [x] Each role's landing page shows every major feature planned for the final app (unbuilt ones marked "Soon")
+- [x] The website blocks pages that belong to other roles ("Access denied")
+- [x] The API itself answers 403 when another role calls a feature
+
+## 3. One Retrieval Use Case per Role
+- [x] Administrator: search, browse and list users
+- [x] Pet Owner: browse and search the community feed (Miles: Clear button)
+- [x] Veterinarian: view pet-health questions from pet owners (Makai: unanswered count)
+- [x] Pet Health Expert: browse questions and posts in the approved specialty
+- [x] Community Moderator: view reported posts and reported advice (Makel: "Assigned to you" label)
+
+## 4. Testing
+- [x] A valid user of each role signs in and reaches the right landing page
+- [x] An invalid sign-in is rejected
+- [x] Each retrieval shows the correct data from the database
+- [x] Automated tests in [`tests/test_sprint4.py`](tests/test_sprint4.py)
+
+## 5. GitHub Requirements
+- [x] Every member pulls, makes a meaningful contribution, pushes from their own account, and runs the app
+- [x] Evidence screenshots in `evidence/Sprint4/`
+
+## 6. Presentation
+- [x] Run the app from the current GitHub version
+- [x] Sign in as each role and show its landing page and retrieval use case
+- [x] Show an invalid sign-in and that the data comes from the database
+- [x] Show the code and every member's commits on GitHub
+
+
+# SPRINT 5 – Adding and Modifying Data
+
+Demo video due November 24, 2026 (no in-class presentation) · Scrum Master: Dorien Parris
+
+Step-by-step instructions with code for each person: [`docs/Sprint5_Team_Tasks.md`](docs/Sprint5_Team_Tasks.md). Video script: [`docs/Sprint5_Demo_Video_Script.md`](docs/Sprint5_Demo_Video_Script.md). Meetings: [`evidence/Sprint5_Meeting_Notes.md`](evidence/Sprint5_Meeting_Notes.md).
+
+**Your part is done when:** your tests show PASSED (not SKIPPED) with `python -m pytest tests -k <YourPart> -v`, all other tests still pass, one good save and one invalid attempt work in the browser, two screenshots are in `evidence/Sprint5/`, and your commit is on GitHub under your own name. Target: everything pushed by Sunday, November 22.
+
+## 0. Everyone: Setup
+- [ ] `git pull`
+- [ ] Rebuild the database with all seven scripts, ending with `sprint5_sample_data.sql` ([`src/README.md`](src/README.md), step 1)
+- [ ] Start the API (`python src/app.py`) and the website (`cd frontend`, `npm.cmd run dev`)
+- [ ] `python -m pytest tests` shows 48 passed, 12 skipped before anyone finishes their part
+
+## 1. Dorien Parris (40%): Scrum Master + Administrator verifies professionals
+- [x] Sprint V sample data: two professionals waiting for verification ([`backend/sprint5_sample_data.sql`](backend/sprint5_sample_data.sql))
+- [x] Shared helpers for checking form data and logging actions ([`src/helpers.py`](src/helpers.py))
+- [x] Administrator use case: Professional Verification page; approve, reject (note required) or suspend; updates `Professional_Profile`, adds `Verification_Review`, gives the role on approval ([`src/routes/verification.py`](src/routes/verification.py), [`frontend/src/pages/Verification.jsx`](frontend/src/pages/Verification.jsx))
+- [x] Pet and symptom-history lists for the Symptom Tracker; menus and page routes for all five use cases
+- [x] Tests for all five use cases ([`tests/test_sprint5_use_cases.py`](tests/test_sprint5_use_cases.py))
+- [x] Starter files and step-by-step tasks for the team, video script, before/after SQL queries ([`backend/sprint5_check_queries.sql`](backend/sprint5_check_queries.sql))
+- [x] Meeting 1 (planning) notes
+- [ ] Push, then post the tasks in the group chat
+- [ ] Meeting 2 (Sunday, Nov 22): everyone shows their part working; record notes
+- [ ] Meeting 3 (Monday, Nov 23): rebuild the database, confirm 60 tests pass, record the video
+- [ ] Upload the video to Canvas and store it or link it in this README
+- [ ] Check GitHub shows Sprint V commits from all five members
+
+## 2. David Jean-Charles Bahidika (15%): Pet Owner records a symptom
+- [ ] API: build `record_symptom()` in `src/routes/symptoms.py` (required fields, severity mild/moderate/severe, pet must be the owner's own, time not in the future, insert into `Symptom_Log`, log it)
+- [ ] Page: build the form in `frontend/src/pages/SymptomTracker.jsx` (pet, symptom, severity, when, notes, Save button, green/red message, history reloads)
+- [ ] `python -m pytest tests -k Symptoms -v`: 4 passed
+- [ ] Screenshots: `evidence/Sprint5/david-invalid.png` (no pet chosen) and `david-saved.png`
+- [ ] Commit and push from your own account
+
+## 3. Makai Lyn-Ah-Ping (15%): Veterinarian answers a question
+- [ ] API: build `answer_question()` in `src/routes/vet.py` (at least 20 characters, vet must be verified, question open or sent to this vet, one answer per vet, insert into `Advice_Response` as `veterinarian`, log it)
+- [ ] Page: add the answer box to each question in `frontend/src/pages/HealthQuestions.jsx` (textarea, Post guidance button, message, list reloads)
+- [ ] `python -m pytest tests -k Vet -v`: 4 passed
+- [ ] Screenshots: `evidence/Sprint5/makai-invalid.png` (too short) and `makai-saved.png`
+- [ ] Commit and push from your own account
+
+## 4. Miles Sharpton (15%): Pet Health Expert answers in their area
+- [ ] API: build `answer_question()` in `src/routes/expert.py` (at least 20 characters, expert must be approved, question must be sent to this expert, one answer per expert, insert into `Advice_Response` as `pet_health_expert`, log it)
+- [ ] Page: add the answer box to unanswered questions in `frontend/src/pages/ExpertQuestions.jsx`
+- [ ] `python -m pytest tests -k Expert -v`: 5 passed
+- [ ] Screenshots: `evidence/Sprint5/miles-invalid.png` (too short) and `miles-saved.png`
+- [ ] Commit and push from your own account
+
+## 5. Makel Dickerson (15%): Community Moderator reviews a report
+- [ ] API: build `decide_report()` in `src/routes/moderator.py` (action and reason required, report must be open, open a case if none, remove the content when asked, insert `Moderation_Action`, close or escalate the case, resolve the report, log it)
+- [ ] Page: add the decision form (action, reason, Save decision) to open reports in `frontend/src/pages/ReportedContent.jsx`
+- [ ] Fix the "Assigned to you" label: compare with `user.name` instead of `'Tasha'`
+- [ ] `python -m pytest tests -k Moderator -v`: 4 passed
+- [ ] Screenshots: `evidence/Sprint5/makel-invalid.png` (no reason) and `makel-saved.png`
+- [ ] Commit and push from your own account
+
+## 6. Testing (whole team)
+- [ ] Each use case: a normal case with valid data works
+- [ ] Each use case: invalid or incomplete data is refused with a message and nothing is saved
+- [ ] Each use case: the change is really in the database (before/after queries)
+- [ ] Earlier features (sign-in, authorization, the Sprint IV lists) still work
+- [ ] `python -m pytest tests`: 60 passed, nothing skipped
+
+## 7. Demo Video
+- [ ] Show the app running and the right user signing in for each use case
+- [ ] Demonstrate all five use cases, with the database before and after each change
+- [ ] Demonstrate at least one invalid-data case
+- [ ] Show that earlier features still work
+- [ ] Focus on the working app, not slides
+
+## 8. Final Submission
+- [ ] Video submitted on Canvas
+- [ ] Video stored in GitHub (`evidence/Sprint5/`), or a clearly labeled link in this README if it's too large
+- [ ] Meeting documentation complete
+- [ ] Every member has pulled, contributed, pushed from their own account, and can run the system
