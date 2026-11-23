@@ -270,6 +270,13 @@ class TestExpertAnswers(Sprint5Case):
         self.assertEqual(row["question_id"], qid)
         self.assertEqual(row["author_user_id"], self.user_id(EXPERT))
         self.assertEqual(row["source_type"], "pet_health_expert")
+        self.assertEqual(row["response_text"], text)
+        audit = self.sql_one(
+            "SELECT actor_user_id FROM Audit_Event WHERE entity_name = 'Advice_Response' "
+            "AND entity_id = %s AND event_type = 'answer_question'", (rid,))
+        self.assertEqual(audit["actor_user_id"], self.user_id(EXPERT))
+        duplicate = self.post(f"/api/expert/questions/{qid}/answer", {"response_text": text}, EXPERT)
+        self.assertEqual(duplicate.status_code, 409)
         topics = self.get("/api/expert/topics", EXPERT).get_json()
         answered = [q for q in topics["questions"] if q["question_id"] == qid][0]
         self.assertEqual(answered["answers"], 1)
@@ -286,6 +293,9 @@ class TestExpertAnswers(Sprint5Case):
         res = self.post(f"/api/expert/questions/{qid}/answer", {"response_text": "Fewer."}, EXPERT)
         self.skip_if_not_built(res)
         self.assertEqual(res.status_code, 400)
+        for body in ({}, {"response_text": "   "}, ["not a JSON object"]):
+            with self.subTest(body=body):
+                self.assertEqual(self.post(f"/api/expert/questions/{qid}/answer", body, EXPERT).status_code, 400)
         self.assertEqual(self.post("/api/expert/questions/999999/answer", {"response_text": ANSWER},
                                    EXPERT).status_code, 404)
         after = self.sql_one("SELECT COUNT(*) AS n FROM Advice_Response WHERE question_id = %s", (qid,))["n"]

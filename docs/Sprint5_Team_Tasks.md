@@ -114,6 +114,24 @@ appears under it. Try "Go to a vet." → "Write at least 20 characters of guidan
 
 ## Miles – Pet Health Expert: Answer in my expertise
 
+**Implemented and verified locally on November 23, 2026.** The API saves the expert's
+answer and audit event in MySQL, rejects short answers and duplicate submissions,
+and restricts answers to approved experts and questions directed to them.
+The page shows a specialty-labelled answer form, validation feedback, and the updated answer count after saving.
+
+Verification: `python -m pytest tests -k Expert -v` reports **7 passed**, including all five
+Sprint V expert tests. Full suite: **52 passed, 8 skipped, 43 subtests passed**; the skips
+are unfinished Owner, Veterinarian, and Moderator starter routes. Production build and
+ESLint on `ExpertQuestions.jsx` pass. Tests additionally check the audit event,
+duplicate rejection, and empty/malformed answer payloads.
+
+Browser evidence: [invalid answer](../evidence/Sprint5/miles-invalid.png) and
+[successful save](../evidence/Sprint5/miles-saved.png). Both were captured against local
+MySQL, and the saved `Advice_Response` and `Audit_Event` were verified directly.
+Only the answer created during browser verification was removed afterward, so the
+treats question is ready to demonstrate again. Existing local data was backed up before
+applying the two missing Sprint V setup scripts.
+
 **API:** `answer_question()` at the bottom of `src/routes/expert.py`. Follow the 7 numbered steps.
 
 **Page:** `frontend/src/pages/ExpertQuestions.jsx`. Where the `MILES` comment is, add the same kind of answer box as

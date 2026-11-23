@@ -75,23 +75,38 @@ MIN_ANSWER = 20
 @bp.post("/questions/<int:question_id>/answer")
 @require_roles(PET_HEALTH_EXPERT)
 def answer_question(question_id):
-    # ===================== MILES: build this (Sprint V) =====================
-    # An approved expert answers a question inside their area of expertise.
-    # "Inside their area" = the question was sent to this expert (directed_to_user_id).
-    # Worked example to copy from: update_status() in routes/verification.py
-    # Done when: python -m pytest tests -k Expert   passes (no skips).
-    #
-    # 1. data = request.get_json(silent=True) or {};  text = clean(data, "response_text")
-    #    Shorter than MIN_ANSWER characters -> 400.
-    # 2. profile = the expert's Professional_Profile (professional_type = PET_HEALTH_EXPERT).
-    #    Missing or verification_status != 'approved' -> 403 (same idea as expertise_topics() above).
-    # 3. question = query_one("SELECT question_id, directed_to_user_id FROM Health_Question WHERE question_id = %s", ...)
-    #    Not found -> 404.
-    #    directed_to_user_id != g.user["user_id"] -> 403 f"This question is outside your approved area ({profile['specialty']})."
-    # 4. Already answered by this expert -> 409.
-    # 5. INSERT INTO Advice_Response (...) with source_type PET_HEALTH_EXPERT and created_at now().
-    # 6. log_event(g.user["user_id"], "answer_question", "Advice_Response", response_id)
-    # 7. return jsonify(message="Your answer was posted.", response_id=response_id,
-    #                   author=g.user["full_name"], source_type=PET_HEALTH_EXPERT, response_text=text), 201
-    # Then delete the line below.
-    return jsonify(message="Not built yet: Miles is building Answer in My Expertise (Sprint V)."), 501
+    data = request.get_json(silent=True) or {}
+    if not isinstance(data, dict):
+        return jsonify(message="Send your answer as a JSON object."), 400
+    text = clean(data, "response_text")
+    if len(text) < MIN_ANSWER:
+        return jsonify(message=f"Write at least {MIN_ANSWER} characters."), 400
+
+    user_id = g.user["user_id"]
+    profile = query_one(
+        "SELECT specialty, verification_status FROM Professional_Profile "
+        "WHERE user_id = %s AND professional_type = %s", (user_id, PET_HEALTH_EXPERT))
+    if profile is None or profile["verification_status"] != "approved":
+        return jsonify(message="Your expert profile has not been approved yet, "
+                             "so you can't answer questions."), 403
+
+    question = query_one(
+        "SELECT question_id, directed_to_user_id FROM Health_Question WHERE question_id = %s",
+        (question_id,))
+    if question is None:
+        return jsonify(message="Question not found."), 404
+    if question["directed_to_user_id"] != user_id:
+        return jsonify(message=f"This question is outside your approved area ({profile['specialty']})."), 403
+
+    existing = query_one(
+        "SELECT response_id FROM Advice_Response WHERE question_id = %s AND author_user_id = %s",
+        (question_id, user_id))
+    if existing is not None:
+        return jsonify(message="You already answered this question."), 409
+
+    response_id = execute(
+        "INSERT INTO Advice_Response (question_id, author_user_id, response_text, source_type, created_at) "
+        "VALUES (%s, %s, %s, %s, %s)", (question_id, user_id, text, PET_HEALTH_EXPERT, now()))
+    log_event(user_id, "answer_question", "Advice_Response", response_id)
+    return jsonify(message="Your answer was posted.", response_id=response_id,
+                   author=g.user["full_name"], source_type=PET_HEALTH_EXPERT, response_text=text), 201
