@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { formatDate } from '../api/petmedApi.js' // DAVID: also import apiPost
+import { apiPost, formatDate } from '../api/petmedApi.js'
 import useApiData from '../api/useApiData.js'
-// DAVID: import { useAuth } from '../auth/AuthContext.jsx'
+import { useAuth } from '../auth/AuthContext.jsx'
 import UseCaseLayout from '../components/UseCaseLayout.jsx'
 
 // ------------------------------------------------------------
@@ -26,47 +26,85 @@ function nowForInput() {
 const EMPTY = { pet_id: '', symptom: '', severity: 'mild', observed_at: '', notes: '' }
 
 function SymptomTracker() {
-  // DAVID: add the form state here, for example
-  //   const { user } = useAuth()
-  //   const [form, setForm] = useState({ ...EMPTY, observed_at: nowForInput() })
-  //   const [message, setMessage] = useState(null)
-  //   const [saving, setSaving] = useState(false)
-  const [newId] = useState(null) // DAVID: becomes [newId, setNewId]; highlights the row just saved
+  const { user } = useAuth()
+  const [form, setForm] = useState({ ...EMPTY, observed_at: nowForInput() })
+  const [message, setMessage] = useState(null)
+  const [saving, setSaving] = useState(false)
+  const [newId, setNewId] = useState(null)
 
   const pets = useApiData('/owner/pets')
   const history = useApiData('/owner/symptoms')
   const petList = pets.status === 200 ? pets.data.pets : []
   const h = history.status === 200 ? history.data : null
 
-  // DAVID: write change(e) and handleSubmit(e) here.
+  function change(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    if (saving) return
+    setMessage(null)
+    setSaving(true)
+    try {
+      const res = await apiPost('/owner/symptoms', form, user.token)
+      if (res.ok) {
+        setMessage({ ok: true, text: res.data.message })
+        setNewId(res.data.symptom.symptom_id)
+        setForm({ ...EMPTY, pet_id: form.pet_id, observed_at: nowForInput() })
+        history.reload()
+      } else {
+        setMessage({ ok: false, text: res.data.message || 'Could not save the symptom.' })
+      }
+    } finally {
+      setSaving(false)
+    }
+  }
 
   return (
     <UseCaseLayout title="Symptom Tracker" subtitle="Record a symptom or health event so you and your vet can see the pattern."
                    result={history}>
       <div className="uc-split">
-        {/* ================= DAVID: build the form here (Sprint V) =================
-            Worked example: pages/Verification.jsx (form state -> apiPost -> message -> reload).
-            Use <form className="uc-form uc-panel" onSubmit={handleSubmit} noValidate> with:
-              - "Pet": <select id="pet_id" name="pet_id"> with an empty "Choose a pet…" option,
-                then one <option> per pet in petList (value = pet_id, text = "Bella (Dog)")
-              - "Symptom or event": <input id="symptom" name="symptom" maxLength={255}>
-              - "How serious?": a <fieldset className="uc-severity"> with one
-                <label className={`uc-sev uc-sev-${s}${form.severity === s ? ' selected' : ''}`}>
-                containing a radio input, for each value in SEVERITIES
-              - "When did you notice it?": <input id="observed_at" name="observed_at" type="datetime-local" max={nowForInput()}>
-              - "Notes (optional)": <textarea id="notes" name="notes" rows="3">
-              - the message (uc-success / login-error) and a "Save symptom" button
-            Every input uses value={form.x} onChange={change}.
-            handleSubmit: preventDefault, apiPost('/owner/symptoms', form, user.token);
-              ok  -> show res.data.message, setNewId(res.data.symptom.symptom_id),
-                     clear the form (keep the pet), history.reload()
-              not ok -> show res.data.message as an error
-            Test it: sign in as maya.johnson@petmed.com, save one good symptom and
-            one with no pet chosen (the invalid case for the video). */}
-        <div className="uc-panel">
+        <form className="uc-form uc-panel" onSubmit={handleSubmit} noValidate>
           <h2 className="uc-section-title">Record a symptom</h2>
-          <p className="uc-muted">Coming in Sprint V.</p>
-        </div>
+
+          <label htmlFor="pet_id">Pet</label>
+          <select id="pet_id" name="pet_id" value={form.pet_id} onChange={change}>
+            <option value="">Choose a pet…</option>
+            {petList.map((p) => (
+              <option key={p.pet_id} value={p.pet_id}>{p.name} ({p.species})</option>
+            ))}
+          </select>
+
+          <label htmlFor="symptom">Symptom or event</label>
+          <input id="symptom" name="symptom" maxLength={255} value={form.symptom} onChange={change}
+                 placeholder="For example: Sneezing after walks" />
+
+          <fieldset className="uc-severity">
+            <legend>How serious?</legend>
+            {SEVERITIES.map((s) => (
+              <label key={s} className={`uc-sev uc-sev-${s}${form.severity === s ? ' selected' : ''}`}>
+                <input type="radio" name="severity" value={s} checked={form.severity === s} onChange={change} />
+                {s}
+              </label>
+            ))}
+          </fieldset>
+
+          <label htmlFor="observed_at">When did you notice it?</label>
+          <input id="observed_at" name="observed_at" type="datetime-local" max={nowForInput()}
+                 value={form.observed_at} onChange={change} />
+
+          <label htmlFor="notes">Notes (optional)</label>
+          <textarea id="notes" name="notes" rows="3" value={form.notes} onChange={change} />
+
+          {message && (
+            <p className={message.ok ? 'uc-success' : 'login-error'} role={message.ok ? 'status' : 'alert'}>{message.text}</p>
+          )}
+
+          <button type="submit" className="primary-button uc-button" disabled={saving}>
+            {saving ? 'Saving...' : 'Save symptom'}
+          </button>
+        </form>
 
         <section>
           <h2 className="uc-section-title">Symptom history {h && `(${h.count})`}</h2>

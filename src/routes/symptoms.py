@@ -56,26 +56,30 @@ def parse_time(value):
 @bp.post("/symptoms")
 @require_roles(PET_OWNER)
 def record_symptom():
-    # ===================== DAVID: build this (Sprint V) =====================
-    # Save a new Symptom_Log row for one of the signed-in owner's pets.
-    # Worked example to copy from: update_status() in routes/verification.py
-    # Done when: python -m pytest tests -k Symptoms   passes (no skips).
-    #
-    # 1. data = request.get_json(silent=True) or {}
-    # 2. Required fields: pet_id, symptom, severity, observed_at.
-    #    problem = missing(data, ...) or one_of(data, "severity", SEVERITIES)
-    #    If there's a problem: return jsonify(message=problem), 400
-    # 3. The pet must belong to this owner:
-    #    pet = query_one("SELECT pet_id, name FROM Pet WHERE pet_id = %s AND owner_user_id = %s",
-    #                    (clean(data, "pet_id"), g.user["user_id"]))
-    #    No pet -> 400 "Choose one of your own pets."
-    # 4. observed = parse_time(clean(data, "observed_at"))
-    #    None -> 400.  Later than datetime.datetime.now() (allow 5 minutes) -> 400 "can't be in the future".
-    # 5. symptom_id = execute("INSERT INTO Symptom_Log (pet_id, symptom, severity, observed_at, notes) "
-    #                         "VALUES (%s, %s, %s, %s, %s)", (...))
-    #    Use clean(data, "symptom", 255), clean(data, "notes") and observed.strftime("%Y-%m-%d %H:%M:%S").
-    # 6. log_event(g.user["user_id"], "record_symptom", "Symptom_Log", symptom_id)
-    # 7. Read the saved row back (join Pet for pet_name) and
-    #    return jsonify(message=f"Saved for {pet['name']}.", symptom=saved), 201
-    # Then delete the line below.
-    return jsonify(message="Not built yet: David is building Record a Symptom (Sprint V)."), 501
+    data = request.get_json(silent=True) or {}
+    problem = missing(data, "pet_id", "symptom", "severity", "observed_at") or one_of(data, "severity", SEVERITIES)
+    if problem:
+        return jsonify(message=problem), 400
+
+    pet = query_one("SELECT pet_id, name FROM Pet WHERE pet_id = %s AND owner_user_id = %s",
+                    (clean(data, "pet_id"), g.user["user_id"]))
+    if pet is None:
+        return jsonify(message="Choose one of your own pets."), 400
+
+    observed = parse_time(clean(data, "observed_at"))
+    if observed is None:
+        return jsonify(message="Enter a valid date and time for when you noticed it."), 400
+    if observed > datetime.datetime.now() + datetime.timedelta(minutes=5):
+        return jsonify(message="The time you noticed it can't be in the future."), 400
+
+    symptom_id = execute("INSERT INTO Symptom_Log (pet_id, symptom, severity, observed_at, notes) "
+                         "VALUES (%s, %s, %s, %s, %s)",
+                         (pet["pet_id"], clean(data, "symptom", 255), clean(data, "severity"),
+                          observed.strftime("%Y-%m-%d %H:%M:%S"), clean(data, "notes")))
+    log_event(g.user["user_id"], "record_symptom", "Symptom_Log", symptom_id)
+
+    saved = query_one("SELECT s.symptom_id, s.pet_id, p.name AS pet_name, p.species AS pet_species, "
+                      "s.symptom, s.severity, s.observed_at, s.notes "
+                      "FROM Symptom_Log s JOIN Pet p ON p.pet_id = s.pet_id WHERE s.symptom_id = %s",
+                      (symptom_id,))
+    return jsonify(message=f"Saved for {pet['name']}.", symptom=saved), 201
