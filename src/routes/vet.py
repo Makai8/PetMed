@@ -66,25 +66,70 @@ MIN_ANSWER = 20  # characters; a one-word answer isn't guidance
 
 @bp.post("/questions/<int:question_id>/answer")
 @require_roles(VETERINARIAN)
+
 def answer_question(question_id):
-    # ===================== MAKAI: build this (Sprint V) =====================
-    # A verified vet posts general guidance on a pet owner's question.
-    # Worked example to copy from: update_status() in routes/verification.py
-    # Done when: python -m pytest tests -k Vet   passes (no skips).
-    #
-    # 1. data = request.get_json(silent=True) or {};  text = clean(data, "response_text")
-    #    Shorter than MIN_ANSWER characters -> 400 "Write at least 20 characters of guidance."
-    # 2. The vet's Professional_Profile (user_id = g.user["user_id"], professional_type = VETERINARIAN)
-    #    must exist with verification_status 'approved', otherwise 403.
-    # 3. question = query_one("SELECT question_id, directed_to_user_id FROM Health_Question WHERE question_id = %s", ...)
-    #    Not found -> 404.
-    #    directed_to_user_id must be NULL (open to any vet) or this vet, otherwise 403.
-    # 4. This vet already has an Advice_Response on this question -> 409 "You already answered this question."
-    # 5. response_id = execute("INSERT INTO Advice_Response (question_id, author_user_id, source_type, "
-    #                          "response_text, created_at) VALUES (%s, %s, %s, %s, %s)",
-    #                          (question_id, g.user["user_id"], VETERINARIAN, text, now()))
-    # 6. log_event(g.user["user_id"], "answer_question", "Advice_Response", response_id)
-    # 7. return jsonify(message="Your guidance was posted.", response_id=response_id,
-    #                   author=g.user["full_name"], source_type=VETERINARIAN, response_text=text), 201
-    # Then delete the line below.
-    return jsonify(message="Not built yet: Makai is building Answer a Question (Sprint V)."), 501
+    data = request.get_json(silent=True) or {}
+    text = clean(data, "response_text")
+
+    if len(text) < MIN_ANSWER:
+        return jsonify(
+            message=f"Write at least {MIN_ANSWER} characters of guidance."
+        ), 400
+
+    user_id = g.user["user_id"]
+
+    profile = query_one(
+        "SELECT verification_status FROM Professional_Profile "
+        "WHERE user_id = %s AND professional_type = %s",
+        (user_id, VETERINARIAN)
+    )
+
+    if profile is None or profile["verification_status"] != "approved":
+        return jsonify(
+            message="Your veterinarian profile is not verified, so you can't answer questions yet."
+        ), 403
+
+    question = query_one(
+        "SELECT question_id, directed_to_user_id "
+        "FROM Health_Question WHERE question_id = %s",
+        (question_id,)
+    )
+
+    if question is None:
+        return jsonify(message="Question not found."), 404
+
+    if question["directed_to_user_id"] not in (None, user_id):
+        return jsonify(
+            message="This question was sent to another professional."
+        ), 403
+
+    existing = query_one(
+        "SELECT response_id FROM Advice_Response "
+        "WHERE question_id = %s AND author_user_id = %s",
+        (question_id, user_id)
+    )
+
+    if existing:
+        return jsonify(
+            message="You already answered this question."
+        ), 409
+
+    response_id = execute(
+        "INSERT INTO Advice_Response "
+        "(question_id, author_user_id, source_type, response_text, created_at) "
+        "VALUES (%s, %s, %s, %s, %s)",
+        (question_id, user_id, VETERINARIAN, text, now())
+    )
+
+    log_event(
+        user_id, "answer_question",
+        "Advice_Response", response_id
+    )
+
+    return jsonify(
+        message="Your guidance was posted.",
+        response_id=response_id,
+        author=g.user["full_name"],
+        source_type=VETERINARIAN,
+        response_text=text
+    ), 201

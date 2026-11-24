@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { formatDate } from '../api/petmedApi.js'
+import { apiPost, formatDate } from '../api/petmedApi.js'
+import { useAuth } from '../auth/AuthContext.jsx'
 import useApiData from '../api/useApiData.js'
 import UseCaseLayout from '../components/UseCaseLayout.jsx'
 
@@ -22,12 +23,53 @@ const SOURCE_LABELS = { veterinarian: 'Veterinarian', pet_health_expert: 'Pet He
 const PET_ICONS = { Cat: '🐱', Bird: '🐦' }
 
 function HealthQuestions() {
+  const { user } = useAuth()
+  const [drafts, setDrafts] = useState({})
+  const [message, setMessage] = useState(null)
+  const [busy, setBusy] = useState(null)
   const [show, setShow] = useState('all')
   const [text, setText] = useState('')
   const [search, setSearch] = useState('')
 
   const result = useApiData(`/vet/questions?${new URLSearchParams({ show, q: search })}`)
   const d = result.status === 200 ? result.data : null
+  
+  async function postAnswer(e, question) {
+    e.preventDefault()
+    setBusy(question.question_id)
+    setMessage(null)
+
+    try {
+      const res = await apiPost(
+        `/vet/questions/${question.question_id}/answer`,
+        { response_text: drafts[question.question_id] || '' },
+        user.token
+      )
+
+      setMessage({
+        ok: res.ok,
+        id: question.question_id,
+        text: res.data.message || 'Could not post your guidance.'
+      })
+
+      if (res.ok) {
+        setDrafts(prev => ({
+          ...prev,
+          [question.question_id]: ''
+        }))
+        result.reload()
+      }
+    } catch {
+      setMessage({
+        ok: false,
+        id: question.question_id,
+        text: 'Could not post your guidance.'
+      })
+    } finally {
+      setBusy(null)
+    }
+  }
+
 
   return (
     <UseCaseLayout title="Pet Health Questions" subtitle="Questions submitted by pet owners, newest first." result={result}>
@@ -77,7 +119,45 @@ function HealthQuestions() {
                   </ul>
                 )}
 
-                {/* MAKAI: add the answer form here (Sprint V). See docs/Sprint5_Team_Tasks.md */}
+                
+{(item.sent_to_me || !item.sent_to) &&
+  !item.answer_list.some(a => a.author === user.name) && (
+    <form
+      className="uc-reply"
+      onSubmit={e => postAnswer(e, item)}
+    >
+      <label htmlFor={`guidance-${item.question_id}`}>
+        Your guidance
+      </label>
+
+      <textarea
+        id={`guidance-${item.question_id}`}
+        rows="3"
+        value={drafts[item.question_id] || ''}
+        onChange={e => setDrafts(prev => ({
+          ...prev,
+          [item.question_id]: e.target.value
+        }))}
+      />
+
+      <button
+        type="submit"
+        className="primary-button uc-button"
+        disabled={busy !== null}
+      >
+        {busy === item.question_id
+          ? 'Posting...'
+          : 'Post guidance'}
+      </button>
+    </form>
+)}
+
+{message && message.id === item.question_id && (
+  <p className={message.ok ? 'uc-success' : 'login-error'}>
+    {message.text}
+  </p>
+)}
+
               </article>
             ))}
             {d.count === 0 && <p className="uc-empty">No questions here.</p>}
