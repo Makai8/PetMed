@@ -668,3 +668,58 @@
 .uc-pill-veterinarian { background: #e6f0fb; color: #1f4f8a; }
 .uc-pill-pet_health_expert { background: #f1e8fb; color: #5b2c86; }
 .uc-pill-community { background: var(--green-soft); color: var(--green-dark); }
+
+/* ------------------------------------------------------------
+   Manage Users: suspend / reactivate and add a user
+   ------------------------------------------------------------ */
+.uc-actions {
+  white-space: nowrap;
+}
+
+.uc-suspend {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.uc-suspend input {
+  width: 160px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.uc-add-user {
+  margin-bottom: 18px;
+}
+
+.uc-add-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0 16px;
+}
+
+.uc-actions .uc-chip,
+.uc-actions .uc-reject {
+  padding: 5px 12px;
+  font-size: 0.82rem;
+}
+
+.uc-table .uc-mono {
+  font-size: 0.8rem;
+}
+
+.uc-add-grid > div {
+  min-width: 0;
+}
+
+.uc-add-grid input,
+.uc-add-grid select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.uc-table td.uc-actions {
+  padding-right: 16px;
+}

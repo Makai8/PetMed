@@ -12,7 +12,7 @@ MySQL prompt on the other.
 3. Start the API (`python src/app.py`) and the website (`npm.cmd run dev` in `frontend`).
 4. Open a MySQL prompt: `mysql -u root -p petmed`. Keep [`backend/sprint5_check_queries.sql`](../backend/sprint5_check_queries.sql)
    open so you can paste each block.
-5. Run `python -m pytest tests` once; it should end with **73 passed** and no skips.
+5. Run `python -m pytest tests` once; it should end with **79 passed** and no skips.
 
 Every sample account uses the password **`PetMed123!`**. Use **Log Out** between roles.
 
@@ -26,6 +26,7 @@ Every sample account uses the password **`PetMed123!`**. Use **Log Out** between
 | 4 | Dorien | Invalid case | Click **Reject** on Jordan Lee with no note | "Add a note explaining why." Nothing changes |
 | 5 | Dorien | Normal case | Type "License VM-48213 confirmed with the Florida board." on Priya, click **Approve** | Green message; she moves to the Approved tab with the review history |
 | 6 | Dorien | Database | Run query block 1 again (after) | Status *approved*, a new Verification_Review row, and Priya now has the veterinarian role |
+| 6a | Dorien | Optional: suspend a user | **Manage Users** → **Suspend** Marcus Williams with no reason (refused), then with a reason; then **Reactivate** him | Status flips to suspended and back; a suspended user can't sign in |
 | 7 | David | **Pet Owner** | Run block 2 (before). Sign in as Maya → **Symptom Tracker** | Her pets' symptom history |
 | 7a | David | Prerequisite: add a pet | **My Pets** → click **Add pet** with no name ("Please fill in name."), then add Daisy, Dog, Beagle, born 2024-05-01, 22.5 lb | Daisy appears in her pets, and in the Symptom Tracker's pet list |
 | 8 | David | Invalid case | Click **Save symptom** with no pet chosen | "Please fill in which pet." |
@@ -45,7 +46,7 @@ Every sample account uses the password **`PetMed123!`**. Use **Log Out** between
 | 20 | Makel | Normal case | "Remove the content", reason "Garlic is toxic to dogs." → **Save decision** | Green message; the report moves to Resolved |
 | 21 | Makel | Database | Run block 5 again | Report *resolved*, case *closed* with a closed_at time, a remove_content action, post status *removed* |
 | 22 | Makel | Earlier feature | Sign in as Maya → **Community Feed**, search `garlic` | The removed post no longer shows |
-| 23 | Dorien | Tests | `python -m pytest tests -v` | 73 passed: Sprint IV sign-in, authorization and retrieval plus all five Sprint V use cases |
+| 23 | Dorien | Tests | `python -m pytest tests -v` | 79 passed: Sprint IV sign-in, authorization and retrieval plus all five Sprint V use cases |
 
 ## After recording
 

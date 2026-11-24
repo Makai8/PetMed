@@ -779,6 +779,7 @@ Step-by-step instructions with code for each person: [`docs/Sprint5_Team_Tasks.m
 - [x] Veterinarian and Expert prerequisite: **Ask for Health Advice** page; a pet owner asks about one of their pets and sends it to any vet or to a verified vet or approved expert (`Health_Question`), then reads the answers ([`src/routes/advice.py`](src/routes/advice.py), [`frontend/src/pages/AskAdvice.jsx`](frontend/src/pages/AskAdvice.jsx))
 - [x] Moderator prerequisite: **Report** button on Community Feed posts and on answers; files an open `Report` the moderator reviews ([`src/routes/reports.py`](src/routes/reports.py), [`frontend/src/components/ReportButton.jsx`](frontend/src/components/ReportButton.jsx), [`tests/test_prerequisites.py`](tests/test_prerequisites.py))
 - [x] Administrator prerequisite (already built): a user applies on **Request a Professional Role** with credentials, which creates the pending `Professional_Profile` the administrator reviews
+- [x] Administrator account management on **Manage Users**: suspend a user (reason required, the user is notified, and they're locked out right away), reactivate them, or add a Pet Owner, Community Moderator or Administrator account ([`src/routes/admin.py`](src/routes/admin.py), [`frontend/src/pages/ManageUsers.jsx`](frontend/src/pages/ManageUsers.jsx), [`tests/test_admin_accounts.py`](tests/test_admin_accounts.py))
 - [x] Tests for all five use cases ([`tests/test_sprint5_use_cases.py`](tests/test_sprint5_use_cases.py))
 - [x] Starter files and step-by-step tasks for the team, video script, before/after SQL queries ([`backend/sprint5_check_queries.sql`](backend/sprint5_check_queries.sql))
 - [x] Meeting 1 (planning) notes
@@ -822,7 +823,7 @@ Step-by-step instructions with code for each person: [`docs/Sprint5_Team_Tasks.m
 - [ ] Each use case: invalid or incomplete data is refused with a message and nothing is saved
 - [ ] Each use case: the change is really in the database (before/after queries)
 - [ ] Earlier features (sign-in, authorization, the Sprint IV lists) still work
-- [ ] `python -m pytest tests`: 73 passed, nothing skipped
+- [ ] `python -m pytest tests`: 79 passed, nothing skipped
 
 ## 7. Demo Video
 - [ ] Show the app running and the right user signing in for each use case

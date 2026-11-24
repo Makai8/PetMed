@@ -19,6 +19,9 @@ SELECT u.full_name, r.role_name FROM User_Role ur
 JOIN User u ON u.user_id = ur.user_id JOIN Role r ON r.role_id = ur.role_id
 WHERE u.email = 'dr.priya.shah@petmed.com';
 
+-- 1a. Administrator: account status (run before and after Suspend / Reactivate on Manage Users)
+SELECT user_id, full_name, email, account_status FROM User ORDER BY full_name;
+
 -- 2a. Pet Owner: Maya's pets (run before and after adding a pet on My Pets)
 SELECT pet_id, name, species, breed, birth_date, weight FROM Pet
 WHERE owner_user_id = (SELECT user_id FROM User WHERE email = 'maya.johnson@petmed.com')
