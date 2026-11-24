@@ -54,7 +54,7 @@ function AskAdvice() {
 
   return (
     <UseCaseLayout title="Ask for Health Advice"
-                   subtitle="Ask a veterinarian or a pet health expert. Answers show up here." result={result}>
+                   subtitle="Ask a veterinarian or a pet health expert. Answers show up here." result={{ status: 200, data: {} }}>
       <div className="uc-split">
         <form className="uc-form uc-panel" onSubmit={handleSubmit} noValidate>
           <h2 className="uc-section-title">Ask a question</h2>
@@ -89,6 +89,13 @@ function AskAdvice() {
 
         <section>
           <h2 className="uc-section-title">My questions {d && `(${d.count})`}</h2>
+          {!result.data && <p className="uc-muted">Loading…</p>}
+          {result.data && result.status !== 200 && (
+            <div className="uc-alert" role="alert">
+              <strong>{result.data.message || 'Could not load the list.'}</strong>
+              <p>If the API was started before this page existed, restart it: Ctrl+C, then python src/app.py.</p>
+            </div>
+          )}
           <div className="uc-list">
             {d && d.questions.map((q) => (
               <article key={q.question_id} className={`uc-card${q.question_id === newId ? ' uc-new' : ''}`}>

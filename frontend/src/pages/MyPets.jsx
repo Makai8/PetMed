@@ -71,7 +71,7 @@ function MyPets() {
   }
 
   return (
-    <UseCaseLayout title="My Pets" subtitle="Add each of your pets so you can track their health." result={result}>
+    <UseCaseLayout title="My Pets" subtitle="Add each of your pets so you can track their health." result={{ status: 200, data: {} }}>
       <div className="uc-split">
         <form className="uc-form uc-panel" onSubmit={handleSubmit} noValidate>
           <h2 className="uc-section-title">Add a pet</h2>
@@ -105,6 +105,13 @@ function MyPets() {
 
         <section>
           <h2 className="uc-section-title">Your pets {d && `(${d.count})`}</h2>
+          {!result.data && <p className="uc-muted">Loading…</p>}
+          {result.data && result.status !== 200 && (
+            <div className="uc-alert" role="alert">
+              <strong>{result.data.message || 'Could not load the list.'}</strong>
+              <p>If the API was started before this page existed, restart it: Ctrl+C, then python src/app.py.</p>
+            </div>
+          )}
           <div className="uc-list">
             {d && d.pets.map((p) => (
               <article key={p.pet_id} className={`uc-card${p.pet_id === newId ? ' uc-new' : ''}`}>
