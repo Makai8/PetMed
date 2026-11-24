@@ -12,11 +12,11 @@ export const roles = {
     welcome: 'Keep your pets healthy and connect with the community.',
     menu: [
       { icon: '📰', title: 'Community Feed', text: 'Browse pet health posts and discussions.', path: '/owner/feed' },
-      { icon: '🐶', title: 'My Pets', text: 'Create and update pet profiles.' },
+      { icon: '🐶', title: 'My Pets', text: 'Add pets and view their profiles.', path: '/owner/pets' },
       { icon: '✏️', title: 'Create Post', text: 'Share a question or experience.' },
       { icon: '🩺', title: 'Symptom Tracker', text: 'Record symptoms and health events.', path: '/owner/symptoms' },
       { icon: '💊', title: 'Medications and Reminders', text: 'Track treatments and doses.' },
-      { icon: '❓', title: 'Ask for Health Advice', text: 'Ask the community, a vet or an expert.' },
+      { icon: '❓', title: 'Ask for Health Advice', text: 'Ask a vet or an expert and read the answers.', path: '/owner/ask' },
       { icon: '🔎', title: 'Search Health Information', text: 'Symptoms, conditions and medications.' },
       { icon: '🛒', title: 'Products and Treatments', text: 'View approved pet health products.' },
       { icon: '⭐', title: 'Rate and Review', text: 'Review advice and products.' },

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { apiPost, formatDate } from '../api/petmedApi.js'
 import useApiData from '../api/useApiData.js'
 import { useAuth } from '../auth/AuthContext.jsx'
@@ -75,6 +76,7 @@ function SymptomTracker() {
               <option key={p.pet_id} value={p.pet_id}>{p.name} ({p.species})</option>
             ))}
           </select>
+          <p className="uc-muted uc-small">Pet not listed? <Link to="/owner/pets">Add it on My Pets</Link>.</p>
 
           <label htmlFor="symptom">Symptom or event</label>
           <input id="symptom" name="symptom" maxLength={255} value={form.symptom} onChange={change}

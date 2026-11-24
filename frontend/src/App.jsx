@@ -14,6 +14,8 @@ import Unauthorized from './pages/Unauthorized.jsx'
 import RequestRole from './pages/RequestRole.jsx'
 import RoleRequests from './pages/RoleRequests.jsx'
 import SymptomTracker from './pages/SymptomTracker.jsx'
+import MyPets from './pages/MyPets.jsx'
+import AskAdvice from './pages/AskAdvice.jsx'
 import Verification from './pages/Verification.jsx'
 import './App.css'
 
@@ -38,6 +40,8 @@ function App() {
           {/* Pet Owner */}
           <Route path="/owner" element={<RequireRole role="pet_owner"><Dashboard /></RequireRole>} />
           <Route path="/owner/feed" element={<RequireRole role="pet_owner"><CommunityFeed /></RequireRole>} />
+          <Route path="/owner/pets" element={<RequireRole role="pet_owner"><MyPets /></RequireRole>} />
+          <Route path="/owner/ask" element={<RequireRole role="pet_owner"><AskAdvice /></RequireRole>} />
           <Route path="/owner/symptoms" element={<RequireRole role="pet_owner"><SymptomTracker /></RequireRole>} />
 
           {/* Veterinarian */}

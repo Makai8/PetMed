@@ -775,6 +775,10 @@ Step-by-step instructions with code for each person: [`docs/Sprint5_Team_Tasks.m
 - [x] Shared helpers for checking form data and logging actions ([`src/helpers.py`](src/helpers.py))
 - [x] Administrator use case: Professional Verification page; approve, reject (note required) or suspend; updates `Professional_Profile`, adds `Verification_Review`, gives the role on approval ([`src/routes/verification.py`](src/routes/verification.py), [`frontend/src/pages/Verification.jsx`](frontend/src/pages/Verification.jsx))
 - [x] Pet and symptom-history lists for the Symptom Tracker; menus and page routes for all five use cases
+- [x] Pet Owner prerequisite: **My Pets** page to add a pet profile (name, species, breed, birth date, weight), checked and saved to `Pet`; new pets appear in the Symptom Tracker ([`src/routes/pets.py`](src/routes/pets.py), [`frontend/src/pages/MyPets.jsx`](frontend/src/pages/MyPets.jsx), [`tests/test_owner_pets.py`](tests/test_owner_pets.py))
+- [x] Veterinarian and Expert prerequisite: **Ask for Health Advice** page; a pet owner asks about one of their pets and sends it to any vet or to a verified vet or approved expert (`Health_Question`), then reads the answers ([`src/routes/advice.py`](src/routes/advice.py), [`frontend/src/pages/AskAdvice.jsx`](frontend/src/pages/AskAdvice.jsx))
+- [x] Moderator prerequisite: **Report** button on Community Feed posts and on answers; files an open `Report` the moderator reviews ([`src/routes/reports.py`](src/routes/reports.py), [`frontend/src/components/ReportButton.jsx`](frontend/src/components/ReportButton.jsx), [`tests/test_prerequisites.py`](tests/test_prerequisites.py))
+- [x] Administrator prerequisite (already built): a user applies on **Request a Professional Role** with credentials, which creates the pending `Professional_Profile` the administrator reviews
 - [x] Tests for all five use cases ([`tests/test_sprint5_use_cases.py`](tests/test_sprint5_use_cases.py))
 - [x] Starter files and step-by-step tasks for the team, video script, before/after SQL queries ([`backend/sprint5_check_queries.sql`](backend/sprint5_check_queries.sql))
 - [x] Meeting 1 (planning) notes
@@ -818,7 +822,7 @@ Step-by-step instructions with code for each person: [`docs/Sprint5_Team_Tasks.m
 - [ ] Each use case: invalid or incomplete data is refused with a message and nothing is saved
 - [ ] Each use case: the change is really in the database (before/after queries)
 - [ ] Earlier features (sign-in, authorization, the Sprint IV lists) still work
-- [ ] `python -m pytest tests`: 60 passed, nothing skipped
+- [ ] `python -m pytest tests`: 73 passed, nothing skipped
 
 ## 7. Demo Video
 - [ ] Show the app running and the right user signing in for each use case

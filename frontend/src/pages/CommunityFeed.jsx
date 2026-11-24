@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { formatDate } from '../api/petmedApi.js'
 import useApiData from '../api/useApiData.js'
+import ReportButton from '../components/ReportButton.jsx'
 import UseCaseLayout from '../components/UseCaseLayout.jsx'
 
 // ------------------------------------------------------------
@@ -56,6 +57,7 @@ function CommunityFeed() {
                   <span>❤️ {p.likes}</span>
                   <span>💬 {p.comments}</span>
                 </footer>
+                <ReportButton postId={p.post_id} />
                 {p.comment_list.length > 0 && (
                   <ul className="uc-comments">
                     {p.comment_list.map((c, i) => <li key={i}><strong>{c.author}</strong> {c.body}</li>)}

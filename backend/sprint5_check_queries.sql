@@ -19,6 +19,11 @@ SELECT u.full_name, r.role_name FROM User_Role ur
 JOIN User u ON u.user_id = ur.user_id JOIN Role r ON r.role_id = ur.role_id
 WHERE u.email = 'dr.priya.shah@petmed.com';
 
+-- 2a. Pet Owner: Maya's pets (run before and after adding a pet on My Pets)
+SELECT pet_id, name, species, breed, birth_date, weight FROM Pet
+WHERE owner_user_id = (SELECT user_id FROM User WHERE email = 'maya.johnson@petmed.com')
+ORDER BY pet_id;
+
 -- 2. Pet Owner: symptom log (Maya's pets)
 SELECT s.symptom_id, p.name AS pet, s.symptom, s.severity, s.observed_at, s.notes
 FROM Symptom_Log s JOIN Pet p ON p.pet_id = s.pet_id

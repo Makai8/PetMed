@@ -614,3 +614,57 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ------------------------------------------------------------
+   Prerequisites: Ask for Health Advice answers and Report links
+   ------------------------------------------------------------ */
+.uc-report {
+  margin-top: 10px;
+}
+
+.uc-report-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.uc-report-link:hover {
+  color: #b3261e;
+}
+
+.uc-report-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.uc-report-form input {
+  flex: 1 1 220px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.uc-answers {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.uc-answers li {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f5faf7;
+  line-height: 1.5;
+}
+
+.uc-pill-veterinarian { background: #e6f0fb; color: #1f4f8a; }
+.uc-pill-pet_health_expert { background: #f1e8fb; color: #5b2c86; }
+.uc-pill-community { background: var(--green-soft); color: var(--green-dark); }
