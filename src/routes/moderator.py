@@ -64,33 +64,57 @@ REMOVED_TEXT = "[Removed by a PetMed moderator]"
 @bp.post("/reports/<int:report_id>/decision")
 @require_roles(COMMUNITY_MODERATOR)
 def decide_report(report_id):
-    # ===================== MAKEL: build this (Sprint V) =====================
-    # The moderator reviews a report and records the action on its moderation case.
-    # Worked example to copy from: update_status() in routes/verification.py
-    # Done when: python -m pytest tests -k Moderator   passes (no skips).
-    #
-    # 1. data = request.get_json(silent=True) or {}
-    #    problem = one_of(data, "action", ACTIONS) or missing(data, "reason") -> 400
-    # 2. report = query_one("SELECT r.report_id, r.status, r.post_id, r.response_id, "
-    #                       "p.author_user_id AS post_author, ar.author_user_id AS advice_author "
-    #                       "FROM Report r LEFT JOIN Post p ON p.post_id = r.post_id "
-    #                       "LEFT JOIN Advice_Response ar ON ar.response_id = r.response_id "
-    #                       "WHERE r.report_id = %s", (report_id,))
-    #    Not found -> 404.  report["status"] != 'open' -> 409 "This report was already resolved."
-    #    author = report["post_author"] or report["advice_author"]
-    # 3. Find the report's Moderation_Case. If there isn't one, INSERT one
-    #    (report_id, assigned_moderator_id = g.user["user_id"], case_status 'open', opened_at now()).
-    # 4. If action is "remove_content":
-    #      a post   -> UPDATE Post SET status = 'removed' WHERE post_id = ...
-    #      advice   -> UPDATE Advice_Response SET response_text = REMOVED_TEXT WHERE response_id = ...
-    # 5. INSERT INTO Moderation_Action (case_id, actor_user_id, target_user_id, action_type, reason, created_at)
-    #    with target_user_id = author.
-    # 6. "escalate": UPDATE Moderation_Case SET case_status = 'escalated', assigned_moderator_id = you
-    #               (the report stays open).
-    #    anything else: case_status 'closed', closed_at now(), assigned_moderator_id = you,
-    #               and UPDATE Report SET status = 'resolved'.
-    # 7. log_event(g.user["user_id"], f"moderation_{action}", "Moderation_Case", case_id)
-    # 8. Read the case and report back and
-    #    return jsonify(message="Case updated.", action_id=action_id, case=case, report=report)
-    # Then delete the line below.
-    return jsonify(message="Not built yet: Makel is building Review a Report (Sprint V)."), 501
+    data = request.get_json(silent=True) or {}
+    problem = one_of(data, "action", ACTIONS) or missing(data, "reason")
+    if problem:
+        return jsonify(message=problem), 400
+    action = clean(data, "action")
+    reason = clean(data, "reason")
+
+    report = query_one("SELECT r.report_id, r.status, r.post_id, r.response_id, "
+                       "p.author_user_id AS post_author, ar.author_user_id AS advice_author "
+                       "FROM Report r LEFT JOIN Post p ON p.post_id = r.post_id "
+                       "LEFT JOIN Advice_Response ar ON ar.response_id = r.response_id "
+                       "WHERE r.report_id = %s", (report_id,))
+    if report is None:
+        return jsonify(message="Report not found."), 404
+    if report["status"] != "open":
+        return jsonify(message="This report was already resolved."), 409
+    author = report["post_author"] or report["advice_author"]
+    me = g.user["user_id"]
+    when = now()
+
+    case = query_one("SELECT case_id FROM Moderation_Case WHERE report_id = %s "
+                     "ORDER BY case_id DESC LIMIT 1", (report_id,))
+    if case is None:
+        case_id = execute("INSERT INTO Moderation_Case (report_id, assigned_moderator_id, case_status, opened_at) "
+                          "VALUES (%s, %s, 'open', %s)", (report_id, me, when))
+    else:
+        case_id = case["case_id"]
+
+    if action == "remove_content":
+        if report["post_id"] is not None:
+            execute("UPDATE Post SET status = 'removed' WHERE post_id = %s", (report["post_id"],))
+        elif report["response_id"] is not None:
+            execute("UPDATE Advice_Response SET response_text = %s WHERE response_id = %s",
+                    (REMOVED_TEXT, report["response_id"]))
+
+    action_id = execute("INSERT INTO Moderation_Action (case_id, actor_user_id, target_user_id, action_type, "
+                        "reason, created_at) VALUES (%s, %s, %s, %s, %s, %s)",
+                        (case_id, me, author, action, reason, when))
+
+    if action == "escalate":
+        execute("UPDATE Moderation_Case SET case_status = 'escalated', assigned_moderator_id = %s "
+                "WHERE case_id = %s", (me, case_id))
+    else:
+        execute("UPDATE Moderation_Case SET case_status = 'closed', closed_at = %s, assigned_moderator_id = %s "
+                "WHERE case_id = %s", (when, me, case_id))
+        execute("UPDATE Report SET status = 'resolved' WHERE report_id = %s", (report_id,))
+
+    log_event(me, f"moderation_{action}", "Moderation_Case", case_id)
+
+    case = query_one("SELECT case_id, report_id, assigned_moderator_id, case_status, opened_at, closed_at "
+                     "FROM Moderation_Case WHERE case_id = %s", (case_id,))
+    report = query_one("SELECT report_id, status, post_id, response_id, reason FROM Report WHERE report_id = %s",
+                       (report_id,))
+    return jsonify(message="Case updated.", action_id=action_id, case=case, report=report)
